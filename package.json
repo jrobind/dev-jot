@@ -1,0 +1,25 @@
+{
+  "name": "dev-jot",
+  "version": "1.0.0",
+  "description": "note taking app for online developer tutorials",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jrobind/dev-jot.git"
+  },
+  "keywords": [
+    "notes",
+    "dev",
+    "online",
+    "lessons"
+  ],
+  "author": "James Robinson <jrobind@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jrobind/dev-jot/issues"
+  },
+  "homepage": "https://github.com/jrobind/dev-jot#readme"
+}
