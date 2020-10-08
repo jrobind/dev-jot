@@ -104,6 +104,7 @@ body {
 
 .modal-lesson-content {
   padding: 5px 40px;
+  align-self: flex-start;
 }
 
 /* header styles */

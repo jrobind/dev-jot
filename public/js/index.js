@@ -25,7 +25,7 @@ let isAuthReady = false;
 
 // event listener setup
 formElement.addEventListener('submit', addLesson);
-modalLessonClose.addEventListener('click', handleCloseLessonModalClick);
+modalLessonClose.addEventListener('click', handleCloseLessonModal);
 clearBtn.addEventListener('click', handleClear);
 
 if (!isAuthReady) {
@@ -57,7 +57,7 @@ function handleClear(e) {
   clearBtn.setAttribute('hidden', '');
 }
 
-function handleCloseLessonModalClick() {
+function handleCloseLessonModal() {
   modalLessonTitle.innerHTML = '';
   modalLessonContent.innerHTML = '';
 
@@ -295,5 +295,8 @@ signOutElement.addEventListener('click', () => {
     preAuthContainer.removeAttribute('hidden');
     overlay.removeAttribute('hidden');
     modal.removeAttribute('hidden');
+
+    handleCloseLessonModal();
+
   }).catch(console.log)
 });
