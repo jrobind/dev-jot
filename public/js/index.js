@@ -63,6 +63,7 @@ function handleCloseLessonModalClick() {
 
   modalLesson.setAttribute('hidden', '');
   overlay.setAttribute('hidden', '');
+  overlay.classList.remove('dark');
 }
 
 function init(user) {
@@ -115,9 +116,11 @@ function handleViewClick(lesson) {
   modalLessonContent.innerHTML = content;
   modalLesson.removeAttribute('hidden');
   overlay.removeAttribute('hidden');
+  overlay.classList.add('dark');
 }
 
 function renderLessons() {
+  handleClear();
   // render lesson cards
   return db.collection('users')
     .doc(firebase.auth().currentUser.uid)
@@ -145,7 +148,7 @@ function renderLessons() {
           lessonTitle.textContent = title;
   
           const lessonContent = document.createElement('div');
-          lessonContent.classList.add('lesson-card-content');
+          lessonContent.classList.add('lesson-card-content', 'ql-editor', 'ql-container');
           lessonContent.innerHTML = content;
   
           const lessonRemoveBtn = document.createElement('button');
@@ -238,10 +241,7 @@ function addLesson(e) {
       snapshot
         .ref
         .update({lessons: newLessons})
-        .then(() => {
-          renderLessons();
-          handleClear();
-        })
+        .then(renderLessons)
         .catch(console.log)
     });
   } else {
