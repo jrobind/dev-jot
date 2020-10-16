@@ -450,7 +450,8 @@ form {
 #editor {
   width: 100%;
   background: white;
-  min-height: calc(100vh - 360px);
+  height: calc(100vh - 360px);
+  overflow: auto;
 }
 
 .ql-container > .ql-editor.ql-blank::before{
