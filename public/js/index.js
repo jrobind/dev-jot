@@ -55,6 +55,7 @@ function handleClear(e) {
   quill.root.innerHTML = '';
   lessonInput.value = '';
   clearBtn.setAttribute('hidden', '');
+  submitLessonElement.textContent = 'ADD LESSON';
 }
 
 function handleCloseLessonModal() {
@@ -90,6 +91,7 @@ function handleEditClick(lesson) {
 
   quill.setContents(delta, 'silent');
   lessonInput.value = title;
+  submitLessonElement.textContent = 'UPDATE LESSON';
 }
 
 function lessonHandler(e) {
