@@ -6,7 +6,7 @@ Please join our Discord community discord.gg/YMsd9sgZ4f
 
 ## Project Purpose
 
-For those who are self-teaching, it's really easy to find yourself stuck in 'tutorial-land' or 'tutorial-hell'. For many newbie coders, it's difficult to bridge the gap between what you are learning from tutorials and the skills you **need** to become an employable developer.
+For those who are self-teaching, it's really easy to find yourself stuck in 'tutorial-land' or 'tutorial-hell'. For many newbie coders, it's difficult to bridge the gap between what you are learning from tutorials and acquiring the skills you **need** to become an employable developer.
 
 Your ultimate goal is to replicate what you’d actually do in a real development job as closely as possible. Contributing to open source is a fantastic way to do this. Making open source contributions will require you to have been exposed to a few important concepts, practices, and transferable skills:
 
@@ -34,11 +34,11 @@ Pull requests big or small will be accepted, however, if you are submitting a ma
 
 ## Current state
 
-Currently, this is a no thrills CRUD application using HTML, CSS, Vanilla JavaScript, and Firebase (for authentication and cloud database). The purpose of the app is to enable those who are self-teaching to create a simple, clean store for all of their tutorial and lesson notes. With time I'm sure the purpose of this application will change significantly. 
+Currently, this is a no thrills CRUD application using HTML, CSS, Vanilla JavaScript, and Firebase (for authentication and cloud database). The purpose of the app is to enable those who are self-teaching to create a simple, clean store for all of their tutorial and lesson notes. With time I'm sure the purpose of this application will change. 
 
 Before contributing I highly recommend you play around with the [live verson](https://thefrontendcoach.com) and actually use it for some basic note taking. What sucks about it? What could be improved? Have you spotted any bugs?
 
-As mentioned the direction of the project will be determined by those who contribute. If you have some cool ideas for new features big or small, or if you'd like to create a new branch and rebuild the whole app with React for instance, then great 😊 Just create an issue for discussion before doing so.
+As mentioned the direction of the project will be determined by those who contribute. If you have some cool ideas for new features big or small then great 😊  Just create an issue for discussion before doing so.
 
 ## Issue label/tagging breakdown
 
@@ -54,7 +54,7 @@ Checking the open issues is a great place to see what's currently being worked o
 * ready to work on
 * discussion
 
-To claim an issue to work on please write a comment on the issue let me know you'd like to take it on. Once the issue has been claimed the 'in progress' label will be added.
+To claim an issue to work on please write a comment on the issue letting me know you'd like to take it on. Once the issue has been claimed the 'in progress' label will be added.
 
 
 ## Project Set-Up
@@ -72,6 +72,6 @@ npm i
 
 I'd recommend you use VS Code as your IDE. Please install the VS Code [live server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension. Once you have installed this you can run the project using the live server extension. Please follow the [documentation](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) for this.
 
-Once the app is running, you will need to have a Google profile in order to successfully authenticate. Simply click the 'Sign in with Google' button and a modal should pop up prompting you to choose a Google account.
+Once the app is running, you will need to have a Google profile set up in order to successfully authenticate. Simply click the 'Sign in with Google' button and a modal should pop up prompting you to choose a Google account.
 
 HTML, CSS, and JavaScript currently live in the `public` directory at the project root.
