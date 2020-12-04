@@ -2,7 +2,7 @@
 
 dev-jot is a note-taking app for online developer tutorials. The project is an MVP and has been created to help aspiring front-end developers as part of [thefrontendcoach](https://thefrontendcoach.com) support system.
 
-Please join our Discord community discord.gg/YMsd9sgZ4f
+Please join our Discord community [discord.gg/YMsd9sgZ4f](discord.gg/YMsd9sgZ4f)
 
 ## Project Purpose
 
