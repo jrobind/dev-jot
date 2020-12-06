@@ -18,9 +18,11 @@ Your ultimate goal is to replicate what you’d actually do in a real developmen
 * Setting up a local development environment
 * Contributing code to a pre-existing codebase
 
-## The general Idea
+## The General Idea
 
-This project acts as a friendly entry point into the open source world. Making your first open source contribution can be a daunting prospect which puts off a lot of aspiring developers. The primary goal of this project is to create a welcoming and friendly environment to foster learning, to feel safe making mistakes, and to receive feedback and guidance whilst working with other developers.
+This project acts as a friendly entry point into the open source world. Making your first open source contribution can be a daunting prospect which puts off a lot of aspiring developers. 
+
+**The primary goal of this project is to create a welcoming and friendly environment to foster learning, to feel safe making mistakes, and to receive feedback and guidance whilst working with other developers.**
 
 The direction of the project will be led by those who contribute. There is scope to add a large variety of features and also to rebuild the app with different technologies.
 
@@ -32,7 +34,7 @@ Don't panic if you feel as though your code isn't quite up-to-scratch. This is a
 
 Pull requests big or small will be accepted, however, if you are submitting a major feature then please make sure you create an issue for discussion before attempting this work, likewise if you spot a bug please raise a new issue before creating a pull request.
 
-## Current state
+## Current State
 
 Currently, this is a no thrills CRUD application using HTML, CSS, Vanilla JavaScript, and Firebase (for authentication and cloud database). The purpose of the app is to enable those who are self-teaching to create a simple, clean store for all of their tutorial and lesson notes. With time I'm sure the purpose of this application will change. 
 
@@ -40,7 +42,7 @@ Before contributing I highly recommend you play around with the [live verson](ht
 
 As mentioned the direction of the project will be determined by those who contribute. If you have some cool ideas for new features big or small then great 😊  Just create an issue for discussion before doing so.
 
-## Issue label/tagging breakdown
+## Issue Label/Tagging Breakdown
 
 Checking the open issues is a great place to see what's currently being worked on and also what's available to work on. Labels are used to group different issues by status, type, and difficulty. The main labels you should be aware of are:
 
