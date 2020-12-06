@@ -10,13 +10,13 @@ For those who are self-teaching, it's really easy to find yourself stuck in 'tut
 
 Your ultimate goal is to replicate what you’d actually do in a real development job as closely as possible. Contributing to open source is a fantastic way to do this. Making open source contributions will require you to have been exposed to a few important concepts, practices, and transferable skills:
 
-* Version control
-* Working with tickets & issues
-* Working with other developers
-* Creating pull requests
-* Experiencing a code review process
-* Setting up a local development environment
-* Contributing code to a pre-existing codebase
+- Version control
+- Working with tickets & issues
+- Working with other developers
+- Creating pull requests
+- Experiencing a code review process
+- Setting up a local development environment
+- Contributing code to a pre-existing codebase
 
 ## The general Idea
 
@@ -34,28 +34,27 @@ Pull requests big or small will be accepted, however, if you are submitting a ma
 
 ## Current state
 
-Currently, this is a no thrills CRUD application using HTML, CSS, Vanilla JavaScript, and Firebase (for authentication and cloud database). The purpose of the app is to enable those who are self-teaching to create a simple, clean store for all of their tutorial and lesson notes. With time I'm sure the purpose of this application will change. 
+Currently, this is a no thrills CRUD application using HTML, CSS, Vanilla JavaScript, and Firebase (for authentication and cloud database). The purpose of the app is to enable those who are self-teaching to create a simple, clean store for all of their tutorial and lesson notes. With time I'm sure the purpose of this application will change.
 
 Before contributing I highly recommend you play around with the [live verson](https://dev-jot-9d423.web.app/) and actually use it for some basic note taking. What sucks about it? What could be improved? Have you spotted any bugs?
 
-As mentioned the direction of the project will be determined by those who contribute. If you have some cool ideas for new features big or small then great 😊  Just create an issue for discussion before doing so.
+As mentioned the direction of the project will be determined by those who contribute. If you have some cool ideas for new features big or small then great 😊 Just create an issue for discussion before doing so.
 
 ## Issue label/tagging breakdown
 
 Checking the open issues is a great place to see what's currently being worked on and also what's available to work on. Labels are used to group different issues by status, type, and difficulty. The main labels you should be aware of are:
 
-* bug
-* enhancement
-* good first issue
-* code level easy
-* code level medium
-* code level hard
-* in progress
-* ready to work on
-* discussion
+- bug
+- enhancement
+- good first issue
+- code level easy
+- code level medium
+- code level hard
+- in progress
+- ready to work on
+- discussion
 
 To claim an issue to work on please write a comment on the issue letting me know you'd like to take it on. Once the issue has been claimed the 'in progress' label will be added.
-
 
 ## Project Set-Up
 
@@ -66,6 +65,7 @@ git clone https://github.com/jrobind/dev-jot.git
 ```
 
 Now install packages with NPM
+
 ```bash
 npm i
 ```
