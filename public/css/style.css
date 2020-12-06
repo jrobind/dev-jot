@@ -172,13 +172,14 @@ body {
   display: flex;
   color: var(--secondary-b-color);
   flex-wrap: wrap;
+  overflow: hidden;
 }
 
 .pre-auth-lesson-container, .lessons-container {
   width: 35%;
   display: flex;
   flex-wrap: wrap;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 100px);
 }
 
 .pre-auth-create-lesson-container, .create-lesson-container {
