@@ -1,21 +1,23 @@
 :root {
   --main-b-color: #339989;
-  --secondary-b-color: #2B2C28;
-  --tertiary-b-color: #F7B501;
+  --secondary-b-color: #2b2c28;
+  --tertiary-b-color: #f7b501;
 }
 
 [hidden] {
-    display: none !important;
+  display: none !important;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue;
 }
 
 .button {
@@ -25,7 +27,7 @@ body {
   border: none;
   cursor: pointer;
   font: inherit;
-  box-shadow: 0 3px 6px 0 rgba(0,0,0,.05), 0 3px 6px 0 rgba(0,0,0,.05);
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.05), 0 3px 6px 0 rgba(0, 0, 0, 0.05);
 }
 
 .overlay {
@@ -35,11 +37,11 @@ body {
   width: 100%;
   height: 100%;
   z-index: 1;
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .overlay.dark {
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .app-container {
@@ -49,16 +51,17 @@ body {
 
 /* modal styles */
 
-.modal, .modal-lesson {
+.modal,
+.modal-lesson {
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
   top: 50%;
   right: 50%;
-  transform: translate(50%,-50%);
+  transform: translate(50%, -50%);
   border-radius: 0.25rem;
-  box-shadow: 4px 12px 47px 0 rgba(0,0,0,.15);
+  box-shadow: 4px 12px 47px 0 rgba(0, 0, 0, 0.15);
   z-index: 3;
 }
 
@@ -83,7 +86,7 @@ body {
   cursor: pointer;
   background: var(--secondary-b-color);
   color: white;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 /* modal lesson styles */
@@ -117,7 +120,7 @@ body {
   position: relative;
   background: var(--main-b-color);
   padding: 15px 20px;
-  box-shadow: 0 3px 10px 0 rgba(0,0,0,.07), 0 3px 10px 0 rgba(0,0,0,.07);
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.07), 0 3px 10px 0 rgba(0, 0, 0, 0.07);
   color: white;
   min-height: 50px;
   max-height: 50px;
@@ -151,10 +154,11 @@ body {
   width: 50px;
   border-radius: 53px;
   margin-left: 20px;
-  box-shadow: 0 3px 10px 0 rgba(0,0,0,.07), 0 3px 10px 0 rgba(0,0,0,.07);
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.07), 0 3px 10px 0 rgba(0, 0, 0, 0.07);
 }
 
-.header h1, .header h2 {
+.header h1,
+.header h2 {
   margin: 0;
 }
 
@@ -168,20 +172,23 @@ body {
 
 /* loading skeleton styles */
 
-.pre-auth-container, .app-container {
+.pre-auth-container,
+.app-container {
   display: flex;
   color: var(--secondary-b-color);
   flex-wrap: wrap;
 }
 
-.pre-auth-lesson-container, .lessons-container {
+.pre-auth-lesson-container,
+.lessons-container {
   width: 35%;
   display: flex;
   flex-wrap: wrap;
   height: calc(100vh - 80px);
 }
 
-.pre-auth-create-lesson-container, .create-lesson-container {
+.pre-auth-create-lesson-container,
+.create-lesson-container {
   flex: 1;
   display: flex;
 }
@@ -225,7 +232,7 @@ body {
   flex: 1;
 }
 
-.pre-auth-create-lesson-container .card-detail h3 {
+.pre-auth-create-lesson-container .card-detail h2 {
   margin-bottom: 10px;
 }
 
@@ -233,7 +240,7 @@ body {
   padding: 0.5rem 1rem;
 }
 
-.card-detail h3 {
+.card-detail h2 {
   font-size: 1.5rem;
   margin-bottom: none;
   line-height: 0.09;
@@ -257,7 +264,7 @@ body {
 
 .loading {
   position: relative;
-  background-color: #E2E2E2;
+  background-color: #e2e2e2;
 }
 
 .loading.card-image {
@@ -271,7 +278,12 @@ body {
   width: 100%;
   height: 100%;
   transform: translateX(-100%);
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   animation: loading 1.5s infinite;
 }
 
@@ -404,7 +416,8 @@ body {
   margin-right: 5px;
 }
 
-.create-lesson-container-header, .lessons-container-header {
+.create-lesson-container-header,
+.lessons-container-header {
   margin: 5px 0;
 }
 
@@ -454,7 +467,7 @@ form {
   overflow: auto;
 }
 
-.ql-container > .ql-editor.ql-blank::before{
+.ql-container > .ql-editor.ql-blank::before {
   font-size: 14px;
 }
 
