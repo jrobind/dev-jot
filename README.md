@@ -28,6 +28,8 @@ The direction of the project will be led by those who contribute. There is scope
 
 ## Pull Requests
 
+Before submitting a PR that relates directly to an issue, please write a comment on the relevant issue letting me know you'd like to take it on. Once the issue has been claimed the 'in progress' label will be added. After long periods of inactivity, I'll remove the 'in progress' label so someone else can work on it. 
+
 If you've never submitted a pull request before then I would recommend you check out this guide: https://www.digitalocean.com/community/tutorials/how-to-create-a-pull-request-on-github
 
 Don't panic if you feel as though your code isn't quite up-to-scratch. This is an opportunity for you to learn and to receive feedback. If your code needs some work then please see this as a positive experience and opportunity to improve.
@@ -57,7 +59,6 @@ Checking the open issues is a great place to see what's currently being worked o
 * discussion
 
 To claim an issue to work on please write a comment on the issue letting me know you'd like to take it on. Once the issue has been claimed the 'in progress' label will be added.
-
 
 ## Project Set-Up
 
