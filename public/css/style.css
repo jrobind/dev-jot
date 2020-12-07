@@ -311,7 +311,7 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 }
 
-/* issue asked to remove cursor: pointer in the lesson card so it has been commented out */
+/* issue asked to remove cursor: pointer in the lesson card so it has been removed */
 
 .lesson-card {
   display: flex;
@@ -321,7 +321,6 @@ body {
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5), 0 5px 20px 0 rgba(0, 0, 0, 0.5);
-  /* cursor: pointer; */
   height: 200px;
 }
 
