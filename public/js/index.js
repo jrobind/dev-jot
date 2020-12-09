@@ -128,7 +128,7 @@ function handleViewClick(lesson) {
 	overlay.classList.add('dark');
 }
 
-function lessonHelper(varName, eventListener, classList, attribute, textContent, innerHTML, id) {
+function lessonHelper({varName, eventListener, classList, attribute, textContent, innerHTML, id}) {
 	if(eventListener){
 		varName.addEventListener(Object.keys(eventListener)[0], Object.values(eventListener)[0]);
 	}
@@ -151,6 +151,7 @@ function lessonHelper(varName, eventListener, classList, attribute, textContent,
 	if(id){
 		varName.id = id;
 	}
+	return varName
 }
 
 function renderLessons() {
@@ -167,35 +168,64 @@ function renderLessons() {
 
 			if (snapshot.data() && snapshot.data().lessons.length) {
 				snapshot.data().lessons.forEach(({ title, content, id }) => {
-					const lessonCard = document.createElement('div');
-					lessonHelper(lessonCard, {'click': lessonHandler}, ['lesson-card'], [{'data-id': id}])
+					const lessonCard = lessonHelper({
+						varName: document.createElement('div'),
+						eventListener: {'click': lessonHandler},
+						classList: ['lesson-card'],
+						attribute: [{'data-id': id}]
+					})
+					const buttonContainer = lessonHelper({
+						varName: document.createElement('div'),
+						classList: ['lesson-card-content-buttons'],
+					})
 
-					const buttonContainer = document.createElement('div');
-					lessonHelper(buttonContainer, false, ['lesson-card-content-buttons'])
+					const titleContainer = lessonHelper({
+						varName: document.createElement('div'),
+						classList: ['lesson-card-title-container'],
+					})
 
-					const titleContainer = document.createElement('div');
-					lessonHelper(titleContainer, false, ['lesson-card-title-container'])
+					const lessonTitle = lessonHelper({
+						varName: document.createElement('h2'),
+						classList: ['lesson-card-title'],
+						textContent: title
+					})
 
-					const lessonTitle = document.createElement('h2');
-					lessonHelper(lessonTitle, false, ['lesson-card-title'], false, title)
+					const lessonContent = lessonHelper({
+						varName: document.createElement('div'),
+						classList: ['lesson-card-content', 'ql-editor', 'ql-container'],
+						innerHTML: content
+					})
 
-					const lessonContent = document.createElement('div');
-					lessonHelper(lessonContent, false, ['lesson-card-content', 'ql-editor', 'ql-container'], false, false, content)
+					const lessonRemoveBtn = lessonHelper({
+						varName: document.createElement('div'),
+						classList: ['button'],
+						id: 'delete'
+					})
 
-					const lessonRemoveBtn = document.createElement('button');
-					lessonHelper(lessonRemoveBtn, false, ['button'], false, false, false, 'delete')
+					const removeIcon = lessonHelper({
+						varName: document.createElement('img'),
+						attribute: [{'alt': 'remove lesson icon'}, {'src': './images/cancel-white.svg'}],
+						id: 'delete'
+					})
 
-					const removeIcon = document.createElement('img');
-					lessonHelper(removeIcon, false, false, [{'alt': 'remove lesson icon'}, {'src': './images/cancel-white.svg'}], false, false, 'delete')
+					const editIcon = lessonHelper({
+						varName: document.createElement('img'),
+						attribute: [{'alt': 'edit lesson icon'}, {'src': './images/edit-white.svg'}],
+						id: 'edit'
+					})
 
-					const editIcon = document.createElement('img');
-					lessonHelper(editIcon, false, false, [{'alt': 'edit lesson icon'}, {'src': './images/edit-white.svg'}], false, false, 'edit')
+					const lessonEditBtn = lessonHelper({
+						varName: document.createElement('button'),
+						classList: ['button'],
+						id: 'edit'
+					})
 
-					const lessonEditBtn = document.createElement('button');
-					lessonHelper(lessonEditBtn, false, ['button'], false, false, false, 'edit')
-
-					const lessonViewBtn = document.createElement('button');
-					lessonHelper(lessonViewBtn, false, ['button'], false, 'VIEW LESSON', false, 'view')
+					const lessonViewBtn = lessonHelper({
+						varName: document.createElement('button'),
+						classList: ['button'],
+						textContent:"VIEW LESSON",
+						id: 'view'
+					})
 
 					titleContainer.appendChild(lessonTitle);
 					lessonRemoveBtn.appendChild(removeIcon);
