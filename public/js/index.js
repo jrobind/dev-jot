@@ -104,7 +104,6 @@ function handleEditClick(lesson) {
 
 function lessonHandler(e) {
 	const lessonCard = e.currentTarget;
-	console.log(e.target.id)
 	switch (e.target.id) {
 		case 'delete':
 			removeLesson(lessonCard.getAttribute('data-id'));
@@ -137,7 +136,6 @@ function lessonHelper(varName, eventListener, classList, attribute, textContent,
 		for(let i = 0; i < classList.length; i++){
 			varName.classList.add(classList[i]);
 		}
-		console.log(varName)
 	}
 	if(attribute){
 		for(let i = 0; i < attribute.length; i++){
