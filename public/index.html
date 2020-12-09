@@ -5,22 +5,42 @@
     <meta charset="utf-8" />
     <title>dev-jot</title>
     <meta name="description" content="dev-jot" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/images/favicon/site.webmanifest">
-    <link rel="shortcut icon" href="/images/favicon/favicon.ico">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/images/favicon/site.webmanifest" />
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta
+      name="msapplication-config"
+      content="/images/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
     <link rel="stylesheet" href="./css/style.css" />
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet" />
+    <link
+      href="https://cdn.quilljs.com/1.3.6/quill.snow.css"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
     <div class="overlay"></div>
     <div hidden class="modal">
-        <button class="sign-in">Sign in with Google</button>
+      <button class="sign-in">Sign in with Google</button>
     </div>
     <div hidden class="modal modal-lesson">
       <h2 class="modal-lesson-title"></h2>
@@ -184,7 +204,7 @@
 
         const toolbarOptions = [
           ["bold", "italic", "underline", "strike"],
-          ["code-block"],
+          ["code-block", "image", "link"],
           [{ list: "ordered" }, { list: "bullet" }],
           [{ indent: "-1" }, { indent: "+1" }],
           [{ size: ["small", false, "large", "huge"] }],

@@ -80,7 +80,6 @@ body {
   right: 5px;
 }
 
-
 .modal:not(.modal-lesson):hover button.sign-in {
   cursor: pointer;
   background: var(--secondary-b-color);
@@ -479,7 +478,7 @@ form {
   width: 100%;
   background: white;
   height: calc(100vh - 360px);
-  overflow: auto;
+  overflow: visible;
 }
 
 .ql-container > .ql-editor.ql-blank::before {
