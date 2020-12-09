@@ -18,6 +18,7 @@ body {
   padding: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue;
+  letter-spacing: 0.02em;
 }
 
 .button {
@@ -112,12 +113,27 @@ body {
 }
 
 .modal-lesson-title {
-  margin: 0;
-  margin-top: 30px;
+  margin-top: 50px;
+  align-self: flex-start;
+  padding: 15px 60px;
+  font-size: 32px;
+  position: relative;
+}
+
+.modal-lesson-title::before {
+  content: "";
+  position: absolute;
+  width: calc(100% - 100px);
+  height: 20px;
+  left: 50px;
+  top: 40px;
+  z-index: -1;
+  background-color: var(--tertiary-b-color);
+  opacity: 50%;
 }
 
 .modal-lesson-content {
-  padding: 5px 40px;
+  padding: 15px 60px;
   align-self: flex-start;
 }
 
