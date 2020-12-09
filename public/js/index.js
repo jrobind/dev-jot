@@ -256,11 +256,17 @@ function addLesson(e) {
 					return lesson;
 				});
 
+				if(!newLessons.length) {
+					console.log('Tried to add empty lessons.');
+					return;
+				}
+
 				snapshot.ref
 					.update({ lessons: newLessons })
 					.then(renderLessons)
 					.catch(console.log);
-			});
+			})
+			.catch(console.log);
 	} else {
 		db.collection('users')
 			.doc(firebase.auth().currentUser.uid)
@@ -292,7 +298,10 @@ function removeLesson(deleteId) {
 				.update({ lessons: newLessons })
 				.then(renderLessons)
 				.catch(console.log);
-		});
+
+			createLessonContainer.setAttribute('view', 'create-lesson');
+		})
+		.catch(console.log);
 }
 
 signInElement.addEventListener('click', () => {
