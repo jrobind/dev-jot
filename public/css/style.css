@@ -113,22 +113,23 @@ body {
 }
 
 .modal-lesson-title {
-  /* margin: 0; */
   margin-top: 50px;
   align-self: flex-start;
   padding: 15px 60px;
   font-size: 32px;
+  position: relative;
 }
+
 .modal-lesson-title::before {
   content: "";
   position: absolute;
-  width: 50%;
+  width: calc(100% - 100px);
   height: 20px;
-  left: 55px;
-  top: 95px;
+  left: 50px;
+  top: 40px;
   z-index: -1;
-  background-color: #f7b501;
-  opacity: 65%;
+  background-color: var(--tertiary-b-color);
+  opacity: 50%;
 }
 
 .modal-lesson-content {
