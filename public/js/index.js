@@ -301,6 +301,7 @@ function addLesson(e) {
 
 				snapshot.ref
 					.update({ lessons: newLessons })
+					.then(() => createLessonContainer.setAttribute('view', false))
 					.then(renderLessons)
 					.catch(console.log);
 			})
