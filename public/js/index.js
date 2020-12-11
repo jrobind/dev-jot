@@ -312,8 +312,14 @@ async function addLesson() {
 				return lesson;
 			});
 
+			if (!newLessons.length) {
+				console.log('Tried to add empty lessons.');
+				return;
+			}
+
 			await snapshot.ref.update({ lessons: newLessons });
 			renderLessons();
+			createLessonContainer.setAttribute('view', 'create-lesson');
 		} catch (error) {
 			console.log(error);
 		}
