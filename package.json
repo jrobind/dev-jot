@@ -4,7 +4,7 @@
   "description": "note taking app for online developer tutorials",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prettier": "prettier --write ."
   },
   "repository": {
     "type": "git",
