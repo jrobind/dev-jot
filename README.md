@@ -40,7 +40,7 @@ Pull requests big or small will be accepted, however, if you are submitting a ma
 
 Currently, this is a no thrills CRUD application using HTML, CSS, Vanilla JavaScript, and Firebase (for authentication and cloud database). The purpose of the app is to enable those who are self-teaching to create a simple, clean store for all of their tutorial and lesson notes. With time I'm sure the purpose of this application will change.
 
-Before contributing I highly recommend you play around with the [live verson](https://dev-jot-9d423.web.app/) and actually use it for some basic note taking. What sucks about it? What could be improved? Have you spotted any bugs?
+Before contributing I highly recommend you play around with the [live version](https://dev-jot-9d423.web.app/) and actually use it for some basic note taking. What sucks about it? What could be improved? Have you spotted any bugs?
 
 As mentioned the direction of the project will be determined by those who contribute. If you have some cool ideas for new features big or small then great 😊 Just create an issue for discussion before doing so.
 
