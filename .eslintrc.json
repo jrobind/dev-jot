@@ -1,6 +1,7 @@
 {
-    "extends":["airbnb", "prettier"],
+    "extends":["airbnb", "prettier", "plugin:node/recommend"],
     "plugins" : ["prettier"],
     "rules": {
+
     }
 }
