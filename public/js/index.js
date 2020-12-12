@@ -22,6 +22,7 @@ const formElement = document.querySelector('form');
 const submitLessonElement = document.querySelector('#submit');
 const lessonsContainer = document.querySelector('.lessons');
 const clearBtn = document.querySelector('.create-lesson-clear');
+const modalLessonCloseByESC = document.querySelector('.modal-lesson-close');
 
 let isAuthReady = false;
 
@@ -361,6 +362,17 @@ async function removeLesson(deleteId) {
 		console.log(error);
 	}
 }
+
+modalLessonCloseByESC.addEventListener('keydown', event => {
+    if (event.key === 'Escape' || event.keyCode === 27) {
+        modalLessonTitle.innerHTML = '';
+		modalLessonContent.innerHTML = '';
+
+		modalLesson.setAttribute('hidden', '');
+		overlay.setAttribute('hidden', '');
+		overlay.classList.remove('dark');
+    }
+});
 
 signInElement.addEventListener('click', async () => {
 	try {
