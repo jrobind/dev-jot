@@ -294,7 +294,12 @@ async function addLesson() {
 	const isEditView = createLessonContainer
 		.getAttribute('view')
 		.includes('edit-lesson');
-
+	// Regex to match any number of whitespaces in the content form.
+	var regex = /^\<p\>\s+\<\/p\>$/;
+	if (content === "<p><br></p>" || content.match(regex)) {
+		console.log('Tried to add a lesson with empty content.');
+		return;
+	}
 	if (isEditView) {
 		try {
 			const id = createLessonContainer.getAttribute('view').split(':')[1];
