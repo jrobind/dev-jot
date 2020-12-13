@@ -57,7 +57,7 @@ firebase.auth().onAuthStateChanged((user) => {
 	}
 });
 
-function handleClear(e) {
+function handleClear() {
 	quill.root.innerHTML = '';
 	lessonInput.value = '';
 	clearBtn.setAttribute('hidden', '');
@@ -295,8 +295,8 @@ async function addLesson() {
 		.getAttribute('view')
 		.includes('edit-lesson');
 	// Regex to match any number of whitespaces in the content form.
-	var regex = /^\<p\>\s+\<\/p\>$/;
-	if (content === "<p><br></p>" || content.match(regex)) {
+	var regex = /(^\<p\>|\s+)(\n*|\s*|\<br\>)\<\/p\>$/gm;
+	if (content.match(regex)) {
 		console.log('Tried to add empty lesson note.');
 		return;
 	}
