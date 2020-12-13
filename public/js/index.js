@@ -295,8 +295,8 @@ async function addLesson() {
 		.getAttribute('view')
 		.includes('edit-lesson');
 	// Regex to match any number of whitespaces in the content form.
-	var regex = /(^\<p\>|\s+)(\n*|\s*|\<br\>)\<\/p\>$/gm;
-	if (content.match(regex)) {
+	var regex = /<(.|\n)*?>/g;
+	if (content.replace(regex, '').trim().length === 0) {
 		console.log('Tried to add empty lesson note.');
 		return;
 	}
