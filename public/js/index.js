@@ -1,6 +1,5 @@
-// import firebase module
-import { firebaseConfig } from "./firebase_init.js";
-import { quill } from "./ql_editor.js";
+// import firebase and quill init
+import { firebaseConfig, quill } from "./firebase_quill_init.js";
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
