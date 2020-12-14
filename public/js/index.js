@@ -1,46 +1,51 @@
+// import firebase and quill init
+import { firebaseConfig, quill } from "./firebase_quill_init.js";
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
 const provider = new firebase.auth.GoogleAuthProvider();
 const db = firebase.firestore();
 
 // cached DOM elements
-const signInElement = document.querySelector('.sign-in');
-const signOutElement = document.querySelector('.sign-out');
-const preAuthContainer = document.querySelector('.pre-auth-container');
-const profileElement = document.querySelector('.profile');
-const avatarElement = document.querySelector('.avatar img');
-const appContainer = document.querySelector('.app-container');
-const overlay = document.querySelector('.overlay');
-const modal = document.querySelector('.modal');
-const modalLesson = document.querySelector('.modal-lesson');
-const modalLessonClose = document.querySelector('.modal-lesson-close');
-const modalLessonTitle = document.querySelector('.modal-lesson-title');
-const modalLessonContent = document.querySelector('.modal-lesson-content');
+const signInElement = document.querySelector(".sign-in");
+const signOutElement = document.querySelector(".sign-out");
+const preAuthContainer = document.querySelector(".pre-auth-container");
+const profileElement = document.querySelector(".profile");
+const avatarElement = document.querySelector(".avatar img");
+const appContainer = document.querySelector(".app-container");
+const overlay = document.querySelector(".overlay");
+const modal = document.querySelector(".modal");
+const modalLesson = document.querySelector(".modal-lesson");
+const modalLessonClose = document.querySelector(".modal-lesson-close");
+const modalLessonTitle = document.querySelector(".modal-lesson-title");
+const modalLessonContent = document.querySelector(".modal-lesson-content");
 const createLessonContainer = document.querySelector(
-	'.create-lesson-container',
+	".create-lesson-container"
 );
-const lessonInput = document.querySelector('.create-lesson-input');
-const formElement = document.querySelector('form');
-const submitLessonElement = document.querySelector('#submit');
-const lessonsContainer = document.querySelector('.lessons');
-const clearBtn = document.querySelector('.create-lesson-clear');
+const lessonInput = document.querySelector(".create-lesson-input");
+const formElement = document.querySelector("form");
+const submitLessonElement = document.querySelector("#submit");
+const lessonsContainer = document.querySelector(".lessons");
+const clearBtn = document.querySelector(".create-lesson-clear");
 
 let isAuthReady = false;
 
 // event listener setup
-formElement.addEventListener('submit', function (e) {
+formElement.addEventListener("submit", function (e) {
 	e.preventDefault();
 	addLesson();
 });
-modalLessonClose.addEventListener('click', handleCloseLessonModal);
-clearBtn.addEventListener('click', handleClear);
-overlay.addEventListener('click', handleCloseLessonModal);
-lessonInput.addEventListener('click', () => { clearBtn.removeAttribute('hidden') })
+modalLessonClose.addEventListener("click", handleCloseLessonModal);
+clearBtn.addEventListener("click", handleClear);
+overlay.addEventListener("click", handleCloseLessonModal);
 
 if (!isAuthReady) {
-	appContainer.setAttribute('hidden', '');
-	profileElement.setAttribute('hidden', '');
-	preAuthContainer.removeAttribute('hidden');
-	overlay.setAttribute('hidden', '');
-	modal.setAttribute('hidden', '');
+	appContainer.setAttribute("hidden", "");
+	profileElement.setAttribute("hidden", "");
+	preAuthContainer.removeAttribute("hidden");
+	overlay.setAttribute("hidden", "");
+	modal.setAttribute("hidden", "");
 }
 
 firebase.auth().onAuthStateChanged((user) => {
@@ -50,40 +55,40 @@ firebase.auth().onAuthStateChanged((user) => {
 			init(user);
 		}
 	} else {
-		appContainer.setAttribute('hidden', '');
-		profileElement.setAttribute('hidden', '');
-		preAuthContainer.removeAttribute('hidden');
-		overlay.removeAttribute('hidden');
-		modal.removeAttribute('hidden');
+		appContainer.setAttribute("hidden", "");
+		profileElement.setAttribute("hidden", "");
+		preAuthContainer.removeAttribute("hidden");
+		overlay.removeAttribute("hidden");
+		modal.removeAttribute("hidden");
 	}
 });
 
 function handleClear(e) {
-	quill.root.innerHTML = '';
-	lessonInput.value = '';
-	clearBtn.setAttribute('hidden', '');
-	submitLessonElement.textContent = 'ADD LESSON';
+	quill.root.innerHTML = "";
+	lessonInput.value = "";
+	clearBtn.setAttribute("hidden", "");
+	submitLessonElement.textContent = "ADD LESSON";
 }
 
 function handleCloseLessonModal() {
-	modalLessonTitle.innerHTML = '';
-	modalLessonContent.innerHTML = '';
+	modalLessonTitle.innerHTML = "";
+	modalLessonContent.innerHTML = "";
 
-	modalLesson.setAttribute('hidden', '');
-	overlay.setAttribute('hidden', '');
-	overlay.classList.remove('dark');
+	modalLesson.setAttribute("hidden", "");
+	overlay.setAttribute("hidden", "");
+	overlay.classList.remove("dark");
 }
 
 async function init(user) {
 	try {
 		quill.root.focus();
 		await renderLessons();
-		appContainer.removeAttribute('hidden');
-		profileElement.removeAttribute('hidden');
-		modal.setAttribute('hidden', '');
-		preAuthContainer.setAttribute('hidden', '');
-		overlay.setAttribute('hidden', '');
-		avatarElement.setAttribute('src', user.photoURL);
+		appContainer.removeAttribute("hidden");
+		profileElement.removeAttribute("hidden");
+		modal.setAttribute("hidden", "");
+		preAuthContainer.setAttribute("hidden", "");
+		overlay.setAttribute("hidden", "");
+		avatarElement.setAttribute("src", user.photoURL);
 	} catch (error) {
 		console.log(error);
 	}
@@ -91,33 +96,33 @@ async function init(user) {
 
 function handleEditClick(lesson) {
 	// get lesson title and content
-	const title = lesson.querySelector('.lesson-card-title').innerText;
-	const content = lesson.querySelector('.lesson-card-content').innerHTML;
+	const title = lesson.querySelector(".lesson-card-title").innerText;
+	const content = lesson.querySelector(".lesson-card-content").innerHTML;
 	const delta = quill.clipboard.convert(content);
 
 	// switch view state
 	createLessonContainer.setAttribute(
-		'view',
-		`edit-lesson:${lesson.getAttribute('data-id')}`,
+		"view",
+		`edit-lesson:${lesson.getAttribute("data-id")}`
 	);
-	clearBtn.removeAttribute('hidden');
+	clearBtn.removeAttribute("hidden");
 
-	quill.setContents(delta, 'silent');
+	quill.setContents(delta, "silent");
 	lessonInput.value = title;
-	submitLessonElement.textContent = 'UPDATE LESSON';
+	submitLessonElement.textContent = "UPDATE LESSON";
 }
 
 function lessonHandler(e) {
 	const lessonCard = e.currentTarget;
 
 	switch (e.target.id) {
-		case 'delete':
-			removeLesson(lessonCard.getAttribute('data-id'));
+		case "delete":
+			removeLesson(lessonCard.getAttribute("data-id"));
 			return;
-		case 'view':
+		case "view":
 			handleViewClick(lessonCard);
 			return;
-		case 'edit':
+		case "edit":
 			handleEditClick(lessonCard);
 			return;
 	}
@@ -135,7 +140,7 @@ function lessonHelper({
 	if (eventListener) {
 		varName.addEventListener(
 			Object.keys(eventListener)[0],
-			Object.values(eventListener)[0],
+			Object.values(eventListener)[0]
 		);
 	}
 	if (classList) {
@@ -147,7 +152,7 @@ function lessonHelper({
 		for (let i = 0; i < attribute.length; i++) {
 			varName.setAttribute(
 				Object.keys(attribute[i])[0],
-				Object.values(attribute[i])[0],
+				Object.values(attribute[i])[0]
 			);
 		}
 	}
@@ -164,92 +169,92 @@ function lessonHelper({
 }
 
 function handleViewClick(lesson) {
-	const title = lesson.querySelector('.lesson-card-title').innerText;
-	const content = lesson.querySelector('.lesson-card-content').innerHTML;
+	const title = lesson.querySelector(".lesson-card-title").innerText;
+	const content = lesson.querySelector(".lesson-card-content").innerHTML;
 
 	modalLessonTitle.innerText = title;
 	modalLessonContent.innerHTML = content;
-	modalLesson.removeAttribute('hidden');
-	overlay.removeAttribute('hidden');
-	overlay.classList.add('dark');
+	modalLesson.removeAttribute("hidden");
+	overlay.removeAttribute("hidden");
+	overlay.classList.add("dark");
 }
 
 async function renderLessons() {
 	handleClear();
 	// render lesson cards
 	const snapshot = await db
-		.collection('users')
+		.collection("users")
 		.doc(firebase.auth().currentUser.uid)
 		.get();
 	if (lessonsContainer.childElementCount) {
-		lessonsContainer.innerHTML = '';
+		lessonsContainer.innerHTML = "";
 	}
 
 	if (snapshot.data() && snapshot.data().lessons.length) {
 		snapshot.data().lessons.forEach(({ title, content, id }) => {
 			const lessonCard = lessonHelper({
-				varName: document.createElement('div'),
+				varName: document.createElement("div"),
 				eventListener: { click: lessonHandler },
-				classList: ['lesson-card'],
-				attribute: [{ 'data-id': id }],
+				classList: ["lesson-card"],
+				attribute: [{ "data-id": id }],
 			});
 			const buttonContainer = lessonHelper({
-				varName: document.createElement('div'),
-				classList: ['lesson-card-content-buttons'],
+				varName: document.createElement("div"),
+				classList: ["lesson-card-content-buttons"],
 			});
 
 			const titleContainer = lessonHelper({
-				varName: document.createElement('div'),
-				classList: ['lesson-card-title-container'],
+				varName: document.createElement("div"),
+				classList: ["lesson-card-title-container"],
 			});
 
 			const lessonTitle = lessonHelper({
-				varName: document.createElement('h2'),
-				classList: ['lesson-card-title'],
+				varName: document.createElement("h2"),
+				classList: ["lesson-card-title"],
 				textContent: title,
 			});
 
 			const lessonContent = lessonHelper({
-				varName: document.createElement('div'),
-				classList: ['lesson-card-content', 'ql-editor', 'ql-container'],
+				varName: document.createElement("div"),
+				classList: ["lesson-card-content", "ql-editor", "ql-container"],
 				innerHTML: content,
 			});
 
 			const lessonRemoveBtn = lessonHelper({
-				varName: document.createElement('div'),
-				classList: ['button'],
-				id: 'delete',
+				varName: document.createElement("div"),
+				classList: ["button"],
+				id: "delete",
 			});
 
 			const removeIcon = lessonHelper({
-				varName: document.createElement('img'),
+				varName: document.createElement("img"),
 				attribute: [
-					{ alt: 'remove lesson icon' },
-					{ src: './images/cancel-white.svg' },
+					{ alt: "remove lesson icon" },
+					{ src: "./images/cancel-white.svg" },
 				],
-				id: 'delete',
+				id: "delete",
 			});
 
 			const editIcon = lessonHelper({
-				varName: document.createElement('img'),
+				varName: document.createElement("img"),
 				attribute: [
-					{ alt: 'edit lesson icon' },
-					{ src: './images/edit-white.svg' },
+					{ alt: "edit lesson icon" },
+					{ src: "./images/edit-white.svg" },
 				],
-				id: 'edit',
+				id: "edit",
 			});
 
 			const lessonEditBtn = lessonHelper({
-				varName: document.createElement('button'),
-				classList: ['button'],
-				id: 'edit',
+				varName: document.createElement("button"),
+				classList: ["button"],
+				id: "edit",
 			});
 
 			const lessonViewBtn = lessonHelper({
-				varName: document.createElement('button'),
-				classList: ['button'],
-				textContent: 'VIEW LESSON',
-				id: 'view',
+				varName: document.createElement("button"),
+				classList: ["button"],
+				textContent: "VIEW LESSON",
+				id: "view",
 			});
 
 			titleContainer.appendChild(lessonTitle);
@@ -264,28 +269,28 @@ async function renderLessons() {
 			lessonsContainer.appendChild(lessonCard);
 		});
 	} else {
-		const noLessons = document.createElement('p');
-		noLessons.classList.add('no-lessons');
+		const noLessons = document.createElement("p");
+		noLessons.classList.add("no-lessons");
 
-		noLessons.textContent = 'No lessons :(';
+		noLessons.textContent = "No lessons :(";
 		lessonsContainer.appendChild(noLessons);
 	}
 }
 
 async function addUser(user) {
 	const { uid } = user;
-	const snapshot = await db.collection('users').where('uid', '==', uid).get();
+	const snapshot = await db.collection("users").where("uid", "==", uid).get();
 	const userExists = !snapshot.empty;
 
 	if (userExists) {
-		console.log('user already exists');
+		console.log("user already exists");
 	} else {
-		console.log('user does not exist. Adding...');
-		db.collection('users')
+		console.log("user does not exist. Adding...");
+		db.collection("users")
 			.doc(uid)
 			.set({ uid: uid, lessons: [] })
 			.catch((error) => {
-				console.error('Error adding document: ', error);
+				console.error("Error adding document: ", error);
 			});
 	}
 }
@@ -293,20 +298,15 @@ async function addUser(user) {
 async function addLesson() {
 	const content = quill.root.innerHTML;
 	const isEditView = createLessonContainer
-		.getAttribute('view')
-		.includes('edit-lesson');
-	// Regex to match any number of whitespaces in the content form.
-	var regex = /^\<p\>\s+\<\/p\>$/;
-	if (content === "<p><br></p>" || content.match(regex)) {
-		console.log('Tried to add empty lesson note.');
-		return;
-	}
+		.getAttribute("view")
+		.includes("edit-lesson");
+
 	if (isEditView) {
 		try {
-			const id = createLessonContainer.getAttribute('view').split(':')[1];
+			const id = createLessonContainer.getAttribute("view").split(":")[1];
 
 			const snapshot = await db
-				.collection('users')
+				.collection("users")
 				.doc(firebase.auth().currentUser.uid)
 				.get();
 
@@ -319,20 +319,20 @@ async function addLesson() {
 			});
 
 			if (!newLessons.length) {
-				console.log('Tried to add empty lessons.');
+				console.log("Tried to add empty lessons.");
 				return;
 			}
 
 			await snapshot.ref.update({ lessons: newLessons });
 			renderLessons();
-			createLessonContainer.setAttribute('view', 'create-lesson');
+			createLessonContainer.setAttribute("view", "create-lesson");
 		} catch (error) {
 			console.log(error);
 		}
 	} else {
 		try {
 			await db
-				.collection('users')
+				.collection("users")
 				.doc(firebase.auth().currentUser.uid)
 				.update({
 					lessons: firebase.firestore.FieldValue.arrayUnion({
@@ -342,7 +342,7 @@ async function addLesson() {
 					}),
 				});
 
-			lessonInput.value = '';
+			lessonInput.value = "";
 			renderLessons();
 		} catch (error) {
 			console.log(error);
@@ -353,7 +353,7 @@ async function addLesson() {
 async function removeLesson(deleteId) {
 	try {
 		const snapshot = await db
-			.collection('users')
+			.collection("users")
 			.doc(firebase.auth().currentUser.uid)
 			.get();
 
@@ -368,7 +368,7 @@ async function removeLesson(deleteId) {
 	}
 }
 
-signInElement.addEventListener('click', async () => {
+signInElement.addEventListener("click", async () => {
 	try {
 		const { user } = await firebase.auth().signInWithPopup(provider);
 
@@ -382,15 +382,15 @@ signInElement.addEventListener('click', async () => {
 	}
 });
 
-signOutElement.addEventListener('click', async () => {
+signOutElement.addEventListener("click", async () => {
 	try {
 		await firebase.auth().signOut();
-		console.log('signed out success');
-		appContainer.setAttribute('hidden', '');
-		profileElement.setAttribute('hidden', '');
-		preAuthContainer.removeAttribute('hidden');
-		overlay.removeAttribute('hidden');
-		modal.removeAttribute('hidden');
+		console.log("signed out success");
+		appContainer.setAttribute("hidden", "");
+		profileElement.setAttribute("hidden", "");
+		preAuthContainer.removeAttribute("hidden");
+		overlay.removeAttribute("hidden");
+		modal.removeAttribute("hidden");
 
 		handleCloseLessonModal();
 	} catch (error) {
