@@ -33,6 +33,7 @@ formElement.addEventListener('submit', function (e) {
 modalLessonClose.addEventListener('click', handleCloseLessonModal);
 clearBtn.addEventListener('click', handleClear);
 overlay.addEventListener('click', handleCloseLessonModal);
+lessonInput.addEventListener('click', () => { clearBtn.removeAttribute('hidden') })
 
 if (!isAuthReady) {
 	appContainer.setAttribute('hidden', '');
