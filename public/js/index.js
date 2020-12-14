@@ -39,7 +39,7 @@ formElement.addEventListener("submit", function (e) {
 modalLessonClose.addEventListener("click", handleCloseLessonModal);
 clearBtn.addEventListener("click", handleClear);
 overlay.addEventListener("click", handleCloseLessonModal);
-lessonInput.addEventListener("click", () => { clearBtn.removeAttribute('hidden') })
+formElement.addEventListener("click", handleClearBtn);
 
 if (!isAuthReady) {
 	appContainer.setAttribute("hidden", "");
@@ -69,6 +69,13 @@ function handleClear(e) {
 	lessonInput.value = "";
 	clearBtn.setAttribute("hidden", "");
 	submitLessonElement.textContent = "ADD LESSON";
+}
+
+function handleClearBtn() {
+	let lessonContent = quill.root.innerHTML;
+	if (lessonContent.length >= 0) {
+		clearBtn.removeAttribute('hidden');
+	}
 }
 
 function handleCloseLessonModal() {
@@ -301,7 +308,6 @@ async function addLesson() {
 	const isEditView = createLessonContainer
 		.getAttribute("view")
 		.includes("edit-lesson");
-
 	if (isEditView) {
 		try {
 			const id = createLessonContainer.getAttribute("view").split(":")[1];
