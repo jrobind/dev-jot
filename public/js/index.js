@@ -64,30 +64,24 @@ function handleViewClick(lesson) {
 function handleClearBtn() {
 	formElement.mouseOver = false;
 	formElement.onmouseover = () => {
-		clearBtn.removeAttribute('hidden');
-		this.mouseOver = true;
-		if (this.mouseOver) {
+		if (!this.mouseOver) {
+			this.mouseOver = true;
 			clearBtn.removeAttribute('hidden')
 		}
 	}
-	formElement.onmouseout = () => {
-		this.mouseOver = false;
-		if (!this.mouseOver) {
+	formElement.onmouseleave = () => {
+		if (this.mouseOver) {
 			if (lessonInput.value.length === 0) {
 				clearBtn.setAttribute('hidden', '');
+				this.mouseOver = false;
 			}
 			if (quill.root.innerHTML !== '<p><br></p>' && quill.root.innerHTML.length >= 8) {
 				clearBtn.removeAttribute('hidden');
+				this.mouseOver = false;
 			}
 		}
 	}
-	appContainer.onmouseover = () => {
-		if (lessonInput.value.length > 0 || (quill.root.innerHTML !== '<p><br></p>' && quill.root.innerHTML.length >= 8)) {
-			clearBtn.removeAttribute('hidden');
-		}
-	}
 }
-
 
 function handleCloseLessonModal() {
 	modalLessonTitle.innerHTML = "";
