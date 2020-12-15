@@ -365,6 +365,7 @@ body {
 }
 
 .lesson-card-title-container {
+  margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
 }
