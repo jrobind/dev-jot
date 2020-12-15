@@ -72,6 +72,29 @@ function handleClear(e) {
 	submitLessonElement.textContent = "ADD LESSON";
 }
 
+function handleClearBtn() {
+	formElement.mouseOver = false;
+	formElement.onmouseover = () => {
+		clearBtn.removeAttribute('hidden');
+		this.mouseOver = true;
+		if (this.mouseOver) {
+			clearBtn.removeAttribute('hidden')
+		}
+	}
+	formElement.onmouseout = () => {
+		this.mouseOver = false;
+		if (!this.mouseOver) {
+			if (lessonInput.value.length === 0) {
+				clearBtn.setAttribute('hidden', '');
+			}
+			if (quill.root.innerHTML !== '<p><br></p>' && quill.root.innerHTML.length >= 8) {
+				clearBtn.removeAttribute('hidden');
+			}
+		}
+	}
+}
+
+
 function handleCloseLessonModal() {
 	modalLessonTitle.innerHTML = "";
 	modalLessonContent.innerHTML = "";
