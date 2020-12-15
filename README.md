@@ -61,4 +61,4 @@ HTML, CSS, and JavaScript currently live within the `public` directory at the pr
 
 ## Contributing
 
-Please check out CONTRIBUTING.md for more information regarding how to contribute.
+Please check out [CONTRIBUTING.md](https://github.com/jrobind/dev-jot/blob/master/CONTRIBUTING.md) for more information regarding how to contribute.
