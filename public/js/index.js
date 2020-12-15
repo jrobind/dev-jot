@@ -36,10 +36,11 @@ formElement.addEventListener("submit", function (e) {
 	e.preventDefault();
 	addLesson();
 });
+
+window.onload = handleClearBtn;
 modalLessonClose.addEventListener("click", handleCloseLessonModal);
 clearBtn.addEventListener("click", handleClear);
 overlay.addEventListener("click", handleCloseLessonModal);
-formElement.addEventListener("click", handleClearBtn);
 
 if (!isAuthReady) {
 	appContainer.setAttribute("hidden", "");
@@ -72,9 +73,25 @@ function handleClear(e) {
 }
 
 function handleClearBtn() {
-	let lessonContent = quill.root.innerHTML;
-	if (lessonContent.length >= 0) {
-		clearBtn.removeAttribute('hidden');
+	formElement.mouseOver = false;
+	formElement.onmouseover = () => {
+		this.mouseOver = true;
+		if (this.mouseOver) {
+			clearBtn.removeAttribute('hidden')
+		}
+	}
+	formElement.onmouseout = () => {
+		this.mouseOver = false;
+		if (!this.mouseOver) {
+			if (lessonInput.value.length === 0) {
+				console.log(quill.root.innerHTML)
+				console.log(quill.root.innerHTML.length)
+				clearBtn.setAttribute('hidden', '');
+			}
+			if (quill.root.innerHTML !== '<p><br></p>' && quill.root.innerHTML.length >= 8) {
+				clearBtn.removeAttribute('hidden');
+			}
+		}
 	}
 }
 
