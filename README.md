@@ -1,4 +1,4 @@
-# dev-jot - https://dev-jot-9d423.web.app/
+# dev-jot - https://dev-jot.netlify.app
 
 dev-jot is a note-taking app for online developer tutorials. The project is an MVP and has been created to help aspiring front-end developers as part of [thefrontendcoach](https://thefrontendcoach.com) support system.
 
@@ -28,9 +28,9 @@ The direction of the project will be led by those who contribute. There is scope
 
 ## Current State
 
-Currently, this is a no thrills CRUD application using HTML, CSS, Vanilla JavaScript, and Firebase (for authentication and cloud database). The purpose of the app is to enable those who are self-teaching to create a simple, clean store for all of their tutorial and lesson notes. With time I'm sure the purpose of this application will change.
+Currently, this is a no thrills CRUD application using HTML, CSS, and Vanilla JavaScript. Lesson notes are stored in the browser's local storage. The purpose of the app is to enable those who are self-teaching to create a simple, clean store for all of their tutorial and lesson notes. With time I'm sure the purpose of this application will change.
 
-Before contributing I highly recommend you play around with the [live version](https://dev-jot-9d423.web.app/) and actually use it for some basic note taking. What sucks about it? What could be improved? Have you spotted any bugs?
+Before contributing I highly recommend you play around with the [live version](https://dev-jot.netlify.app) and actually use it for some basic note taking. What sucks about it? What could be improved? Have you spotted any bugs?
 
 As mentioned the direction of the project will be determined by those who contribute. If you have some cool ideas for new features big or small then great 😊  Just create an issue for discussion before doing so.
 
@@ -48,16 +48,19 @@ Now install packages with NPM
 npm i
 ```
 
-I'd recommend you use VS Code as your IDE. Please install the VS Code [live server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension. Once you have installed this you can run the project using the live server extension. Please follow the [documentation](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) for this.
+I'd recommend you use VS Code as your IDE. I'd also recommend installing the VS Code [live server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension. Once installed, you can then run the project using the live server extension. Please follow the [documentation](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) for this.
+
+## The Code
+
+HTML, CSS, and JavaScript currently live within the `public` directory. The main JavaScript is located within `index.js`.
+
+## With Firebase
+There is no database by default - lesson notes are only stored in the browser's local storage. However, if you would rather your notes persisted to a database, the app is currently set up so you can do this with Firebase. **You will need to set up your own Firebase project and add your project config [here](https://github.com/jrobind/dev-jot/blob/master/public/js/firebase_quill_init.js). You will also need to uncomment [the script](https://github.com/jrobind/dev-jot/blob/master/public/index.html#L211) that points to the Firebase logic. Please see the [Firebase docs](https://firebase.google.com/docs/web/setup) for more information**.
 
 Once the app is running, you will need to have a Google profile set up in order to successfully authenticate. Simply click the 'Sign in with Google' button and a modal should pop up prompting you to choose a Google account.
 
 If you run into an error stating "auth/unauthorized domain This domain (127.0.0.1) is not authorized to run this operation", after signing in with Google, please try the following:
 Go to live server extension -> Settings:Host -> Change the default 127.0.0.1 to localhost
-
-## The Code
-
-HTML, CSS, and JavaScript currently live within the `public` directory at the project root.
 
 ## Contributing
 
