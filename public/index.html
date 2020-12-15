@@ -44,7 +44,7 @@
   <body>
     <div class="overlay"></div>
     <div hidden class="modal">
-      <button class="sign-in">Sign in with Google</button>
+      <button hidden class="sign-in">Sign in with Google</button>
     </div>
     <div hidden class="modal modal-lesson">
       <h2 class="modal-lesson-title"></h2>
@@ -59,11 +59,11 @@
         <img alt="note icon" src="./images/sticky_note-white.svg" />
       </div>
       <div hidden class="profile">
-        <div class="sign-out">
+        <div hidden class="sign-out">
           <button class="button">Sign out</button>
         </div>
         <div class="avatar">
-          <img referrerpolicy="no-referrer" alt="google avatar picture" />
+          <img referrerpolicy="no-referrer" alt="avatar" />
         </div>
       </div>
     </header>
@@ -188,6 +188,18 @@
         </div>
       </div>
     </main>
+    <footer class="footer">
+      <div>
+        Icons made by
+        <a href="https://www.flaticon.com/authors/dighital" title="Dighital"
+          >Dighital</a
+        >
+        from
+        <a href="https://www.flaticon.com/" title="Flaticon"
+          >www.flaticon.com</a
+        >
+      </div>
+    </footer>
     <body>
       <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-app.js"></script>
       <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-analytics.js"></script>
@@ -196,5 +208,6 @@
       <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     </body>
     <script type="module" src="./js/index.js"></script>
+    <!-- <script type="module" src="./js/firebase.js"></script> -->
   </body>
 </html>

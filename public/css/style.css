@@ -506,6 +506,20 @@ form {
   overflow: hidden;
 }
 
+/* footer styles */
+
+.footer {
+  background: var(--main-b-color);
+  padding: 10px 15px;
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.07), 0 3px 10px 0 rgba(0, 0, 0, 0.07);
+  color: white;
+  font-size: 12px;
+}
+
+.footer a {
+  color: white;
+}
+
 /* media queries */
 
 @media only screen and (max-width: 1090px) {
