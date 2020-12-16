@@ -12,6 +12,7 @@
   "type": "module",
   "scripts": {
     "test": "jest"
+	 "prettier": "prettier --write ."
   },
   "repository": {
     "type": "git",
