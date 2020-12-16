@@ -22,6 +22,12 @@
     "url": "https://github.com/jrobind/dev-jot/issues"
   },
   "homepage": "https://github.com/jrobind/dev-jot#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettier",
+      "pre-push": "npm run prettier"
+    }
+  },
   "devDependencies": {
     "eslint": "^7.2.0",
     "eslint-config-airbnb-base": "^14.2.1",
@@ -30,6 +36,7 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.2.0",
+    "husky": "^4.3.6",
     "prettier": "^2.2.1"
   }
 }
