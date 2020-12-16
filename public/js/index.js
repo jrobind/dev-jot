@@ -38,10 +38,11 @@ formElement.addEventListener("submit", function (e) {
 	addLesson();
 });
 
-window.onload = handleClearBtn;
+
 modalLessonClose.addEventListener("click", handleCloseLessonModal);
 clearBtn.addEventListener("click", handleClear);
 overlay.addEventListener("click", handleCloseLessonModal);
+formElement.addEventListener("keyup", handleClearBtn);
 
 function handleClear(e) {
 	quill.root.innerHTML = "";
@@ -62,24 +63,12 @@ function handleViewClick(lesson) {
 }
 
 function handleClearBtn() {
-	formElement.mouseOver = false;
-	formElement.onmouseover = () => {
-		if (!this.mouseOver) {
-			this.mouseOver = true;
-			clearBtn.removeAttribute('hidden')
-		}
-	}
-	formElement.onmouseleave = () => {
-		if (this.mouseOver) {
-			if (lessonInput.value.length === 0) {
-				clearBtn.setAttribute('hidden', '');
-				this.mouseOver = false;
-			}
-			if (quill.root.innerHTML !== '<p><br></p>' && quill.root.innerHTML.length >= 8) {
-				clearBtn.removeAttribute('hidden');
-				this.mouseOver = false;
-			}
-		}
+	let textLessonContent = quill.root.innerHTML;
+	let textTitleContent = document.querySelector('.create-lesson-input')
+	if (textTitleContent.value.length > 0 || (textLessonContent.length >= 8 && textLessonContent !== '<p><br></p>')) {
+		clearBtn.removeAttribute('hidden');
+	} else {
+		clearBtn.setAttribute('hidden', '');
 	}
 }
 
