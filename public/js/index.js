@@ -37,9 +37,11 @@ formElement.addEventListener("submit", function (e) {
   e.preventDefault();
   addLesson();
 });
+
 modalLessonClose.addEventListener("click", handleCloseLessonModal);
 clearBtn.addEventListener("click", handleClear);
 overlay.addEventListener("click", handleCloseLessonModal);
+formElement.addEventListener("keyup", handleClearBtn);
 
 function handleClear(e) {
   quill.root.innerHTML = "";
@@ -57,6 +59,19 @@ function handleViewClick(lesson) {
   modalLesson.removeAttribute("hidden");
   overlay.removeAttribute("hidden");
   overlay.classList.add("dark");
+}
+
+function handleClearBtn() {
+  let textLessonContent = quill.root.innerHTML;
+  let textTitleContent = document.querySelector(".create-lesson-input");
+  if (
+    textTitleContent.value.length > 0 ||
+    (textLessonContent.length >= 8 && textLessonContent !== "<p><br></p>")
+  ) {
+    clearBtn.removeAttribute("hidden");
+  } else {
+    clearBtn.setAttribute("hidden", "");
+  }
 }
 
 function handleCloseLessonModal() {
@@ -322,3 +337,22 @@ function removeLesson(deleteId) {
 }
 
 init();
+
+// Register Service Worker
+
+async function registerSW() {
+  if ("serviceWorker" in navigator) {
+    try {
+      await navigator.serviceWorker.register("/sw.js");
+      console.log("Service Worker registered");
+    } catch (e) {
+      alert("Service Worker registration failed.");
+    }
+  } else {
+    alert("Your browser does not support service workers.");
+  }
+}
+
+window.addEventListener("load", () => {
+  registerSW();
+});

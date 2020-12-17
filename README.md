@@ -32,7 +32,7 @@ Currently, this is a no thrills CRUD application using HTML, CSS, and Vanilla Ja
 
 Before contributing I highly recommend you play around with the [live version](https://dev-jot.netlify.app) and actually use it for some basic note taking. What sucks about it? What could be improved? Have you spotted any bugs?
 
-As mentioned the direction of the project will be determined by those who contribute. If you have some cool ideas for new features big or small then great 😊  Just create an issue for discussion before doing so.
+As mentioned the direction of the project will be determined by those who contribute. If you have some cool ideas for new features big or small then great 😊 Just create an issue for discussion before doing so.
 
 ## Project Set-Up
 
@@ -55,6 +55,7 @@ I'd recommend you use VS Code as your IDE. I'd also recommend installing the VS 
 HTML, CSS, and JavaScript currently live within the `public` directory. The main JavaScript is located within `index.js`.
 
 ## With Firebase
+
 There is no database by default - lesson notes are only stored in the browser's local storage. However, if you would rather your notes persisted to a database, the app is currently set up so you can do this with Firebase. **You will need to set up your own Firebase project and add your project config [here](https://github.com/jrobind/dev-jot/blob/master/public/js/firebase_quill_init.js). You will also need to uncomment [the script](https://github.com/jrobind/dev-jot/blob/master/public/index.html#L211) that points to the Firebase logic. Please see the [Firebase docs](https://firebase.google.com/docs/web/setup) for more information**.
 
 Once the app is running, you will need to have a Google profile set up in order to successfully authenticate. Simply click the 'Sign in with Google' button and a modal should pop up prompting you to choose a Google account.
