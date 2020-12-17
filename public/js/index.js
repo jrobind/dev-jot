@@ -30,6 +30,7 @@ const lessonInput = document.querySelector(".create-lesson-input");
 const formElement = document.querySelector("form");
 const submitLessonElement = document.querySelector("#submit");
 const lessonsContainer = document.querySelector(".lessons");
+const LessonCount = document.querySelector(".lessons-count");
 const clearBtn = document.querySelector(".create-lesson-clear");
 
 // event listener setup
@@ -159,6 +160,15 @@ function handleNoLessons() {
 	lessonsContainer.appendChild(noLessons);
 }
 
+function handleLessonsCount() {
+	if (JSON.parse(localStorage.getItem("user")).lessons.length) {
+		LessonCount.innerHTML = JSON.parse(localStorage.getItem("user")).lessons.length;
+	} else {
+		LessonCount.innerHTML = 0;
+		return;
+	}
+}
+
 function handleEditClick(lesson) {
 	// get lesson title and content
 	const title = lesson.querySelector(".lesson-card-title").innerText;
@@ -278,6 +288,7 @@ function renderLessons({ lessons }) {
 	});
 
 	handleNoLessons();
+	handleLessonsCount();
 }
 
 function addLesson() {

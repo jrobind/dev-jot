@@ -215,6 +215,12 @@ body {
   height: calc(100vh - 100px);
 }
 
+span.lessons-count{
+  margin: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
 .pre-auth-create-lesson-container,
 .create-lesson-container {
   flex: 1;
