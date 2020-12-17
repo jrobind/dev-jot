@@ -52,7 +52,7 @@ Because the project uses JavaScript modules, you may encounter CORS errors if yo
 
 1. Access the Live Extension settings in VS code by clicking the cog icon and selecting 'Extension Settings'
 
-![Live Server extension](/public/images/liver-server-cog.png)
+![Live Server extension](/public/images/live-server-cog.png)
 
 2. Click 'Edit in settings.json'
 
