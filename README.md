@@ -20,7 +20,7 @@ Your ultimate goal is to replicate what you’d actually do in a real developmen
 
 ## The General Idea
 
-This project acts as a friendly entry point into the open source world. Making your first open source contribution can be a daunting prospect which puts off a lot of aspiring developers.
+This project acts as a friendly entry point into the open source world. Making your first open source contribution can be a daunting prospect that puts off a lot of aspiring developers.
 
 **The primary goal of this project is to create a welcoming and friendly environment to foster learning, to feel safe making mistakes, and to receive feedback and guidance whilst working with other developers.**
 
@@ -30,7 +30,7 @@ The direction of the project will be led by those who contribute. There is scope
 
 Currently, this is a no thrills CRUD application using HTML, CSS, and Vanilla JavaScript. Lesson notes are stored in the browser's local storage. The purpose of the app is to enable those who are self-teaching to create a simple, clean store for all of their tutorial and lesson notes. With time I'm sure the purpose of this application will change.
 
-Before contributing I highly recommend you play around with the [live version](https://dev-jot.netlify.app) and actually use it for some basic note taking. What sucks about it? What could be improved? Have you spotted any bugs?
+Before contributing I highly recommend you play around with the [live version](https://dev-jot.netlify.app) and actually use it for some basic note-taking. What sucks about it? What could be improved? Have you spotted any bugs?
 
 As mentioned the direction of the project will be determined by those who contribute. If you have some cool ideas for new features big or small then great 😊 Just create an issue for discussion before doing so.
 
@@ -48,20 +48,24 @@ Now install packages with NPM
 npm i
 ```
 
-I'd recommend you use VS Code as your IDE. I'd also recommend installing the VS Code [live server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension. Once installed, you can then run the project using the live server extension. Please follow the [documentation](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) for this.
+I'd recommend using VS Code as your IDE. I'd also recommend installing the VS Code [live server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension. The live project is served from `/public` so you will need to point Live Server here too. To do this:
+
+1. Access the Live Extension settings in VS code by clicking the cog icon and selecting 'Extension Settings'
+
+![Live Server extension](/public/images/live-server-cog.png)
+
+2. Click 'Edit in settings.json'
+
+![Edit settings in json - Live Server](/public/images/live-server-cog.png)
+
+3. Set the root to: `"liveServer.settings.root": "/public"`
+
+
+Now you can then run the project using the live server extension. If you are unsure, please take a look at the [documentation](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
 
 ## The Code
 
 HTML, CSS, and JavaScript currently live within the `public` directory. The main JavaScript is located within `index.js`.
-
-## With Firebase
-
-There is no database by default - lesson notes are only stored in the browser's local storage. However, if you would rather your notes persisted to a database, the app is currently set up so you can do this with Firebase. **You will need to set up your own Firebase project and add your project config [here](https://github.com/jrobind/dev-jot/blob/master/public/js/firebase_quill_init.js). You will also need to uncomment [the script](https://github.com/jrobind/dev-jot/blob/master/public/index.html#L211) that points to the Firebase logic. Please see the [Firebase docs](https://firebase.google.com/docs/web/setup) for more information**.
-
-Once the app is running, you will need to have a Google profile set up in order to successfully authenticate. Simply click the 'Sign in with Google' button and a modal should pop up prompting you to choose a Google account.
-
-If you run into an error stating "auth/unauthorized domain This domain (127.0.0.1) is not authorized to run this operation", after signing in with Google, please try the following:
-Go to live server extension -> Settings:Host -> Change the default 127.0.0.1 to localhost
 
 ## Contributing
 
