@@ -48,18 +48,17 @@ Now install packages with NPM
 npm i
 ```
 
-I'd recommend using VS Code as your IDE. I'd also recommend installing the VS Code [live server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension. The live project is served from `/public` so you will need to point Live Server here too. To do this:
+Because the project uses JavaScript modules, you may encounter CORS errors if you try to access files on your local filesystem with JavaScript. I'd recommend using VS Code as your IDE and I'd also recommend installing the VS Code [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension. The live project is served from `/public` so you will need to point Live Server here too. To do this:
 
 1. Access the Live Extension settings in VS code by clicking the cog icon and selecting 'Extension Settings'
 
-![Live Server extension](/public/images/live-server-cog.png)
+![Live Server extension](/public/images/liver-server-cog.png)
 
 2. Click 'Edit in settings.json'
 
-![Edit settings in json - Live Server](/public/images/live-server-cog.png)
+![Edit settings in json - Live Server](/public/images/live-server-json.png)
 
 3. Set the root to: `"liveServer.settings.root": "/public"`
-
 
 Now you can then run the project using the live server extension. If you are unsure, please take a look at the [documentation](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
 
