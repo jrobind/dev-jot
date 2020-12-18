@@ -2,14 +2,14 @@
 import { quill } from "./firebase_quill_init.js";
 
 const avatars = [
-	"bear",
-	"butterfly",
-	"elephant",
-	"giraffe",
-	"goldfish",
-	"horse",
-	"octopus",
-	"parrot",
+  "bear",
+  "butterfly",
+  "elephant",
+  "giraffe",
+  "goldfish",
+  "horse",
+  "octopus",
+  "parrot",
 ];
 
 // cached DOM elements
@@ -24,7 +24,7 @@ const modalLessonClose = document.querySelector(".modal-lesson-close");
 const modalLessonTitle = document.querySelector(".modal-lesson-title");
 const modalLessonContent = document.querySelector(".modal-lesson-content");
 const createLessonContainer = document.querySelector(
-	".create-lesson-container"
+  ".create-lesson-container"
 );
 const lessonInput = document.querySelector(".create-lesson-input");
 const formElement = document.querySelector("form");
@@ -35,10 +35,9 @@ const clearBtn = document.querySelector(".create-lesson-clear");
 
 // event listener setup
 formElement.addEventListener("submit", function (e) {
-	e.preventDefault();
-	addLesson();
+  e.preventDefault();
+  addLesson();
 });
-
 
 modalLessonClose.addEventListener("click", handleCloseLessonModal);
 clearBtn.addEventListener("click", handleClear);
@@ -46,118 +45,122 @@ overlay.addEventListener("click", handleCloseLessonModal);
 formElement.addEventListener("keyup", handleClearBtn);
 
 function handleClear(e) {
-	quill.root.innerHTML = "";
-	lessonInput.value = "";
-	clearBtn.setAttribute("hidden", "");
-	submitLessonElement.textContent = "ADD LESSON";
+  quill.root.innerHTML = "";
+  lessonInput.value = "";
+  clearBtn.setAttribute("hidden", "");
+  submitLessonElement.textContent = "ADD LESSON";
 }
 
 function handleViewClick(lesson) {
-	const title = lesson.querySelector(".lesson-card-title").innerText;
-	const content = lesson.querySelector(".lesson-card-content").innerHTML;
+  const title = lesson.querySelector(".lesson-card-title").innerText;
+  const content = lesson.querySelector(".lesson-card-content").innerHTML;
 
-	modalLessonTitle.innerText = title;
-	modalLessonContent.innerHTML = content;
-	modalLesson.removeAttribute("hidden");
-	overlay.removeAttribute("hidden");
-	overlay.classList.add("dark");
+  modalLessonTitle.innerText = title;
+  modalLessonContent.innerHTML = content;
+  modalLesson.removeAttribute("hidden");
+  overlay.removeAttribute("hidden");
+  overlay.classList.add("dark");
 }
 
 function handleClearBtn() {
-	let textLessonContent = quill.root.innerHTML;
-	let textTitleContent = document.querySelector('.create-lesson-input')
-	if (textTitleContent.value.length > 0 || (textLessonContent.length >= 8 && textLessonContent !== '<p><br></p>')) {
-		clearBtn.removeAttribute('hidden');
-	} else {
-		clearBtn.setAttribute('hidden', '');
-	}
+  let textLessonContent = quill.root.innerHTML;
+  let textTitleContent = document.querySelector(".create-lesson-input");
+  if (
+    textTitleContent.value.length > 0 ||
+    (textLessonContent.length >= 8 && textLessonContent !== "<p><br></p>")
+  ) {
+    clearBtn.removeAttribute("hidden");
+  } else {
+    clearBtn.setAttribute("hidden", "");
+  }
 }
 
 function handleCloseLessonModal() {
-	modalLessonTitle.innerHTML = "";
-	modalLessonContent.innerHTML = "";
+  modalLessonTitle.innerHTML = "";
+  modalLessonContent.innerHTML = "";
 
-	modalLesson.setAttribute("hidden", "");
-	overlay.setAttribute("hidden", "");
-	overlay.classList.remove("dark");
+  modalLesson.setAttribute("hidden", "");
+  overlay.setAttribute("hidden", "");
+  overlay.classList.remove("dark");
 }
 
 function lessonHelper({
-	varName,
-	eventListener,
-	classList,
-	attribute,
-	textContent,
-	innerHTML,
-	id,
+  varName,
+  eventListener,
+  classList,
+  attribute,
+  textContent,
+  innerHTML,
+  id,
 }) {
-	if (eventListener) {
-		varName.addEventListener(
-			Object.keys(eventListener)[0],
-			Object.values(eventListener)[0]
-		);
-	}
-	if (classList) {
-		for (let i = 0; i < classList.length; i++) {
-			varName.classList.add(classList[i]);
-		}
-	}
-	if (attribute) {
-		for (let i = 0; i < attribute.length; i++) {
-			varName.setAttribute(
-				Object.keys(attribute[i])[0],
-				Object.values(attribute[i])[0]
-			);
-		}
-	}
-	if (textContent) {
-		varName.textContent = textContent;
-	}
-	if (innerHTML) {
-		varName.innerHTML = innerHTML;
-	}
-	if (id) {
-		varName.id = id;
-	}
-	return varName;
+  if (eventListener) {
+    varName.addEventListener(
+      Object.keys(eventListener)[0],
+      Object.values(eventListener)[0]
+    );
+  }
+  if (classList) {
+    for (let i = 0; i < classList.length; i++) {
+      varName.classList.add(classList[i]);
+    }
+  }
+  if (attribute) {
+    for (let i = 0; i < attribute.length; i++) {
+      varName.setAttribute(
+        Object.keys(attribute[i])[0],
+        Object.values(attribute[i])[0]
+      );
+    }
+  }
+  if (textContent) {
+    varName.textContent = textContent;
+  }
+  if (innerHTML) {
+    varName.innerHTML = innerHTML;
+  }
+  if (id) {
+    varName.id = id;
+  }
+  return varName;
 }
 
 function init() {
-	quill.root.focus();
-	appContainer.removeAttribute("hidden");
-	profileElement.removeAttribute("hidden");
-	modal.setAttribute("hidden", "");
-	preAuthContainer.setAttribute("hidden", "");
-	overlay.setAttribute("hidden", "");
+  quill.root.focus();
+  appContainer.removeAttribute("hidden");
+  profileElement.removeAttribute("hidden");
+  modal.setAttribute("hidden", "");
+  preAuthContainer.setAttribute("hidden", "");
+  overlay.setAttribute("hidden", "");
 
-	if (!localStorage.getItem("user")) {
-		localStorage.setItem(
-			"user",
-			JSON.stringify({
-				avatar: `/images/avatars/${avatars[Math.floor(Math.random() * avatars.length)]
-					}.svg`,
-				lessons: [],
-			})
-		);
-	} else {
-		renderLessons(JSON.parse(localStorage.getItem("user")));
-	}
-	avatarElement.setAttribute(
-		"src",
-		JSON.parse(localStorage.getItem("user")).avatar
-	);
+  if (!localStorage.getItem("user")) {
+    localStorage.setItem(
+      "user",
+      JSON.stringify({
+        avatar: `/images/avatars/${
+          avatars[Math.floor(Math.random() * avatars.length)]
+        }.svg`,
+        lessons: [],
+      })
+    );
+  } else {
+    renderLessons(JSON.parse(localStorage.getItem("user")));
+  }
+  avatarElement.setAttribute(
+    "src",
+    JSON.parse(localStorage.getItem("user")).avatar
+  );
 }
 
 function handleNoLessons() {
-	if (JSON.parse(localStorage.getItem("user")).lessons.length) {
-		return;
-	}
+  if (JSON.parse(localStorage.getItem("user")).lessons.length) {
+    return;
+  }
 
-	const noLessons = document.createElement("p");
-	noLessons.classList.add("no-lessons");
+  const noLessons = document.createElement("p");
+  noLessons.classList.add("no-lessons");
 
-	noLessons.textContent = "No lessons :(";
-	lessonsContainer.appendChild(noLessons);
+  noLessons.textContent = "No lessons :(";
+  lessonsContainer.appendChild(noLessons);
 }
 
 function handleLessonsCount() {
@@ -170,37 +173,37 @@ function handleLessonsCount() {
 }
 
 function handleEditClick(lesson) {
-	// get lesson title and content
-	const title = lesson.querySelector(".lesson-card-title").innerText;
-	const content = lesson.querySelector(".lesson-card-content").innerHTML;
-	const delta = quill.clipboard.convert(content);
+  // get lesson title and content
+  const title = lesson.querySelector(".lesson-card-title").innerText;
+  const content = lesson.querySelector(".lesson-card-content").innerHTML;
+  const delta = quill.clipboard.convert(content);
 
-	// switch view state
-	createLessonContainer.setAttribute(
-		"view",
-		`edit-lesson:${lesson.getAttribute("data-id")}`
-	);
-	clearBtn.removeAttribute("hidden");
+  // switch view state
+  createLessonContainer.setAttribute(
+    "view",
+    `edit-lesson:${lesson.getAttribute("data-id")}`
+  );
+  clearBtn.removeAttribute("hidden");
 
-	quill.setContents(delta, "silent");
-	lessonInput.value = title;
-	submitLessonElement.textContent = "UPDATE LESSON";
+  quill.setContents(delta, "silent");
+  lessonInput.value = title;
+  submitLessonElement.textContent = "UPDATE LESSON";
 }
 
 function lessonHandler(e) {
-	const lessonCard = e.currentTarget;
+  const lessonCard = e.currentTarget;
 
-	switch (e.target.id) {
-		case "delete":
-			removeLesson(lessonCard.getAttribute("data-id"));
-			return;
-		case "view":
-			handleViewClick(lessonCard);
-			return;
-		case "edit":
-			handleEditClick(lessonCard);
-			return;
-	}
+  switch (e.target.id) {
+    case "delete":
+      removeLesson(lessonCard.getAttribute("data-id"));
+      return;
+    case "view":
+      handleViewClick(lessonCard);
+      return;
+    case "edit":
+      handleEditClick(lessonCard);
+      return;
+  }
 }
 
 function renderLessons({ lessons }) {
@@ -292,56 +295,75 @@ function renderLessons({ lessons }) {
 }
 
 function addLesson() {
-	const user = JSON.parse(localStorage.getItem("user"));
-	const content = quill.root.innerHTML;
-	const isEditView = createLessonContainer
-		.getAttribute("view")
-		.includes("edit-lesson");
-	// Regex to match any number of whitespaces in the content form.
-	var regex = /<(.|\n)*?>/g;
-	if (content.replace(regex, "").trim().length === 0) {
-		console.log("Tried to add empty lesson note.");
-		return;
-	}
-	if (isEditView) {
-		const id = createLessonContainer.getAttribute("view").split(":")[1];
+  const user = JSON.parse(localStorage.getItem("user"));
+  const content = quill.root.innerHTML;
+  const isEditView = createLessonContainer
+    .getAttribute("view")
+    .includes("edit-lesson");
+  // Regex to match any number of whitespaces in the content form.
+  var regex = /<(.|\n)*?>/g;
+  if (content.replace(regex, "").trim().length === 0) {
+    console.log("Tried to add empty lesson note.");
+    return;
+  }
+  if (isEditView) {
+    const id = createLessonContainer.getAttribute("view").split(":")[1];
 
-		user.lessons = user.lessons.map((lesson) => {
-			if (lesson.id === id) {
-				lesson.title = lessonInput.value;
-				lesson.content = content;
-			}
-			return lesson;
-		});
+    user.lessons = user.lessons.map((lesson) => {
+      if (lesson.id === id) {
+        lesson.title = lessonInput.value;
+        lesson.content = content;
+      }
+      return lesson;
+    });
 
-		if (!user.lessons.length) {
-			console.log("Tried to add empty lessons.");
-			return;
-		}
+    if (!user.lessons.length) {
+      console.log("Tried to add empty lessons.");
+      return;
+    }
 
-		localStorage.setItem("user", JSON.stringify(user));
-		renderLessons(user);
-		createLessonContainer.setAttribute("view", "create-lesson");
-	} else {
-		user.lessons.push({
-			id: String(Math.floor(Math.random() * 90000 + 10000)),
-			title: lessonInput.value,
-			content,
-		});
+    localStorage.setItem("user", JSON.stringify(user));
+    renderLessons(user);
+    createLessonContainer.setAttribute("view", "create-lesson");
+  } else {
+    user.lessons.push({
+      id: String(Math.floor(Math.random() * 90000 + 10000)),
+      title: lessonInput.value,
+      content,
+    });
 
-		localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("user", JSON.stringify(user));
 
-		lessonInput.value = "";
-		renderLessons(user);
-	}
+    lessonInput.value = "";
+    renderLessons(user);
+  }
 }
 
 function removeLesson(deleteId) {
-	const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(localStorage.getItem("user"));
 
-	user.lessons = user.lessons.filter((lesson) => lesson.id !== deleteId);
-	localStorage.setItem("user", JSON.stringify(user));
-	renderLessons(user);
+  user.lessons = user.lessons.filter((lesson) => lesson.id !== deleteId);
+  localStorage.setItem("user", JSON.stringify(user));
+  renderLessons(user);
 }
 
 init();
+
+// Register Service Worker
+
+async function registerSW() {
+  if ("serviceWorker" in navigator) {
+    try {
+      await navigator.serviceWorker.register("/sw.js");
+      console.log("Service Worker registered");
+    } catch (e) {
+      alert("Service Worker registration failed.");
+    }
+  } else {
+    alert("Your browser does not support service workers.");
+  }
+}
+
+window.addEventListener("load", () => {
+  registerSW();
+});

@@ -12,6 +12,7 @@ To begin, please check the [issues](https://github.com/jrobind/dev-jot/issues) t
 
 Checking the open issues is a great place to see what's currently being worked on and also what's available to work on. Labels are used to group different issues by status, type, and difficulty. The main labels you should be aware of are:
 
+- react
 - bug
 - enhancement
 - good first issue
@@ -27,6 +28,14 @@ Checking the open issues is a great place to see what's currently being worked o
 If something doesn't make sense please ask for clarification or assistance by writing a comment on the issue, or if you'd like to discuss in more detail please join the [Discord channel](https://discord.com/invite/YMsd9sgZ4f).
 
 ## Pull Requests
+
+There are currently two versions of the app. 
+
+1. The default version can be found on the [master](https://github.com/jrobind/dev-jot/tree/master) branch
+
+2. The React version can be found on the [react](https://github.com/jrobind/dev-jot/tree/react) branch*
+
+***When creating pull requests for the React version, please make sure you select the `react` branch to merge your changes into.**
 
 Before submitting a PR that relates directly to an issue, please write a comment on the relevant issue letting me know you'd like to take it on. Once the issue has been claimed the 'in progress' label will be added. After long periods of inactivity, I'll remove the 'in progress' label so someone else can work on it.
 
