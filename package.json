@@ -1,18 +1,21 @@
 {
   "name": "dev-jot",
-  "jest": {
-    "verbose": true,
-    "modulePaths": [
-      "public"
-    ]
-  },
   "version": "1.0.0",
-  "description": "note taking app for online developer tutorials",
+  "description": "note-taking app for online developer tutorials",
   "main": "index.js",
   "type": "module",
+  "private": true,
   "scripts": {
-    "test": "jest",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
     "prettier": "prettier --write ."
+  },
+  "author": "James Robinson <jrobind@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jrobind/dev-jot/issues"
   },
   "repository": {
     "type": "git",
@@ -24,12 +27,24 @@
     "online",
     "lessons"
   ],
-  "author": "James Robinson <jrobind@outlook.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jrobind/dev-jot/issues"
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
-  "homepage": "https://github.com/jrobind/dev-jot#readme",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "husky": {
     "hooks": {
       "pre-commit": "npm run prettier",
@@ -37,18 +52,16 @@
     }
   },
   "devDependencies": {
-    "eslint": "^7.2.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-node": "^4.1.0",
-    "eslint-config-prettier": "^7.0.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^3.2.0",
-    "eslint-plugin-react": "^7.21.5",
-    "eslint-plugin-react-hooks": "^4.0.0",
-    "jest": "^26.6.3",
     "husky": "^4.3.6",
     "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@testing-library/user-event": "^12.6.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.1",
+    "web-vitals": "^0.2.4"
   }
 }

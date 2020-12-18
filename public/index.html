@@ -1,213 +1,43 @@
 <!DOCTYPE html>
-
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>dev-jot</title>
-    <meta name="description" content="dev-jot" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/images/favicon/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/images/favicon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/images/favicon/favicon-16x16.png"
-    />
-    <link rel="manifest" href="/images/favicon/site.webmanifest" />
-    <link rel="shortcut icon" href="/images/favicon/favicon.ico" />
-    <meta name="msapplication-TileColor" content="#da532c" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
     <meta
-      name="msapplication-config"
-      content="/images/favicon/browserconfig.xml"
+      name="description"
+      content="Web site created using create-react-app"
     />
-    <meta name="theme-color" content="#ffffff" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=0.86, maximum-scale=5.0, minimum-scale=0.86"
-    />
-    <link rel="stylesheet" href="./css/style.css" />
-    <link
-      href="https://cdn.quilljs.com/1.3.6/quill.snow.css"
-      rel="stylesheet"
-    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
   </head>
-
   <body>
-    <div class="overlay"></div>
-    <div hidden class="modal">
-      <button hidden class="sign-in">Sign in with Google</button>
-    </div>
-    <div hidden class="modal modal-lesson">
-      <h2 class="modal-lesson-title"></h2>
-      <div class="modal-lesson-content"></div>
-      <button class="modal-lesson-close button">
-        <img alt="remove lesson icon" src="./images/cancel-white.svg" />
-      </button>
-    </div>
-    <header class="header">
-      <div class="header-title">
-        <h1>dev-jot</h1>
-        <img alt="note icon" src="./images/sticky_note-white.svg" />
-      </div>
-      <div hidden class="profile">
-        <div hidden class="sign-out">
-          <button class="button">Sign out</button>
-        </div>
-        <div class="avatar">
-          <img referrerpolicy="no-referrer" alt="avatar" />
-        </div>
-      </div>
-    </header>
-    <main>
-      <div class="app">
-        <div class="pre-auth-container">
-          <div class="pre-auth-lesson-container">
-            <section class="card">
-              <div class="card-detail">
-                <h2 class="card-title loading"></h2>
-                <p class="card-description loading"></p>
-              </div>
-            </section>
-            <section class="card">
-              <div class="card-detail">
-                <h2 class="card-title loading"></h2>
-                <p class="card-description loading"></p>
-              </div>
-            </section>
-            <section class="card">
-              <div class="card-detail">
-                <h2 class="card-title loading"></h2>
-                <p class="card-description loading"></p>
-              </div>
-            </section>
-            <section class="card">
-              <div class="card-detail">
-                <h2 class="card-title loading"></h2>
-                <p class="card-description loading"></p>
-              </div>
-            </section>
-            <section class="card">
-              <div class="card-detail">
-                <h2 class="card-title loading"></h2>
-                <p class="card-description loading"></p>
-              </div>
-            </section>
-            <section class="card">
-              <div class="card-detail">
-                <h2 class="card-title loading"></h2>
-                <p class="card-description loading"></p>
-              </div>
-            </section>
-            <section class="card">
-              <div class="card-detail">
-                <h2 class="card-title loading"></h2>
-                <p class="card-description loading"></p>
-              </div>
-            </section>
-            <section class="card">
-              <div class="card-detail">
-                <h2 class="card-title loading"></h2>
-                <p class="card-description loading"></p>
-              </div>
-            </section>
-            <section class="card">
-              <div class="card-detail">
-                <h2 class="card-title loading"></h2>
-                <p class="card-description loading"></p>
-              </div>
-            </section>
-            <section class="card">
-              <div class="card-detail">
-                <h2 class="card-title loading"></h2>
-                <p class="card-description loading"></p>
-              </div>
-            </section>
-            <section class="card">
-              <div class="card-detail">
-                <h2 class="card-title loading"></h2>
-                <p class="card-description loading"></p>
-              </div>
-            </section>
-            <section class="card">
-              <div class="card-detail">
-                <h2 class="card-title loading"></h2>
-                <p class="card-description loading"></p>
-              </div>
-            </section>
-          </div>
-          <div class="pre-auth-create-lesson-container">
-            <section class="card">
-              <div class="card-detail">
-                <h2 class="card-title loading"></h2>
-                <h2 class="card-title loading"></h2>
-                <p class="card-description loading"></p>
-              </div>
-            </section>
-          </div>
-        </div>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
 
-        <div hidden class="app-container">
-          <section class="lessons-container">
-            <div class="lessons-container-header">
-              <img alt="assignment icon" src="./images/assignment-white.svg" />
-              <h2>Lessons</h2>
-            </div>
-            <div class="lessons"></div>
-          </section>
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
 
-          <section view="create-lesson" class="create-lesson-container">
-            <div class="create-lesson">
-              <div class="create-lesson-container-header">
-                <img alt="add icon" src="./images/add_box-black.svg" />
-                <h2>New Lesson</h2>
-                <button class="create-lesson-clear button" hidden>Clear</button>
-              </div>
-              <form>
-                <input
-                  class="create-lesson-input"
-                  type="text"
-                  placeholder="Lesson title"
-                  required
-                />
-                <div id="editor"></div>
-                <button class="button" id="submit" type="submit">
-                  ADD LESSON
-                </button>
-              </form>
-            </div>
-          </section>
-        </div>
-      </div>
-    </main>
-    <footer class="footer">
-      <div>
-        Icons made by
-        <a href="https://www.flaticon.com/authors/dighital" title="Dighital"
-          >Dighital</a
-        >
-        from
-        <a href="https://www.flaticon.com/" title="Flaticon"
-          >www.flaticon.com</a
-        >
-      </div>
-    </footer>
-    <body>
-      <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-app.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-analytics.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-auth.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-firestore.js"></script>
-      <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-    </body>
-    <script type="module" src="./js/index.js"></script>
-    <!-- <script type="module" src="./js/firebase.js"></script> -->
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
   </body>
 </html>
