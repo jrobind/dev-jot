@@ -1,4 +1,4 @@
-# dev-jot
+# dev-jot (default version) - https://dev-jot.netlify.app
 
 dev-jot is a note-taking app for online developer tutorials. The project is an MVP and has been created to help aspiring front-end developers as part of [thefrontendcoach](https://thefrontendcoach.com) support system.
 
