@@ -1,9 +1,13 @@
-# dev-jot - https://dev-jot.netlify.app
+# dev-jot
 
 dev-jot is a note-taking app for online developer tutorials. The project is an MVP and has been created to help aspiring front-end developers as part of [thefrontendcoach](https://thefrontendcoach.com) support system.
 
-Please join our Discord community [discord.gg/YMsd9sgZ4f](https://discord.com/invite/YMsd9sgZ4f)
+There are two versions of the app:
 
+1. Default, Vanilla version: https://dev-jot.netlify.app
+2. React version: https://dev-jot-react.netlify.app
+
+Please join our Discord community [discord.gg/YMsd9sgZ4f](https://discord.com/invite/YMsd9sgZ4f)
 ## Project Purpose
 
 For those who are self-teaching, it's really easy to find yourself stuck in 'tutorial-land' or 'tutorial-hell'. For many newbie coders, it's difficult to bridge the gap between what you are learning from tutorials and acquiring the skills you **need** to become an employable developer.
@@ -28,15 +32,19 @@ The direction of the project will be led by those who contribute. There is scope
 
 ## Current State
 
-Currently, this is a no thrills CRUD application using HTML, CSS, and Vanilla JavaScript. Lesson notes are stored in the browser's local storage. The purpose of the app is to enable those who are self-teaching to create a simple, clean store for all of their tutorial and lesson notes. With time I'm sure the purpose of this application will change.
+This is a no-thrills [CRUD application](https://www.codecademy.com/articles/what-is-crud). Lesson notes are currently stored in the browser's local storage. The purpose of the app is to enable those who are self-teaching to create a simple, clean store for all of their tutorial and lesson notes.
+
+There are two versions of the app. The main, default version is located in the `master` branch. I wanted to keep the master branch as purely HTML, CSS and Vanilla JavaScript so there are learning opportunities for contributors to work with the fundamentals.
+
+The second version is built using React and is located in the [react branch](https://github.com/jrobind/dev-jot/tree/react). This provides an opportunity for contributors who are looking to work with a front-end framework to get their hands dirty.
 
 Before contributing I highly recommend you play around with the [live version](https://dev-jot.netlify.app) and actually use it for some basic note-taking. What sucks about it? What could be improved? Have you spotted any bugs?
 
-As mentioned the direction of the project will be determined by those who contribute. If you have some cool ideas for new features big or small then great 😊 Just create an issue for discussion before doing so.
+The direction of the project will be determined by those who contribute. If you have some cool ideas for new features big or small then great! Just create an issue for discussion before doing so 😊 
 
 ## Project Set-Up
 
-The easiest and quickest way to get the project up and running locally is to clone the repo:
+The easiest and quickest way to get the default project up and running locally is to clone the repo:
 
 ```bash
 git clone https://github.com/jrobind/dev-jot.git
@@ -48,7 +56,7 @@ Now install packages with NPM
 npm i
 ```
 
-Because the project uses JavaScript modules, you may encounter CORS errors if you try to access files on your local filesystem with JavaScript. I'd recommend using VS Code as your IDE and I'd also recommend installing the VS Code [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension. The live project is served from `/public` so you will need to point Live Server here too. To do this:
+Because the default project version uses JavaScript modules, you may encounter CORS errors if you try to access files on your local filesystem with JavaScript. I'd recommend using VS Code as your IDE and I'd also recommend installing the VS Code [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension. The live project is served from `/public` so you will need to point Live Server here too. To do this:
 
 1. Access the Live Extension settings in VS code by clicking the cog icon and selecting 'Extension Settings'
 
