@@ -30,7 +30,7 @@ const lessonInput = document.querySelector(".create-lesson-input");
 const formElement = document.querySelector("form");
 const submitLessonElement = document.querySelector("#submit");
 const lessonsContainer = document.querySelector(".lessons");
-const LessonCount = document.querySelector(".lessons-count");
+const lessonCount = document.querySelector(".lessons-count");
 const clearBtn = document.querySelector(".create-lesson-clear");
 
 // event listener setup
@@ -162,9 +162,9 @@ function handleNoLessons() {
 
 function handleLessonsCount() {
 	if (JSON.parse(localStorage.getItem("user")).lessons.length) {
-		LessonCount.innerHTML = JSON.parse(localStorage.getItem("user")).lessons.length;
+		lessonCount.innerHTML = JSON.parse(localStorage.getItem("user")).lessons.length;
 	} else {
-		LessonCount.innerHTML = '';
+		lessonCount.innerHTML = '';
 		return;
 	}
 }
