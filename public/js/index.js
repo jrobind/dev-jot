@@ -164,7 +164,7 @@ function handleLessonsCount() {
 	if (JSON.parse(localStorage.getItem("user")).lessons.length) {
 		LessonCount.innerHTML = JSON.parse(localStorage.getItem("user")).lessons.length;
 	} else {
-		LessonCount.innerHTML = 0;
+		LessonCount.innerHTML = '';
 		return;
 	}
 }
