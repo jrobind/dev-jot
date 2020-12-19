@@ -5,3 +5,4 @@ database.rules.json
 firebase.json
 .idea
 .idea/workspace.xml
+.env
