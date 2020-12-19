@@ -31,11 +31,9 @@ If something doesn't make sense please ask for clarification or assistance by wr
 
 There are currently two versions of the app. 
 
-1. The default version can be found on the [master](https://github.com/jrobind/dev-jot/tree/master) branch
+1. The default (vanilla) version can be found within the `app-main` directory. For set up, please go [here](https://github.com/jrobind/dev-jot/blob/master/README.md#project-set-up).
 
-2. The React version can be found on the [react](https://github.com/jrobind/dev-jot/tree/react) branch*
-
-***When creating pull requests for the React version, please make sure you select the `react` branch to merge your changes into.**
+2. The React version can be found within the `app-react` directory. For set up, please go [here](https://github.com/jrobind/dev-jot/blob/master/app-react/README.md#project-set-up).
 
 Before submitting a PR that relates directly to an issue, please write a comment on the relevant issue letting me know you'd like to take it on. Once the issue has been claimed the 'in progress' label will be added. After long periods of inactivity, I'll remove the 'in progress' label so someone else can work on it.
 

@@ -34,9 +34,9 @@ The direction of the project will be led by those who contribute. There is scope
 
 This is a no-thrills [CRUD application](https://www.codecademy.com/articles/what-is-crud). Lesson notes are currently stored in the browser's local storage. The purpose of the app is to enable those who are self-teaching to create a simple, clean store for all of their tutorial and lesson notes.
 
-There are two versions of the app. The main, default version is located in the `master` branch. I wanted to keep the master branch as purely HTML, CSS and Vanilla JavaScript so there are learning opportunities for contributors to work with the fundamentals.
+There are two versions of the app. The main, default version is located within the `app-main` directory. This default version of the app is purely HTML, CSS and Vanilla JavaScript so there are learning opportunities for contributors to work with the fundamentals.
 
-The second version is built using React and is located in the [react branch](https://github.com/jrobind/dev-jot/tree/react). This provides an opportunity for contributors who are looking to work with a front-end framework to get their hands dirty.
+The second version is built using React and is located within the `app-react` directory. This provides an opportunity for contributors who are looking to work with a front-end framework to get their hands dirty.
 
 Before contributing I highly recommend you play around with the [live version](https://dev-jot.netlify.app) and actually use it for some basic note-taking. What sucks about it? What could be improved? Have you spotted any bugs?
 
@@ -50,13 +50,21 @@ The easiest and quickest way to get the default project up and running locally i
 git clone https://github.com/jrobind/dev-jot.git
 ```
 
+Make sure you're in the `app-main` directory
+
+```bash
+cd app-main
+```
+
 Now install packages with NPM
 
 ```bash
 npm i
 ```
 
-Because the default project version uses JavaScript modules, you may encounter CORS errors if you try to access files on your local filesystem with JavaScript. I'd recommend using VS Code as your IDE and I'd also recommend installing the VS Code [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension. The live project is served from `/public` so you will need to point Live Server here too. To do this:
+Because the default project version uses JavaScript modules, you may encounter CORS errors if you try to access files on your local filesystem with JavaScript. **I'd recommend using VS Code as your IDE and I'd also recommend installing the VS Code [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension**. 
+
+The live project is served from `/app-main/public` so you will need to point Live Server here too. To do this:
 
 1. Access the Live Extension settings in VS code by clicking the cog icon and selecting 'Extension Settings'
 
@@ -66,13 +74,15 @@ Because the default project version uses JavaScript modules, you may encounter C
 
 ![Edit settings in json - Live Server](/public/images/live-server-json.png)
 
-3. Set the root to: `"liveServer.settings.root": "/public"`
+3. Set the root to: `"liveServer.settings.root": "/app-main/public"`
 
-Now you can then run the project using the live server extension. If you are unsure, please take a look at the [documentation](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
+Now you can run the project using the live server extension by right-clicking `index.html` and selecting 'Open with Live Server'.
+
+If you are unsure, please take a look at the [documentation](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
 
 ## The Code
 
-HTML, CSS, and JavaScript currently live within the `public` directory. The main JavaScript is located within `index.js`.
+HTML, CSS, and JavaScript currently live within the `/app-main/public` directory. The main JavaScript is located within `index.js`.
 
 ## Contributing
 
