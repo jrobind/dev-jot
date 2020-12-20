@@ -1,13 +1,10 @@
-import GlobalStyle from './theme/globalStyles';
 import logo from './logo.svg';
-import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <GlobalStyle />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <header className="header">
+        <img src={logo} className="App-logo" alt="logo" style={{height: '100px'}} />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
