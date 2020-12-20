@@ -68,11 +68,11 @@ The live project is served from `/app-main/public` so you will need to point Liv
 
 1. Access the Live Extension settings in VS code by clicking the cog icon and selecting 'Extension Settings'
 
-![Live Server extension](/public/images/live-server-cog.png)
+![Live Server extension](/app-main/public/images/live-server-cog.png)
 
 2. Click 'Edit in settings.json'
 
-![Edit settings in json - Live Server](/public/images/live-server-json.png)
+![Edit settings in json - Live Server](/app-main/public/images/live-server-json.png)
 
 3. Set the root to: `"liveServer.settings.root": "/app-main/public"`
 
