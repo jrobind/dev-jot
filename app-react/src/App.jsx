@@ -8,6 +8,7 @@ import goldfish from './images/avatars/goldfish.svg';
 import horse from './images/avatars/horse.svg';
 import octopus from './images/avatars/octopus.svg';
 import parrot from './images/avatars/parrot.svg';
+import Header from './components/Header';
 
 const avatars = [
   bear,
@@ -25,6 +26,7 @@ export default class App extends Component {
     super(props);
 
     this.state = {
+      overlayVisible: false,
       profileVisible: false,
       avatarImgPath: '',
     };
@@ -53,33 +55,13 @@ export default class App extends Component {
   }
 
   render() {
-    const { profileVisible, avatarImgPath } = this.state;
+    const { overlayVisible, profileVisible, avatarImgPath } = this.state;
 
     return (
-      <div className='App'>
-        <header className='header'>
-          {profileVisible && avatarImgPath !== '' ? (
-            <img
-              src={avatarImgPath}
-              className='App-logo'
-              alt='logo'
-              style={{ height: '100px' }}
-            />
-          ) : null}
-
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className='App-link'
-            href='https://reactjs.org'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <>
+        {overlayVisible && <div class='overlay' />}
+        <Header profileVisible={profileVisible} avatarImgPath={avatarImgPath} />
+      </>
     );
   }
 }
