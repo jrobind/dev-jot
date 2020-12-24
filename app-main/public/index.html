@@ -173,12 +173,15 @@
                 <button class="create-lesson-clear button" hidden>Clear</button>
               </div>
               <form>
-                <input
-                  class="create-lesson-input"
-                  type="text"
-                  placeholder="Lesson title"
-                  required
-                />
+                <div class="create-lesson-title-container">
+                  <input
+                    class="create-lesson-input"
+                    type="text"
+                    placeholder="Lesson title"
+                    required
+                  />
+                  <select class="create-lesson-input" type="select"></select>
+                </div>
                 <div id="editor"></div>
                 <button class="button" id="submit" type="submit">
                   ADD LESSON
