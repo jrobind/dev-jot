@@ -12,6 +12,8 @@ const avatars = [
   "parrot",
 ];
 
+const tags = ["red", "yellow", "green"];
+
 // cached DOM elements
 const preAuthContainer = document.querySelector(".pre-auth-container");
 const profileElement = document.querySelector(".profile");
@@ -34,8 +36,6 @@ const lessonsContainer = document.querySelector(".lessons");
 const lessonCount = document.querySelector(".lessons-count");
 const clearBtn = document.querySelector(".create-lesson-clear");
 
-console.log(tagSelect);
-
 // event listener setup
 formElement.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -46,6 +46,11 @@ modalLessonClose.addEventListener("click", handleCloseLessonModal);
 clearBtn.addEventListener("click", handleClear);
 overlay.addEventListener("click", handleCloseLessonModal);
 formElement.addEventListener("keyup", handleClearBtn);
+tagSelect.addEventListener("change", handleTagSelect);
+
+function handleTagSelect(e) {
+  tag = e.target.value;
+}
 
 function handleClear(e) {
   quill.root.innerHTML = "";
