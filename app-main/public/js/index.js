@@ -12,7 +12,15 @@ const avatars = [
   "parrot",
 ];
 
-const tags = ["red", "yellow", "green"];
+const TAGS = [
+  "011627",
+  "AAF0CA",
+  "2ec4b6",
+  "e71d36",
+  "ff9f1c",
+];
+
+
 
 // cached DOM elements
 const preAuthContainer = document.querySelector(".pre-auth-container");
@@ -30,6 +38,7 @@ const createLessonContainer = document.querySelector(
 );
 const lessonInput = document.querySelector(".create-lesson-input");
 const tagSelect = document.querySelectorAll(".create-lesson-input")[1];
+const colorDot = document.querySelector(".color-dot");
 const formElement = document.querySelector("form");
 const submitLessonElement = document.querySelector("#submit");
 const lessonsContainer = document.querySelector(".lessons");
@@ -48,8 +57,24 @@ overlay.addEventListener("click", handleCloseLessonModal);
 formElement.addEventListener("keyup", handleClearBtn);
 tagSelect.addEventListener("change", handleTagSelect);
 
+// in progress
+const display = document.createElement("option");
+display.value = "";
+display.textContent = "Label";
+tagSelect.appendChild(display)
+
+TAGS.forEach((tag) => {
+  let option = document.createElement("option");
+  option.value = "#" + tag;
+  option.style.backgroundColor = "#" + tag;
+  tagSelect.appendChild(option);
+});
+
+tagSelect.addEventListener("change", handleTagSelect);
+
 function handleTagSelect(e) {
-  tag = e.target.value;
+  let tag = e.target.value;
+  colorDot.style.backgroundColor = tag;
 }
 
 function handleClear(e) {
