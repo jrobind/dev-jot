@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import bear from './images/avatars/bear.svg';
 import butterfly from './images/avatars/butterfly.svg';
@@ -21,18 +21,12 @@ const avatars = [
   parrot,
 ];
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
+const App = () => {
+  const [overlayVisible] = useState(false);
+  const [profileVisible, setProfileVisible] = useState(false);
+  const [avatarImgPath, setAvatarImgPath] = useState('');
 
-    this.state = {
-      overlayVisible: false,
-      profileVisible: false,
-      avatarImgPath: '',
-    };
-  }
-
-  initiateApp = () => {
+  const initiateApp = () => {
     if (!localStorage.getItem('user')) {
       localStorage.setItem(
         'user',
@@ -47,21 +41,20 @@ export default class App extends Component {
     }
 
     const userAvatar = JSON.parse(localStorage.getItem('user')).avatar;
-    this.setState({ profileVisible: true, avatarImgPath: userAvatar });
+    setAvatarImgPath(userAvatar);
+    setProfileVisible(true);
   };
 
-  componentDidMount() {
-    this.initiateApp();
-  }
+  useEffect(() => {
+    initiateApp();
+  }, []);
 
-  render() {
-    const { overlayVisible, profileVisible, avatarImgPath } = this.state;
+  return (
+    <>
+      {overlayVisible && <div className='overlay' />}
+      <Header profileVisible={profileVisible} avatarImgPath={avatarImgPath} />
+    </>
+  );
+};
 
-    return (
-      <>
-        {overlayVisible && <div class='overlay' />}
-        <Header profileVisible={profileVisible} avatarImgPath={avatarImgPath} />
-      </>
-    );
-  }
-}
+export default App;

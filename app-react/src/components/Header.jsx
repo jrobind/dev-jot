@@ -34,14 +34,6 @@ const ProfileContainer = styled.div`
   align-items: center;
 `;
 
-const SignoutButton = styled.button`
-  background: white;
-  color: var(--main-b-color);
-  border-radius: 3px;
-  font-size: 14px;
-  font-weight: 700;
-`;
-
 const AvatarImg = styled.img`
   height: 50px;
   width: 50px;
@@ -52,17 +44,14 @@ const AvatarImg = styled.img`
 
 const Header = ({ profileVisible, avatarImgPath }) => {
   return (
-    <HeaderStyled class='header'>
-      <HeaderTitle class='header-title'>
+    <HeaderStyled className='header'>
+      <HeaderTitle className='header-title'>
         <h1>dev-jot</h1>
         <img alt='note icon' src={stickyNote} />
       </HeaderTitle>
       {profileVisible ? (
-        <ProfileContainer class='profile'>
-          <div hidden class='sign-out'>
-            <SignoutButton class='button'>Sign out</SignoutButton>
-          </div>
-          <div class='avatar'>
+        <ProfileContainer className='profile'>
+          <div className='avatar'>
             <AvatarImg
               referrerpolicy='no-referrer'
               alt='avatar'
