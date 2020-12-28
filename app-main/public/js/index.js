@@ -12,15 +12,7 @@ const avatars = [
   "parrot",
 ];
 
-const TAGS = [
-  "011627",
-  "AAF0CA",
-  "2ec4b6",
-  "e71d36",
-  "ff9f1c",
-];
-
-
+const TAGS = ["011627", "AAF0CA", "2ec4b6", "e71d36", "ff9f1c"];
 
 // cached DOM elements
 const preAuthContainer = document.querySelector(".pre-auth-container");
@@ -37,8 +29,8 @@ const createLessonContainer = document.querySelector(
   ".create-lesson-container"
 );
 const lessonInput = document.querySelector(".create-lesson-input");
-const tagSelect = document.querySelectorAll(".create-lesson-input")[1];
-const colorDot = document.querySelector(".color-dot");
+const addTagButton = document.querySelector(".add-tag");
+const tagSelectors = document.querySelector(".tag-selectors");
 const formElement = document.querySelector("form");
 const submitLessonElement = document.querySelector("#submit");
 const lessonsContainer = document.querySelector(".lessons");
@@ -55,26 +47,31 @@ modalLessonClose.addEventListener("click", handleCloseLessonModal);
 clearBtn.addEventListener("click", handleClear);
 overlay.addEventListener("click", handleCloseLessonModal);
 formElement.addEventListener("keyup", handleClearBtn);
-tagSelect.addEventListener("change", handleTagSelect);
+addTagButton.addEventListener("click", handleTagVisibility);
+tagSelectors.addEventListener("click", handleTagSelect);
 
-// in progress
-const display = document.createElement("option");
-display.value = "";
-display.textContent = "Label";
-tagSelect.appendChild(display)
-
+// create tag colors
 TAGS.forEach((tag) => {
-  let option = document.createElement("option");
+  let option = document.createElement("div");
   option.value = "#" + tag;
   option.style.backgroundColor = "#" + tag;
-  tagSelect.appendChild(option);
+  option.htmlFor = "test";
+  option.className = "tagCheckboxes";
+  tagSelectors.appendChild(option);
 });
 
-tagSelect.addEventListener("change", handleTagSelect);
+function handleTagVisibility(e) {
+  if (tagSelectors.classList.contains("hidden")) {
+    tagSelectors.classList.replace("hidden", "visible");
+  } else {
+    tagSelectors.classList.replace("visible", "hidden");
+  }
+}
 
+// TODO
 function handleTagSelect(e) {
   let tag = e.target.value;
-  colorDot.style.backgroundColor = tag;
+  console.log("tag selected: " + tag);
 }
 
 function handleClear(e) {

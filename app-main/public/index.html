@@ -180,9 +180,18 @@
                     placeholder="Lesson title"
                     required
                   />
-                  <select class="create-lesson-input" type="select"></select>
-                  <div class="color-dot"></div>
+                  <button
+                    class="add-tag create-lesson-input"
+                    id="addTag"
+                    type="button"
+                  >
+                    Tags
+                  </button>
+                  <!-- <select class="create-lesson-input" type="select">
+                    <option value="" selected disabled hidden>Tag</option>
+                  </select> -->
                 </div>
+                <div class="tag-selectors hidden"></div>
                 <div id="editor"></div>
                 <button class="button" id="submit" type="submit">
                   ADD LESSON

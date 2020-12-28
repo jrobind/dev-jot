@@ -477,6 +477,27 @@ input.create-lesson-input {
   flex: 1;
 }
 
+.tag-selectors {
+  margin-top: -20px;
+  display: flex;
+  justify-content: center;
+}
+.tagCheckboxes {
+  flex: 1;
+  min-height: 15px;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 1s linear;
+}
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 1s, opacity 1s linear;
+}
+
 .create-lesson-input::placeholder {
   font-style: italic;
   font-size: 14px;
