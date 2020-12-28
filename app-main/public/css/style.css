@@ -485,6 +485,8 @@ input.create-lesson-input {
 .tagCheckboxes {
   flex: 1;
   min-height: 15px;
+  border: solid;
+  border-color: transparent;
 }
 
 .visible {

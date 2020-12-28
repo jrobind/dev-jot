@@ -12,7 +12,7 @@ const avatars = [
   "parrot",
 ];
 
-const TAGS = ["011627", "AAF0CA", "2ec4b6", "e71d36", "ff9f1c"];
+const TAGS = ["039dfc", "AAF0CA", "2ec4b6", "e71d36", "ff9f1c"];
 
 // cached DOM elements
 const preAuthContainer = document.querySelector(".pre-auth-container");
@@ -55,7 +55,8 @@ TAGS.forEach((tag) => {
   let option = document.createElement("div");
   option.value = "#" + tag;
   option.style.backgroundColor = "#" + tag;
-  option.htmlFor = "test";
+  option.style.border = "solid";
+  option.style.borderColor = "transparent";
   option.className = "tagCheckboxes";
   tagSelectors.appendChild(option);
 });
@@ -68,9 +69,14 @@ function handleTagVisibility(e) {
   }
 }
 
-// TODO
 function handleTagSelect(e) {
-  let tag = e.target.value;
+  let tag = e.target;
+  if (tag.style.borderColor === "transparent") {
+    tag.style.borderColor = "black";
+  } else {
+    tag.style.borderColor = "transparent";
+  }
+  tag.classList.toggle("selected");
   console.log("tag selected: " + tag);
 }
 
@@ -332,6 +338,11 @@ function addLesson() {
   const isEditView = createLessonContainer
     .getAttribute("view")
     .includes("edit-lesson");
+  // filter tags that are "selected" upon submission
+  const tags = [...tagSelectors.children].filter((tag) =>
+    tag.classList.contains("selected")
+  );
+
   // Regex to match any number of whitespaces in the content form.
   var regex = /<(.|\n)*?>/g;
   if (content.replace(regex, "").trim().length === 0) {
@@ -362,6 +373,7 @@ function addLesson() {
       id: String(Math.floor(Math.random() * 90000 + 10000)),
       title: lessonInput.value,
       content,
+      tags,
     });
 
     localStorage.setItem("user", JSON.stringify(user));
