@@ -513,6 +513,7 @@ form {
 
 .lesson-card .ql-editor {
   overflow: hidden;
+  overflow-y: scroll;
 }
 
 /* footer styles */
