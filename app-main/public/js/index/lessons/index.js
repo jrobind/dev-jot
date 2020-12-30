@@ -1,10 +1,12 @@
-import {quill} from "../../firebase/firebase_quill_init.js";
+import { quill } from "../../firebase/firebase_quill_init.js";
 import lessonHelper from "./helper.js";
-import {handleClear} from "../eventHandlers.js";
+import { handleClear } from "../eventHandlers.js";
 
 const lessonsContainer = document.querySelector(".lessons");
 const lessonCount = document.querySelector(".lessons-count");
-const createLessonContainer = document.querySelector(".create-lesson-container");
+const createLessonContainer = document.querySelector(
+  ".create-lesson-container"
+);
 const clearBtn = document.querySelector(".create-lesson-clear");
 const lessonInput = document.querySelector(".create-lesson-input");
 const submitLessonElement = document.querySelector("#submit");
