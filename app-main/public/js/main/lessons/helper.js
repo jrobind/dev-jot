@@ -1,4 +1,4 @@
-function lessonHelper({
+export default function lessonHelper({
   varName,
   eventListener,
   classList,
@@ -38,4 +38,3 @@ function lessonHelper({
   return varName;
 }
 
-export default lessonHelper;
