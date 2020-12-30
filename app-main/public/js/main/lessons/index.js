@@ -1,6 +1,6 @@
 import { quill } from "../../firebase/firebase_quill_init.js";
 import lessonHelper from "./helper.js";
-import { handleClear, handleViewClick } from "../eventHandlers.js";
+import { handleClear, handleViewClick } from "../events/eventHandlers.js";
 
 const lessonsContainer = document.querySelector(".lessons");
 const lessonCount = document.querySelector(".lessons-count");
@@ -11,7 +11,7 @@ const clearBtn = document.querySelector(".create-lesson-clear");
 const lessonInput = document.querySelector(".create-lesson-input");
 const submitLessonElement = document.querySelector("#submit");
 
-export function handleNoLessons() {
+function handleNoLessons() {
   if (JSON.parse(localStorage.getItem("user")).lessons.length) {
     return;
   }
@@ -23,7 +23,7 @@ export function handleNoLessons() {
   lessonsContainer.appendChild(noLessons);
 }
 
-export function handleLessonsCount() {
+function handleLessonsCount() {
   if (JSON.parse(localStorage.getItem("user")).lessons.length) {
     lessonCount.innerHTML = JSON.parse(
       localStorage.getItem("user")
@@ -34,7 +34,7 @@ export function handleLessonsCount() {
   }
 }
 
-export function handleEditClick(lesson) {
+function handleEditClick(lesson) {
   // get lesson title and content
   const title = lesson.querySelector(".lesson-card-title").innerText;
   const content = lesson.querySelector(".lesson-card-content").innerHTML;
@@ -52,7 +52,7 @@ export function handleEditClick(lesson) {
   submitLessonElement.textContent = "UPDATE LESSON";
 }
 
-export function lessonHandler(e) {
+function lessonHandler(e) {
   const lessonCard = e.currentTarget;
 
   switch (e.target.id) {
@@ -201,7 +201,7 @@ export function addLesson() {
   }
 }
 
-export function removeLesson(deleteId) {
+function removeLesson(deleteId) {
   const user = JSON.parse(localStorage.getItem("user"));
 
   user.lessons = user.lessons.filter((lesson) => lesson.id !== deleteId);
