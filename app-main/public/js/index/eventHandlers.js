@@ -13,7 +13,7 @@ export function handleClear(e) {
   lessonInput.value = "";
   clearBtn.setAttribute("hidden", "");
   submitLessonElement.textContent = "ADD LESSON";
-};
+}
 
 export function handleViewClick(lesson) {
   const title = lesson.querySelector(".lesson-card-title").innerText;
@@ -24,7 +24,7 @@ export function handleViewClick(lesson) {
   modalLesson.removeAttribute("hidden");
   overlay.removeAttribute("hidden");
   overlay.classList.add("dark");
-};
+}
 
 export function handleClearBtn() {
   let textLessonContent = quill.root.innerHTML;
@@ -37,7 +37,7 @@ export function handleClearBtn() {
   } else {
     clearBtn.setAttribute("hidden", "");
   }
-};
+}
 
 export function handleCloseLessonModal() {
   modalLessonTitle.innerHTML = "";
@@ -46,4 +46,4 @@ export function handleCloseLessonModal() {
   modalLesson.setAttribute("hidden", "");
   overlay.setAttribute("hidden", "");
   overlay.classList.remove("dark");
-};
+}

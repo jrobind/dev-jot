@@ -1,8 +1,13 @@
 // import quill init
 import { quill } from "./firebase/firebase_quill_init.js";
-import {handleCloseLessonModal, handleClear, handleClearBtn, handleViewClick} from "./index/eventHandlers.js";
+import {
+  handleCloseLessonModal,
+  handleClear,
+  handleClearBtn,
+  handleViewClick,
+} from "./index/eventHandlers.js";
 import lessonHelper from "./index/lessons/helper.js";
-import {addLesson} from "./index/lessons/index.js";
+import { addLesson } from "./index/lessons/index.js";
 import init from "./index/init.js";
 
 // cached DOM elements

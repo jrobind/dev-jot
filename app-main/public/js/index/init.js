@@ -1,6 +1,6 @@
-import {quill} from "../firebase/firebase_quill_init.js";
+import { quill } from "../firebase/firebase_quill_init.js";
 import avatars from "./avatars.js";
-import {renderLessons} from "./lessons/index.js";
+import { renderLessons } from "./lessons/index.js";
 
 const preAuthContainer = document.querySelector(".pre-auth-container");
 const profileElement = document.querySelector(".profile");
