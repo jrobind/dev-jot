@@ -1,4 +1,4 @@
-export const avatars = [
+const avatars = [
   "bear",
   "butterfly",
   "elephant",
@@ -8,3 +8,5 @@ export const avatars = [
   "octopus",
   "parrot",
 ];
+
+export default avatars;
