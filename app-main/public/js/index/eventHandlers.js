@@ -43,7 +43,6 @@ export function handleClearBtn() {
   }
 }
 
-
 export function handleCloseLessonModal() {
   modalLessonTitle.innerHTML = "";
   modalLessonContent.innerHTML = "";
