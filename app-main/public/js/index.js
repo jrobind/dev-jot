@@ -1,8 +1,9 @@
 // import quill init
 import { quill } from "../firebase/firebase_quill_init.js";
 import avatars from "./avatars.js";
-import modal from "./modals.js";
+import {handleCloseLessonModal, handleClear, handleClearBtn, handleViewClick} from "./eventHandlers";
 
+console.log(handleCloseLessonModal);
 // cached DOM elements
 const preAuthContainer = document.querySelector(".pre-auth-container");
 const profileElement = document.querySelector(".profile");
@@ -14,9 +15,7 @@ const modalLesson = document.querySelector(".modal-lesson");
 const modalLessonClose = document.querySelector(".modal-lesson-close");
 const modalLessonTitle = document.querySelector(".modal-lesson-title");
 const modalLessonContent = document.querySelector(".modal-lesson-content");
-const createLessonContainer = document.querySelector(
-  ".create-lesson-container"
-);
+const createLessonContainer = document.querySelector(".create-lesson-container");
 const lessonInput = document.querySelector(".create-lesson-input");
 const formElement = document.querySelector("form");
 const submitLessonElement = document.querySelector("#submit");
