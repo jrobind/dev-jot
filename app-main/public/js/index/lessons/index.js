@@ -1,6 +1,6 @@
 import { quill } from "../../firebase/firebase_quill_init.js";
 import lessonHelper from "./helper.js";
-import { handleClear } from "../eventHandlers.js";
+import { handleClear, handleViewClick } from "../eventHandlers.js";
 
 const lessonsContainer = document.querySelector(".lessons");
 const lessonCount = document.querySelector(".lessons-count");
