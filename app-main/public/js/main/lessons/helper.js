@@ -37,4 +37,3 @@ export default function lessonHelper({
   }
   return varName;
 }
-

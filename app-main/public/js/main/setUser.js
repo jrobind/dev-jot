@@ -3,7 +3,8 @@ import { renderLessons } from "./lessons/index.js";
 
 const avatarElement = document.querySelector(".avatar img");
 
-export default function setUser(){if (!localStorage.getItem("user")) {
+export default function setUser() {
+  if (!localStorage.getItem("user")) {
     localStorage.setItem(
       "user",
       JSON.stringify({
