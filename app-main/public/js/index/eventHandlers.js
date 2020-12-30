@@ -1,13 +1,21 @@
 import { quill } from "../firebase/firebase_quill_init.js";
 
-exports.handleClear = function (e) {
+const overlay = document.querySelector(".overlay");
+const modalLesson = document.querySelector(".modal-lesson");
+const modalLessonTitle = document.querySelector(".modal-lesson-title");
+const modalLessonContent = document.querySelector(".modal-lesson-content");
+const lessonInput = document.querySelector(".create-lesson-input");
+const submitLessonElement = document.querySelector("#submit");
+const clearBtn = document.querySelector(".create-lesson-clear");
+
+export function handleClear(e) {
   quill.root.innerHTML = "";
   lessonInput.value = "";
   clearBtn.setAttribute("hidden", "");
   submitLessonElement.textContent = "ADD LESSON";
 };
 
-exports.handleViewClick = function (lesson) {
+export function handleViewClick(lesson) {
   const title = lesson.querySelector(".lesson-card-title").innerText;
   const content = lesson.querySelector(".lesson-card-content").innerHTML;
 
@@ -18,7 +26,7 @@ exports.handleViewClick = function (lesson) {
   overlay.classList.add("dark");
 };
 
-exports.handleClearBtn = function () {
+export function handleClearBtn() {
   let textLessonContent = quill.root.innerHTML;
   let textTitleContent = document.querySelector(".create-lesson-input");
   if (
@@ -31,7 +39,7 @@ exports.handleClearBtn = function () {
   }
 };
 
-exports.handleCloseLessonModal = function () {
+export function handleCloseLessonModal() {
   modalLessonTitle.innerHTML = "";
   modalLessonContent.innerHTML = "";
 
@@ -39,5 +47,3 @@ exports.handleCloseLessonModal = function () {
   overlay.setAttribute("hidden", "");
   overlay.classList.remove("dark");
 };
-
-module.exports = exports;
