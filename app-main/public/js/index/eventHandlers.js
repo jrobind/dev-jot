@@ -1,5 +1,6 @@
 import { quill } from "../firebase/firebase_quill_init.js";
 
+// cached document elements
 const overlay = document.querySelector(".overlay");
 const modalLesson = document.querySelector(".modal-lesson");
 const modalLessonTitle = document.querySelector(".modal-lesson-title");
@@ -8,6 +9,7 @@ const lessonInput = document.querySelector(".create-lesson-input");
 const submitLessonElement = document.querySelector("#submit");
 const clearBtn = document.querySelector(".create-lesson-clear");
 
+// Remove text from form
 export function handleClear(e) {
   quill.root.innerHTML = "";
   lessonInput.value = "";
@@ -15,6 +17,7 @@ export function handleClear(e) {
   submitLessonElement.textContent = "ADD LESSON";
 }
 
+// Show lesson full screen modal
 export function handleViewClick(lesson) {
   const title = lesson.querySelector(".lesson-card-title").innerText;
   const content = lesson.querySelector(".lesson-card-content").innerHTML;
@@ -26,6 +29,7 @@ export function handleViewClick(lesson) {
   overlay.classList.add("dark");
 }
 
+// Show and hide Clear Button with text input
 export function handleClearBtn() {
   let textLessonContent = quill.root.innerHTML;
   let textTitleContent = document.querySelector(".create-lesson-input");
@@ -38,6 +42,7 @@ export function handleClearBtn() {
     clearBtn.setAttribute("hidden", "");
   }
 }
+
 
 export function handleCloseLessonModal() {
   modalLessonTitle.innerHTML = "";
