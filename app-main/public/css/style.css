@@ -216,9 +216,10 @@ body {
 }
 
 span.lessons-count {
-  margin: 25px;
-  font-size: 1rem;
+  margin: 26px;
+  font-size: 1.2rem;
   font-weight: bold;
+  padding-top: 3px;
 }
 
 .pre-auth-create-lesson-container,
@@ -353,6 +354,7 @@ span.lessons-count {
 .lessons-container-header {
   margin-left: 5px;
   color: white;
+  font-size: 1.1rem;
 }
 
 .lessons {
@@ -452,8 +454,9 @@ span.lessons-count {
 
 .create-lesson-container-header img,
 .lessons-container-header img {
-  width: 24px;
-  margin-right: 5px;
+  width: 23px;
+  margin-right: 6px;
+  margin-top: 3px;
 }
 
 .create-lesson-container-header,
@@ -541,6 +544,7 @@ form {
 
 .lesson-card .ql-editor {
   overflow: hidden;
+  overflow-y: scroll;
 }
 
 /* footer styles */
