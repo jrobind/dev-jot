@@ -131,6 +131,7 @@ body {
   width: 95%;
   overflow: auto;
   border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
 }
 
 /* header styles */
