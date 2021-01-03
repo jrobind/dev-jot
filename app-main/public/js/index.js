@@ -12,6 +12,14 @@ const avatars = [
   "parrot",
 ];
 
+const tags = [
+  "programming",
+  "in-progress",
+  "frameworks",
+  "data-structures",
+  "algorithms",
+];
+
 // cached DOM elements
 const preAuthContainer = document.querySelector(".pre-auth-container");
 const profileElement = document.querySelector(".profile");
@@ -27,6 +35,8 @@ const createLessonContainer = document.querySelector(
   ".create-lesson-container"
 );
 const lessonInput = document.querySelector(".create-lesson-input");
+const addTagButton = document.querySelector(".add-tag");
+const tagSelectors = document.querySelector(".tag-selectors");
 const formElement = document.querySelector("form");
 const submitLessonElement = document.querySelector("#submit");
 const lessonsContainer = document.querySelector(".lessons");
@@ -43,6 +53,25 @@ modalLessonClose.addEventListener("click", handleCloseLessonModal);
 clearBtn.addEventListener("click", handleClear);
 overlay.addEventListener("click", handleCloseLessonModal);
 formElement.addEventListener("keyup", handleClearBtn);
+addTagButton.addEventListener("click", handleTagVisibility);
+tagSelectors.addEventListener("click", handleTagSelect);
+
+tags.forEach((tag) => {
+  let option = document.createElement("div");
+  option.value = tag;
+  option.className = "tagCheckboxes";
+  option.classList.add(tag);
+  tagSelectors.appendChild(option);
+});
+
+function handleTagVisibility(e) {
+  tagSelectors.classList.toggle("hidden");
+}
+
+function handleTagSelect(e) {
+  let tag = e.target;
+  tag.classList.toggle("selected");
+}
 
 function handleClear(e) {
   quill.root.innerHTML = "";
@@ -164,12 +193,14 @@ function handleNoLessons() {
 }
 
 function handleLessonsCount() {
-	if (JSON.parse(localStorage.getItem("user")).lessons.length) {
-		lessonCount.innerHTML = JSON.parse(localStorage.getItem("user")).lessons.length;
-	} else {
-		lessonCount.innerHTML = '';
-		return;
-	}
+  if (JSON.parse(localStorage.getItem("user")).lessons.length) {
+    lessonCount.innerHTML = JSON.parse(
+      localStorage.getItem("user")
+    ).lessons.length;
+  } else {
+    lessonCount.innerHTML = "";
+    return;
+  }
 }
 
 function handleEditClick(lesson) {
@@ -207,91 +238,91 @@ function lessonHandler(e) {
 }
 
 function renderLessons({ lessons }) {
-	handleClear();
+  handleClear();
 
-	if (lessonsContainer.childElementCount) {
-		lessonsContainer.innerHTML = "";
-	}
-	lessons.forEach(({ title, content, id }) => {
-		const lessonCard = lessonHelper({
-			varName: document.createElement("div"),
-			eventListener: { click: lessonHandler },
-			classList: ["lesson-card"],
-			attribute: [{ "data-id": id }],
-		});
-		const buttonContainer = lessonHelper({
-			varName: document.createElement("div"),
-			classList: ["lesson-card-content-buttons"],
-		});
+  if (lessonsContainer.childElementCount) {
+    lessonsContainer.innerHTML = "";
+  }
+  lessons.forEach(({ title, content, id }) => {
+    const lessonCard = lessonHelper({
+      varName: document.createElement("div"),
+      eventListener: { click: lessonHandler },
+      classList: ["lesson-card"],
+      attribute: [{ "data-id": id }],
+    });
+    const buttonContainer = lessonHelper({
+      varName: document.createElement("div"),
+      classList: ["lesson-card-content-buttons"],
+    });
 
-		const titleContainer = lessonHelper({
-			varName: document.createElement("div"),
-			classList: ["lesson-card-title-container"],
-		});
+    const titleContainer = lessonHelper({
+      varName: document.createElement("div"),
+      classList: ["lesson-card-title-container"],
+    });
 
-		const lessonTitle = lessonHelper({
-			varName: document.createElement("h2"),
-			classList: ["lesson-card-title"],
-			textContent: title,
-		});
+    const lessonTitle = lessonHelper({
+      varName: document.createElement("h2"),
+      classList: ["lesson-card-title"],
+      textContent: title,
+    });
 
-		const lessonContent = lessonHelper({
-			varName: document.createElement("div"),
-			classList: ["lesson-card-content", "ql-editor", "ql-container"],
-			innerHTML: content,
-		});
+    const lessonContent = lessonHelper({
+      varName: document.createElement("div"),
+      classList: ["lesson-card-content", "ql-editor", "ql-container"],
+      innerHTML: content,
+    });
 
-		const lessonRemoveBtn = lessonHelper({
-			varName: document.createElement("div"),
-			classList: ["button"],
-			id: "delete",
-		});
+    const lessonRemoveBtn = lessonHelper({
+      varName: document.createElement("div"),
+      classList: ["button"],
+      id: "delete",
+    });
 
-		const removeIcon = lessonHelper({
-			varName: document.createElement("img"),
-			attribute: [
-				{ alt: "remove lesson icon" },
-				{ src: "./images/cancel-white.svg" },
-			],
-			id: "delete",
-		});
+    const removeIcon = lessonHelper({
+      varName: document.createElement("img"),
+      attribute: [
+        { alt: "remove lesson icon" },
+        { src: "./images/cancel-white.svg" },
+      ],
+      id: "delete",
+    });
 
-		const editIcon = lessonHelper({
-			varName: document.createElement("img"),
-			attribute: [
-				{ alt: "edit lesson icon" },
-				{ src: "./images/edit-white.svg" },
-			],
-			id: "edit",
-		});
+    const editIcon = lessonHelper({
+      varName: document.createElement("img"),
+      attribute: [
+        { alt: "edit lesson icon" },
+        { src: "./images/edit-white.svg" },
+      ],
+      id: "edit",
+    });
 
-		const lessonEditBtn = lessonHelper({
-			varName: document.createElement("button"),
-			classList: ["button"],
-			id: "edit",
-		});
+    const lessonEditBtn = lessonHelper({
+      varName: document.createElement("button"),
+      classList: ["button"],
+      id: "edit",
+    });
 
-		const lessonViewBtn = lessonHelper({
-			varName: document.createElement("button"),
-			classList: ["button"],
-			textContent: "VIEW LESSON",
-			id: "view",
-		});
+    const lessonViewBtn = lessonHelper({
+      varName: document.createElement("button"),
+      classList: ["button"],
+      textContent: "VIEW LESSON",
+      id: "view",
+    });
 
-		titleContainer.appendChild(lessonTitle);
-		lessonRemoveBtn.appendChild(removeIcon);
-		titleContainer.appendChild(lessonRemoveBtn);
-		lessonCard.appendChild(titleContainer);
-		lessonCard.appendChild(lessonContent);
-		buttonContainer.appendChild(lessonViewBtn);
-		lessonEditBtn.appendChild(editIcon);
-		buttonContainer.appendChild(lessonEditBtn);
-		lessonCard.appendChild(buttonContainer);
-		lessonsContainer.appendChild(lessonCard);
-	});
+    titleContainer.appendChild(lessonTitle);
+    lessonRemoveBtn.appendChild(removeIcon);
+    titleContainer.appendChild(lessonRemoveBtn);
+    lessonCard.appendChild(titleContainer);
+    lessonCard.appendChild(lessonContent);
+    buttonContainer.appendChild(lessonViewBtn);
+    lessonEditBtn.appendChild(editIcon);
+    buttonContainer.appendChild(lessonEditBtn);
+    lessonCard.appendChild(buttonContainer);
+    lessonsContainer.appendChild(lessonCard);
+  });
 
-	handleNoLessons();
-	handleLessonsCount();
+  handleNoLessons();
+  handleLessonsCount();
 }
 
 function addLesson() {
@@ -300,6 +331,11 @@ function addLesson() {
   const isEditView = createLessonContainer
     .getAttribute("view")
     .includes("edit-lesson");
+  // filter tags that are "selected" upon submission
+  const tags = [...tagSelectors.children].filter((tag) =>
+    tag.classList.contains("selected")
+  );
+
   // Regex to match any number of whitespaces in the content form.
   var regex = /<(.|\n)*?>/g;
   if (content.replace(regex, "").trim().length === 0) {
@@ -330,6 +366,7 @@ function addLesson() {
       id: String(Math.floor(Math.random() * 90000 + 10000)),
       title: lessonInput.value,
       content,
+      tags,
     });
 
     localStorage.setItem("user", JSON.stringify(user));

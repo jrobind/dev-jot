@@ -173,12 +173,25 @@
                 <button class="create-lesson-clear button" hidden>Clear</button>
               </div>
               <form>
-                <input
-                  class="create-lesson-input"
-                  type="text"
-                  placeholder="Lesson title"
-                  required
-                />
+                <div class="create-lesson-title-container">
+                  <input
+                    class="create-lesson-input"
+                    type="text"
+                    placeholder="Lesson title"
+                    required
+                  />
+                  <button
+                    class="add-tag create-lesson-input"
+                    id="addTag"
+                    type="button"
+                  >
+                    Tags
+                  </button>
+                  <!-- <select class="create-lesson-input" type="select">
+                    <option value="" selected disabled hidden>Tag</option>
+                  </select> -->
+                </div>
+                <div class="tag-selectors hidden"></div>
                 <div id="editor"></div>
                 <button class="button" id="submit" type="submit">
                   ADD LESSON
