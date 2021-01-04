@@ -12,7 +12,13 @@ const avatars = [
   "parrot",
 ];
 
-const TAGS = ["039dfc", "AAF0CA", "2ec4b6", "e71d36", "ff9f1c"];
+const tags = [
+  "programming",
+  "in-progress",
+  "frameworks",
+  "data-structures",
+  "algorithms",
+];
 
 // cached DOM elements
 const preAuthContainer = document.querySelector(".pre-auth-container");
@@ -50,34 +56,21 @@ formElement.addEventListener("keyup", handleClearBtn);
 addTagButton.addEventListener("click", handleTagVisibility);
 tagSelectors.addEventListener("click", handleTagSelect);
 
-// create tag colors
-TAGS.forEach((tag) => {
+tags.forEach((tag) => {
   let option = document.createElement("div");
-  option.value = "#" + tag;
-  option.style.backgroundColor = "#" + tag;
-  option.style.border = "solid";
-  option.style.borderColor = "transparent";
+  option.value = tag;
   option.className = "tagCheckboxes";
+  option.classList.add(tag);
   tagSelectors.appendChild(option);
 });
 
 function handleTagVisibility(e) {
-  if (tagSelectors.classList.contains("hidden")) {
-    tagSelectors.classList.replace("hidden", "visible");
-  } else {
-    tagSelectors.classList.replace("visible", "hidden");
-  }
+  tagSelectors.classList.toggle("hidden");
 }
 
 function handleTagSelect(e) {
   let tag = e.target;
-  if (tag.style.borderColor === "transparent") {
-    tag.style.borderColor = "black";
-  } else {
-    tag.style.borderColor = "transparent";
-  }
   tag.classList.toggle("selected");
-  console.log("tag selected: " + tag);
 }
 
 function handleClear(e) {

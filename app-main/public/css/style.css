@@ -2,6 +2,11 @@
   --main-b-color: #339989;
   --secondary-b-color: #2b2c28;
   --tertiary-b-color: #f7b501;
+  --in-progress: #039dfc;
+  --programming: #aaf0ca;
+  --frameworks: #2ec4b6;
+  --data-structures: #e71d36;
+  --algorithms: #ff9f1c;
 }
 
 [hidden] {
@@ -484,7 +489,11 @@ input.create-lesson-input {
   margin-top: -20px;
   display: flex;
   justify-content: center;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 1s linear;
 }
+
 .tagCheckboxes {
   flex: 1;
   min-height: 15px;
@@ -492,15 +501,34 @@ input.create-lesson-input {
   border-color: transparent;
 }
 
-.visible {
-  visibility: visible;
-  opacity: 1;
-  transition: opacity 1s linear;
+/* Tag divs */
+.in-progress {
+  background-color: var(--in-progress);
 }
+
+.programming {
+  background-color: var(--programming);
+}
+
+.frameworks {
+  background-color: var(--frameworks);
+}
+
+.data-structures {
+  background-color: var(--data-structures);
+}
+
+.algorithms {
+  background-color: var(--algorithms);
+}
+
 .hidden {
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s 1s, opacity 1s linear;
+}
+.selected {
+  border-color: black;
 }
 
 .create-lesson-input::placeholder {
