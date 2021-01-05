@@ -4,9 +4,9 @@ import setUser from "./setUser.js";
 import showContainers from "./showContainers.js";
 
 export default function init() {
-  // create a quill 
+  // create a quill
   quill.root.focus();
-  
+
   // Clear all containers of "hidden" attributes
   showContainers();
 

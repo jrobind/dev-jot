@@ -2,10 +2,11 @@ import { quill } from "../quill_init.js";
 import lessonHelper from "./helper.js";
 import { handleClear, handleViewClick } from "../events/eventHandlers.js";
 
-
 // cache elements that are globally necessary
 const lessonsContainer = document.querySelector(".lessons");
-const createLessonContainer = document.querySelector(".create-lesson-container");
+const createLessonContainer = document.querySelector(
+  ".create-lesson-container"
+);
 const lessonInput = document.querySelector(".create-lesson-input");
 
 // handle if no lessons in local storage
@@ -34,7 +35,7 @@ function handleLessonsCount() {
   }
 }
 
-// Display lesson in editor 
+// Display lesson in editor
 function handleEditClick(lesson) {
   // cache clearBtn and submit button
   const clearBtn = document.querySelector(".create-lesson-clear");
@@ -182,7 +183,7 @@ export function addLesson() {
     console.log("Tried to add empty lesson note.");
     return;
   }
-  
+
   if (isEditView) {
     const id = createLessonContainer.getAttribute("view").split(":")[1];
 
