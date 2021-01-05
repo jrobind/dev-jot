@@ -112,9 +112,7 @@ body {
 .modal-lesson-title {
   font-size: 32px;
   position: relative;
-  margin:60px 30px;
-  
-  
+  margin:60px 30px 10px 30px;
 }
 
 .modal-lesson-title::before {
@@ -128,7 +126,6 @@ body {
   /* the stylized offset */
   width: calc(100% + 18px);
   right: -8px;
-  
 }
 
 .modal-lesson-content {
