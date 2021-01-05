@@ -1,16 +1,14 @@
-import { quill } from "../../firebase/firebase_quill_init.js";
+import { quill } from "../quill_init.js";
 import lessonHelper from "./helper.js";
 import { handleClear, handleViewClick } from "../events/eventHandlers.js";
 
-const lessonsContainer = document.querySelector(".lessons");
-const lessonCount = document.querySelector(".lessons-count");
-const createLessonContainer = document.querySelector(
-  ".create-lesson-container"
-);
-const clearBtn = document.querySelector(".create-lesson-clear");
-const lessonInput = document.querySelector(".create-lesson-input");
-const submitLessonElement = document.querySelector("#submit");
 
+// cache elements that are globally necessary
+const lessonsContainer = document.querySelector(".lessons");
+const createLessonContainer = document.querySelector(".create-lesson-container");
+const lessonInput = document.querySelector(".create-lesson-input");
+
+// handle if no lessons in local storage
 function handleNoLessons() {
   if (JSON.parse(localStorage.getItem("user")).lessons.length) {
     return;
@@ -23,7 +21,9 @@ function handleNoLessons() {
   lessonsContainer.appendChild(noLessons);
 }
 
+// Count lessons
 function handleLessonsCount() {
+  const lessonCount = document.querySelector(".lessons-count");
   if (JSON.parse(localStorage.getItem("user")).lessons.length) {
     lessonCount.innerHTML = JSON.parse(
       localStorage.getItem("user")
@@ -34,7 +34,11 @@ function handleLessonsCount() {
   }
 }
 
+// Display lesson in editor 
 function handleEditClick(lesson) {
+  // cache clearBtn and submit button
+  const clearBtn = document.querySelector(".create-lesson-clear");
+  const submitLessonElement = document.querySelector("#submit");
   // get lesson title and content
   const title = lesson.querySelector(".lesson-card-title").innerText;
   const content = lesson.querySelector(".lesson-card-content").innerHTML;
@@ -52,6 +56,7 @@ function handleEditClick(lesson) {
   submitLessonElement.textContent = "UPDATE LESSON";
 }
 
+// handle buttons in lesson
 function lessonHandler(e) {
   const lessonCard = e.currentTarget;
 
@@ -68,6 +73,7 @@ function lessonHandler(e) {
   }
 }
 
+// render lessons from localStorage
 export function renderLessons({ lessons }) {
   handleClear();
 
@@ -75,6 +81,7 @@ export function renderLessons({ lessons }) {
     lessonsContainer.innerHTML = "";
   }
   lessons.forEach(({ title, content, id }) => {
+    // create each element of card
     const lessonCard = lessonHelper({
       varName: document.createElement("div"),
       eventListener: { click: lessonHandler },
@@ -140,6 +147,7 @@ export function renderLessons({ lessons }) {
       id: "view",
     });
 
+    // append elements to card
     titleContainer.appendChild(lessonTitle);
     lessonRemoveBtn.appendChild(removeIcon);
     titleContainer.appendChild(lessonRemoveBtn);
@@ -152,13 +160,19 @@ export function renderLessons({ lessons }) {
     lessonsContainer.appendChild(lessonCard);
   });
 
+  // Display no lessons if none and lesson count;
   handleNoLessons();
   handleLessonsCount();
 }
 
+// function to add lesson
 export function addLesson() {
+  // get user
   const user = JSON.parse(localStorage.getItem("user"));
+  // get editor content;
   const content = quill.root.innerHTML;
+
+  // Boolean for if edit View
   const isEditView = createLessonContainer
     .getAttribute("view")
     .includes("edit-lesson");
@@ -168,6 +182,7 @@ export function addLesson() {
     console.log("Tried to add empty lesson note.");
     return;
   }
+  
   if (isEditView) {
     const id = createLessonContainer.getAttribute("view").split(":")[1];
 
@@ -201,6 +216,7 @@ export function addLesson() {
   }
 }
 
+// function to remove lesson
 function removeLesson(deleteId) {
   const user = JSON.parse(localStorage.getItem("user"));
 

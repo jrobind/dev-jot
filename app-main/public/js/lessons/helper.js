@@ -1,3 +1,4 @@
+// modular function to help create a lesson
 export default function lessonHelper({
   varName,
   eventListener,

@@ -1,9 +1,9 @@
 import avatars from "./avatars.js";
-import { renderLessons } from "./lessons/index.js";
+import { renderLessons } from "../lessons/index.js";
 
-const avatarElement = document.querySelector(".avatar img");
-
+// find or set user in Local Storage
 export default function setUser() {
+  const avatarElement = document.querySelector(".avatar img");
   if (!localStorage.getItem("user")) {
     localStorage.setItem(
       "user",
