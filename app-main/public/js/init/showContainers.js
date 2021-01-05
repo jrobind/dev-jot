@@ -1,4 +1,4 @@
-// function to show containers when data loaded 
+// function to show containers when data loaded
 // from User settings in Local Storage
 export default function showContainers() {
   document.querySelector(".pre-auth-container").setAttribute("hidden", "");
