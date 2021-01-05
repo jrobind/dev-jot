@@ -1,4 +1,4 @@
-import { quill } from "../../firebase/firebase_quill_init.js";
+import { quill } from "../quill_init.js";
 
 // cached document elements
 const overlay = document.querySelector(".overlay");
@@ -43,6 +43,7 @@ export function handleClearBtn() {
   }
 }
 
+// close modal
 export function handleCloseLessonModal() {
   modalLessonTitle.innerHTML = "";
   modalLessonContent.innerHTML = "";

@@ -1,4 +1,6 @@
-// import { firebaseConfig, quill } from "./firebase_quill_init.js";
+// // NOT IN USE FOR NOW
+
+// import { firebaseConfig, quill } from "../quill_init.js";
 
 // // Initialize Firebase
 // firebase.initializeApp(firebaseConfig);

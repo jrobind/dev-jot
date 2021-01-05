@@ -1,4 +1,4 @@
-import init from "./main/init.js";
+import init from "./init/init.js";
 
 // initialize Application
 init();
