@@ -7,7 +7,6 @@ import {
 import { addLesson } from "../lessons/index.js";
 import registerSW from "./serviceWorker.js";
 
-
 export default function setEventListeners() {
   // cache necessary elements
   const overlay = document.querySelector(".overlay");
