@@ -11,7 +11,6 @@ export default function init() {
   // Clear all containers of "hidden" attributes
   showContainers();
 
-
   setTags();
 
   //Find User in Local Storage or set one up
