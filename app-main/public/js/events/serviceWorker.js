@@ -1,4 +1,3 @@
-// Register Service Worker
 export default async function registerSW() {
   if ("serviceWorker" in navigator) {
     try {
