@@ -183,6 +183,7 @@ export function addLesson() {
   const tags = [...tagSelectors.children].filter((tag) =>
     tag.classList.contains("selected")
   );
+  
   // Regex to match any number of whitespaces in the content form.
   var regex = /<(.|\n)*?>/g;
   if (content.replace(regex, "").trim().length === 0) {
