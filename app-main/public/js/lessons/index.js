@@ -8,6 +8,7 @@ const createLessonContainer = document.querySelector(
   ".create-lesson-container"
 );
 const lessonInput = document.querySelector(".create-lesson-input");
+const tagSelectors = document.querySelector(".tag-selectors");
 
 // handle if no lessons in local storage
 function handleNoLessons() {
@@ -177,13 +178,17 @@ export function addLesson() {
   const isEditView = createLessonContainer
     .getAttribute("view")
     .includes("edit-lesson");
+  
+  // filter tags that are "selected" upon submission
+  const tags = [...tagSelectors.children].filter((tag) =>
+    tag.classList.contains("selected")
+  );
   // Regex to match any number of whitespaces in the content form.
   var regex = /<(.|\n)*?>/g;
   if (content.replace(regex, "").trim().length === 0) {
     console.log("Tried to add empty lesson note.");
     return;
   }
-
   if (isEditView) {
     const id = createLessonContainer.getAttribute("view").split(":")[1];
 
@@ -208,6 +213,7 @@ export function addLesson() {
       id: String(Math.floor(Math.random() * 90000 + 10000)),
       title: lessonInput.value,
       content,
+      tags
     });
 
     localStorage.setItem("user", JSON.stringify(user));

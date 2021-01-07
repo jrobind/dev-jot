@@ -48,3 +48,14 @@ export function handleCloseLessonModal() {
   overlay.setAttribute("hidden", "");
   overlay.classList.remove("dark");
 }
+
+export function handleTagVisibility(e) {
+  const tagSelectors = document.querySelector(".tag-selectors");
+  tagSelectors.classList.toggle("hidden");
+}
+
+export function handleTagSelect(e) {
+  const addTagButton = document.querySelector(".add-tag");
+  let tag = e.target;
+  tag.classList.toggle("selected");
+}
