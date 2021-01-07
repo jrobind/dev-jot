@@ -4,7 +4,7 @@ import {
   handleClearBtn,
   handleViewClick,
   handleTagVisibility,
-  handleTagSelect
+  handleTagSelect,
 } from "./eventHandlers.js";
 import { addLesson } from "../lessons/index.js";
 import registerSW from "./serviceWorker.js";
@@ -34,7 +34,6 @@ export default function setEventListeners() {
   addTagButton.addEventListener("click", handleTagVisibility);
 
   tagSelectors.addEventListener("click", handleTagSelect);
-
 
   window.addEventListener("load", () => {
     registerSW();

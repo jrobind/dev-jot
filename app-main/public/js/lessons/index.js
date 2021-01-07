@@ -178,7 +178,7 @@ export function addLesson() {
   const isEditView = createLessonContainer
     .getAttribute("view")
     .includes("edit-lesson");
-  
+
   // filter tags that are "selected" upon submission
   const tags = [...tagSelectors.children].filter((tag) =>
     tag.classList.contains("selected")
@@ -213,7 +213,7 @@ export function addLesson() {
       id: String(Math.floor(Math.random() * 90000 + 10000)),
       title: lessonInput.value,
       content,
-      tags
+      tags,
     });
 
     localStorage.setItem("user", JSON.stringify(user));
