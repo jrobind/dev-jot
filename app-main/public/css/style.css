@@ -513,6 +513,7 @@ form {
 
 .lesson-card .ql-editor {
   overflow: hidden;
+  overflow-y: scroll;
 }
 
 /* footer styles */
@@ -533,11 +534,88 @@ form {
 
 @media only screen and (max-width: 1090px) {
   body {
-    min-width: 1090px;
+    /* min-width: 1090px; */
     overflow-x: scroll;
   }
 
   .modal-lesson {
     max-width: 90%;
+  }
+}
+@media(max-width: 900px){
+  body {
+    width: 100%;
+    /* max-width: 900px; */
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  .app-container{
+    display: inline-block;
+  }
+  .lessons-container{
+    width: 80%;
+    height: 250px;
+    padding-bottom: 0px;
+    overflow-y: scroll;
+    margin: auto;
+    overflow-x: hidden;
+  }
+  .lesson-card{
+    display: inline-block;
+    background: #fff;
+    max-width: 150px;
+  }
+  #delete{
+    padding: 1px 1px;
+    width: 20px;
+    height: 20px;
+  }
+  .lesson-card-content-buttons{
+    margin-top: 0;
+    justify-content: flex-end;
+    z-index: 500;
+    position: relative;
+  }
+  .lesson-card-content{
+    border: none;
+    padding: 0 5px;
+  }
+  .ql-editor{
+    padding: 0;
+  }
+  .lesson-card-content-buttons button:first-of-type{
+    min-width: auto;
+  }
+  .lesson-card{
+    height: 120px;
+    justify-content: space-around;
+  }
+  .lesson-card-title-container{
+    margin-top: 1px;
+    margin-bottom: 5px;
+  }
+  .lesson-card-title{
+    margin-bottom: 0;
+  }
+  html{
+    width: 100%;
+  }
+  .modal-lesson{
+    z-index: 600;
+    width: 100%;
+  }
+  .app-container{
+    width: 100%;
+  }
+  .lesson-card .ql-editor{
+    height: 65px;
+  }
+  .lessons{
+    display: flex;
+    overflow-x: auto;
+  }
+  .create-lesson .button{
+    margin-right: auto;
+    margin-left: auto;
   }
 }

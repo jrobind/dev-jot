@@ -11,6 +11,9 @@ const avatars = [
   "octopus",
   "parrot",
 ];
+if (outerWidth < 400) {
+  console.log('nimi');
+}
 
 // cached DOM elements
 const preAuthContainer = document.querySelector(".pre-auth-container");
@@ -274,7 +277,7 @@ function renderLessons({ lessons }) {
 		const lessonViewBtn = lessonHelper({
 			varName: document.createElement("button"),
 			classList: ["button"],
-			textContent: "VIEW LESSON",
+			textContent: "VIEW",
 			id: "view",
 		});
 
