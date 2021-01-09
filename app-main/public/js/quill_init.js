@@ -1,15 +1,3 @@
-// // firebase not in use
-// export const firebaseConfig = {
-//   apiKey: "",
-//   authDomain: "",
-//   databaseURL: "",
-//   projectId: "",
-//   storageBucket: "",
-//   messagingSenderId: "",
-//   appId: "",
-//   measurementId: "",
-// };
-
 const toolbarOptions = [
   ["bold", "italic", "underline", "strike"],
   ["code-block", "image", "link"],
