@@ -86,26 +86,6 @@ body {
   right: 5px;
 }
 
-.modal:not(.modal-lesson):hover button.sign-in {
-  cursor: pointer;
-  background: var(--secondary-b-color);
-  color: white;
-  transition: 0.2s;
-}
-
-.modal button.sign-in {
-  display: block;
-  min-height: 85px;
-  min-width: 250px;
-  border: none;
-  background: white;
-  padding: 0;
-  margin: 0;
-  font-family: inherit;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
 /* modal lesson styles */
 
 .modal-lesson {
@@ -165,14 +145,6 @@ body {
   width: 24px;
   margin-left: 6px;
   margin-bottom: -6px;
-}
-
-.sign-out .button {
-  background: white;
-  color: var(--main-b-color);
-  border-radius: 3px;
-  font-size: 14px;
-  font-weight: 700;
 }
 
 .profile {
