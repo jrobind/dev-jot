@@ -76,6 +76,15 @@ function handleTagSelect(e) {
 function handleClear(e) {
   quill.root.innerHTML = "";
   lessonInput.value = "";
+
+  const selectedTags = [...tagSelectors.children].filter((tag) =>
+    tag.classList.contains("selected")
+  );
+
+  selectedTags.forEach((tag) => {
+    tag.classList.remove("selected");
+  });
+
   clearBtn.setAttribute("hidden", "");
   submitLessonElement.textContent = "ADD LESSON";
 }
