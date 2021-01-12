@@ -43,15 +43,12 @@
 
   <body>
     <div class="overlay"></div>
-    <div hidden class="modal">
-      <button hidden class="sign-in">Sign in with Google</button>
-    </div>
     <div hidden class="modal modal-lesson">
-      <h2 class="modal-lesson-title"></h2>
-      <div class="modal-lesson-content"></div>
       <button class="modal-lesson-close button">
         <img alt="remove lesson icon" src="./images/cancel-white.svg" />
       </button>
+      <h2 class="modal-lesson-title"></h2>
+      <div class="ql-editor modal-lesson-content"></div>
     </div>
     <header class="header">
       <div class="header-title">
@@ -59,9 +56,6 @@
         <img alt="note icon" src="./images/sticky_note-white.svg" />
       </div>
       <div hidden class="profile">
-        <div hidden class="sign-out">
-          <button class="button">Sign out</button>
-        </div>
         <div class="avatar">
           <img referrerpolicy="no-referrer" alt="avatar" />
         </div>
@@ -215,13 +209,8 @@
       </div>
     </footer>
     <body>
-      <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-app.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-analytics.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-auth.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-firestore.js"></script>
       <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     </body>
     <script type="module" src="./js/index.js"></script>
-    <!-- <script type="module" src="./js/firebase.js"></script> -->
   </body>
 </html>

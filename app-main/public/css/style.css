@@ -60,8 +60,8 @@ body {
 .modal,
 .modal-lesson {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   position: fixed;
   top: 50%;
   right: 50%;
@@ -86,60 +86,39 @@ body {
   right: 5px;
 }
 
-.modal:not(.modal-lesson):hover button.sign-in {
-  cursor: pointer;
-  background: var(--secondary-b-color);
-  color: white;
-  transition: 0.2s;
-}
-
-.modal button.sign-in {
-  display: block;
-  min-height: 85px;
-  min-width: 250px;
-  border: none;
-  background: white;
-  padding: 0;
-  margin: 0;
-  font-family: inherit;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
 /* modal lesson styles */
 
 .modal-lesson {
   max-width: 1050px;
-  width: 100%;
+  width: 95%;
   max-height: calc(100vh - 250px);
-  padding: 5px;
-  overflow: auto;
-  justify-content: flex-start;
 }
 
 .modal-lesson-title {
-  margin-top: 50px;
-  align-self: flex-start;
-  padding: 15px 60px;
   font-size: 32px;
   position: relative;
+  margin: 60px 30px 10px 30px;
 }
 
 .modal-lesson-title::before {
   content: "";
   position: absolute;
-  width: calc(100% - 100px);
   height: 20px;
-  left: 50px;
-  top: 40px;
+  top: 25px;
   z-index: -1;
   background-color: var(--tertiary-b-color);
   opacity: 50%;
+  /* the stylized offset */
+  width: calc(100% + 18px);
+  right: -8px;
 }
 
 .modal-lesson-content {
-  padding: 15px 60px;
-  align-self: flex-start;
+  width: 95%;
+  overflow: auto;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+  margin: 0 auto 30px auto;
 }
 
 /* header styles */
@@ -166,14 +145,6 @@ body {
   width: 24px;
   margin-left: 6px;
   margin-bottom: -6px;
-}
-
-.sign-out .button {
-  background: white;
-  color: var(--main-b-color);
-  border-radius: 3px;
-  font-size: 14px;
-  font-weight: 700;
 }
 
 .profile {
