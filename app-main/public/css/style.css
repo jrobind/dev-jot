@@ -534,7 +534,6 @@ form {
 
 @media only screen and (max-width: 1090px) {
   body {
-    /* min-width: 1090px; */
     overflow-x: scroll;
   }
 
