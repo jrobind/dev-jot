@@ -11,9 +11,6 @@ const avatars = [
   "octopus",
   "parrot",
 ];
-if (outerWidth < 400) {
-  console.log('nimi');
-}
 
 // cached DOM elements
 const preAuthContainer = document.querySelector(".pre-auth-container");
