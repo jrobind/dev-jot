@@ -1,8 +1,5 @@
 /node_modules
-.firebase
 database.rules.json
-.firebaserc
-firebase.json
 .idea
 .idea/workspace.xml
 .env
