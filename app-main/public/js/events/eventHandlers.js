@@ -8,11 +8,21 @@ const modalLessonContent = document.querySelector(".modal-lesson-content");
 const lessonInput = document.querySelector(".create-lesson-input");
 const submitLessonElement = document.querySelector("#submit");
 const clearBtn = document.querySelector(".create-lesson-clear");
+const tagSelectors = document.querySelector(".tag-selectors");
 
 export function handleClear(e) {
   quill.root.innerHTML = "";
   lessonInput.value = "";
   clearBtn.setAttribute("hidden", "");
+
+  const selectedTags = [...tagSelectors.children].filter((tag) =>
+    tag.classList.contains("selected")
+  );
+
+  selectedTags.forEach((tag) => {
+    tag.classList.remove("selected");
+  });
+
   submitLessonElement.textContent = "ADD LESSON";
 }
 
