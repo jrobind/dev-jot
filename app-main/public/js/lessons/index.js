@@ -145,7 +145,7 @@ export function renderLessons({ lessons }) {
     const lessonViewBtn = lessonHelper({
       varName: document.createElement("button"),
       classList: ["button"],
-      textContent: "VIEW LESSON",
+      textContent: "VIEW",
       id: "view",
     });
 
