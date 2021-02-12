@@ -384,6 +384,11 @@ span.lessons-count {
   border-radius: 3px;
   padding: 5px 8px;
 }
+.modal-lesson-close:hover 
+{
+  box-shadow: inset 50px 0 0 0 #a3d2ca;
+}
+
 
 .lesson-card-title {
   margin-top: 0;
@@ -413,6 +418,10 @@ span.lessons-count {
 .lesson-card-content-buttons .button {
   font-size: 12px;
   border-radius: 3px;
+  box-shadow: inset 0 0 0 0 #ffee93;
+  transition: ease-out .3s;
+  outline:none;
+  position: relative;
 }
 
 .lesson-card-content-buttons button:first-of-type {
@@ -423,10 +432,26 @@ span.lessons-count {
   background: var(--tertiary-b-color);
   color: black;
 }
+.lesson-card-content-buttons button:first-of-type:hover
+{
+   box-shadow: inset 115px 0 0 0 #ffee93;
+   color: black;
+   cursor: pointer;
+}
 
 .lesson-card-content-buttons button:last-of-type {
   padding: 5px 8px;
   max-width: 50px;
+}
+.lesson-card-content-buttons button:last-of-type:hover
+{ 
+  box-shadow: inset 50px 0 0 0 #a3d2ca;
+   color: black;
+   cursor: pointer;
+}
+.lesson-card-title-container .button:hover
+{
+  box-shadow: inset 50px 0 0 0 #ec4646;
 }
 
 .no-lessons {
@@ -479,11 +504,21 @@ span.lessons-count {
   max-width: 150px;
   padding: 10px 12px;
   border-radius: 3px;
-  background: var(--tertiary-b-color);
+  background:var(--tertiary-b-color);
   color: black;
   letter-spacing: 1px;
   font-size: 14px;
   white-space: nowrap;
+  box-shadow: inset 0 0 0 0 #ffee93;
+  transition: ease-out .3s;
+  outline:none;
+  position: relative;
+}
+.create-lesson .button:hover
+{
+   box-shadow: inset 150px 0 0 0 #ffee93;
+   color: black;
+   cursor: pointer;
 }
 
 form {
