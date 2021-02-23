@@ -21,8 +21,8 @@ body {
 body {
   margin: 0;
   padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+    Droid Sans, Helvetica Neue;
   letter-spacing: 0.02em;
 }
 
@@ -293,12 +293,7 @@ span.lessons-count {
   width: 100%;
   height: 100%;
   transform: translateX(-100%);
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   animation: loading 1.5s infinite;
 }
 
@@ -366,11 +361,9 @@ span.lessons-count {
   border-radius: 3px;
   padding: 5px 8px;
 }
-.modal-lesson-close:hover 
-{
+.modal-lesson-close:hover {
   box-shadow: inset 50px 0 0 0 #a3d2ca;
 }
-
 
 .lesson-card-title {
   margin-top: 0;
@@ -401,8 +394,8 @@ span.lessons-count {
   font-size: 12px;
   border-radius: 3px;
   box-shadow: inset 0 0 0 0 #ffee93;
-  transition: ease-out .3s;
-  outline:none;
+  transition: ease-out 0.3s;
+  outline: none;
   position: relative;
 }
 
@@ -414,25 +407,22 @@ span.lessons-count {
   background: var(--tertiary-b-color);
   color: black;
 }
-.lesson-card-content-buttons button:first-of-type:hover
-{
-   box-shadow: inset 115px 0 0 0 #ffee93;
-   color: black;
-   cursor: pointer;
+.lesson-card-content-buttons button:first-of-type:hover {
+  box-shadow: inset 115px 0 0 0 #ffee93;
+  color: black;
+  cursor: pointer;
 }
 
 .lesson-card-content-buttons button:last-of-type {
   padding: 5px 8px;
   max-width: 50px;
 }
-.lesson-card-content-buttons button:last-of-type:hover
-{ 
+.lesson-card-content-buttons button:last-of-type:hover {
   box-shadow: inset 50px 0 0 0 #a3d2ca;
-   color: black;
-   cursor: pointer;
+  color: black;
+  cursor: pointer;
 }
-.lesson-card-title-container .button:hover
-{
+.lesson-card-title-container .button:hover {
   box-shadow: inset 50px 0 0 0 #ec4646;
 }
 
@@ -472,12 +462,21 @@ span.lessons-count {
 }
 
 .create-lesson-input {
+  outline: none;
   margin-bottom: 20px;
   padding: 12px;
   border: 1px solid #ccc;
 }
 
-input.create-lesson-input {
+.create-lesson-input-invalid {
+  outline: none;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 2px solid red;
+}
+
+input.create-lesson-input,
+input.create-lesson-input-invalid {
   flex: 1;
 }
 
@@ -537,21 +536,20 @@ input.create-lesson-input {
   max-width: 150px;
   padding: 10px 12px;
   border-radius: 3px;
-  background:var(--tertiary-b-color);
+  background: var(--tertiary-b-color);
   color: black;
   letter-spacing: 1px;
   font-size: 14px;
   white-space: nowrap;
   box-shadow: inset 0 0 0 0 #ffee93;
-  transition: ease-out .3s;
-  outline:none;
+  transition: ease-out 0.3s;
+  outline: none;
   position: relative;
 }
-.create-lesson .button:hover
-{
-   box-shadow: inset 150px 0 0 0 #ffee93;
-   color: black;
-   cursor: pointer;
+.create-lesson .button:hover {
+  box-shadow: inset 150px 0 0 0 #ffee93;
+  color: black;
+  cursor: pointer;
 }
 
 form {
@@ -606,16 +604,16 @@ form {
     max-width: 90%;
   }
 }
-@media(max-width: 900px){
+@media (max-width: 900px) {
   body {
     width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
   }
-  .app-container{
+  .app-container {
     display: inline-block;
   }
-  .lessons-container{
+  .lessons-container {
     width: 80%;
     height: 250px;
     padding-bottom: 0px;
@@ -623,61 +621,61 @@ form {
     margin: auto;
     overflow-x: hidden;
   }
-  .lesson-card{
+  .lesson-card {
     display: inline-block;
     background: #fff;
     max-width: 150px;
   }
-  #delete{
+  #delete {
     padding: 1px 1px;
     width: 20px;
     height: 20px;
   }
-  .lesson-card-content-buttons{
+  .lesson-card-content-buttons {
     margin-top: 0;
     justify-content: flex-end;
     z-index: 500;
     position: relative;
   }
-  .lesson-card-content{
+  .lesson-card-content {
     border: none;
     padding: 0 5px;
   }
-  .ql-editor{
+  .ql-editor {
     padding: 0;
   }
-  .lesson-card-content-buttons button:first-of-type{
+  .lesson-card-content-buttons button:first-of-type {
     min-width: auto;
   }
-  .lesson-card{
+  .lesson-card {
     height: 120px;
     justify-content: space-around;
   }
-  .lesson-card-title-container{
+  .lesson-card-title-container {
     margin-top: 1px;
     margin-bottom: 5px;
   }
-  .lesson-card-title{
+  .lesson-card-title {
     margin-bottom: 0;
   }
-  html{
+  html {
     width: 100%;
   }
-  .modal-lesson{
+  .modal-lesson {
     z-index: 600;
     width: 100%;
   }
-  .app-container{
+  .app-container {
     width: 100%;
   }
-  .lesson-card .ql-editor{
+  .lesson-card .ql-editor {
     height: 65px;
   }
-  .lessons{
+  .lessons {
     display: flex;
     overflow-x: auto;
   }
-  .create-lesson .button{
+  .create-lesson .button {
     margin-right: auto;
     margin-left: auto;
   }
