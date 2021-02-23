@@ -174,6 +174,7 @@ export function addLesson() {
   // get editor content;
   const content = quill.root.innerHTML;
   const lessonTitle = lessonInput.value;
+  const titleTooltip = document.getElementById('title-tooltip');
   // Boolean for if edit View
   const isEditView = createLessonContainer
     .getAttribute("view")
@@ -185,9 +186,9 @@ export function addLesson() {
 
   if (lessonTitle === "") {
     console.log('title not valid');
+    titleTooltip.classList.add('create-lesson-input-tooltip');
     lessonInput.classList.remove('create-lesson-input');
     lessonInput.classList.add('create-lesson-input-invalid');
-    console.log(lessonInput.classList);
     return;
   }
   // Regex to match any number of whitespaces in the content form.
@@ -224,6 +225,7 @@ export function addLesson() {
     localStorage.setItem("user", JSON.stringify(user));
 
     lessonInput.classList.remove('create-lesson-input-invalid');
+    titleTooltip.classList.remove('create-lesson-input-tooltip');
     lessonInput.classList.add('create-lesson-input');
 
     lessonInput.value = "";

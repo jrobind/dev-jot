@@ -436,6 +436,7 @@ span.lessons-count {
 
 .create-lesson-container {
   padding: 15px 50px 15px 45px;
+  position: relative;
 }
 
 .create-lesson-container-header,
@@ -472,12 +473,34 @@ span.lessons-count {
   outline: none;
   margin-bottom: 20px;
   padding: 12px;
-  border: 2px solid red;
+  border: 1px solid red;
 }
 
 input.create-lesson-input,
 input.create-lesson-input-invalid {
   flex: 1;
+}
+
+span.create-lesson-input-tooltip::after {
+  content: "Please fill out this field";
+  position: absolute;
+  top: 14%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--tertiary-b-color);
+  clip-path: polygon(100% 0, 100% 40%, 39% 40%, 25% 60%, 13% 40%, 0 40%, 0 0);
+  border: 2px solid var(--tertiary-b-color);
+  height: 60px;
+  width: 155px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  font-family: inherit;
+  border-radius: 3px;
+  font-size: 14px;
+  text-align: center;
+  z-index: 10;
+  opacity: 1;
 }
 
 .tag-selectors {
@@ -600,6 +623,13 @@ form {
     overflow-x: scroll;
   }
 
+  span.create-lesson-input-tooltip::after {
+    top: 15%;
+    left: 58%;
+    transform: translate(-50%, -50%);
+    clip-path: polygon(100% 0, 100% 40%, 39% 40%, 25% 60%, 13% 40%, 0 40%, 0 0);
+  }
+
   .modal-lesson {
     max-width: 90%;
   }
@@ -674,9 +704,5 @@ form {
   .lessons {
     display: flex;
     overflow-x: auto;
-  }
-  .create-lesson .button {
-    margin-right: auto;
-    margin-left: auto;
   }
 }
