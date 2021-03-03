@@ -221,6 +221,13 @@ export function addLesson() {
     lessonInput.value = "";
     renderLessons(user);
   }
+      let submitLessonElement=document.getElementById("submit");
+       if(submitLessonElement.innerText=="UPDATE LESSON")
+       {
+                submitLessonElement.innerText="ADD LESSON";
+       }
+
+
 }
 
 // function to remove lesson
