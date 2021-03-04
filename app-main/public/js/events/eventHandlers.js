@@ -23,7 +23,9 @@ export function handleClear(e) {
     tag.classList.remove("selected");
   });
 
-  submitLessonElement.textContent = "ADD LESSON";
+
+    
+  
 }
 
 export function handleViewClick(lesson) {
