@@ -222,7 +222,7 @@ export function addLesson() {
     renderLessons(user);
   }
       let submitLessonElement=document.getElementById("submit");
-       if(submitLessonElement.innerText=="UPDATE LESSON")
+       if(submitLessonElement.innerText==="UPDATE LESSON")
        {
                 submitLessonElement.innerText="ADD LESSON";
        }
