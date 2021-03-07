@@ -173,16 +173,24 @@ export function addLesson() {
   const user = JSON.parse(localStorage.getItem("user"));
   // get editor content;
   const content = quill.root.innerHTML;
-
+  const lessonTitle = lessonInput.value;
+  const titleTooltip = document.getElementById("title-tooltip");
   // Boolean for if edit View
   const isEditView = createLessonContainer
     .getAttribute("view")
     .includes("edit-lesson");
-
   // filter tags that are "selected" upon submission
   const tags = [...tagSelectors.children].filter((tag) =>
     tag.classList.contains("selected")
   );
+
+  if (lessonTitle === "") {
+    console.log("title not valid");
+    titleTooltip.classList.add("create-lesson-input-tooltip");
+    lessonInput.classList.remove("create-lesson-input");
+    lessonInput.classList.add("create-lesson-input-invalid");
+    return;
+  }
   // Regex to match any number of whitespaces in the content form.
   var regex = /<(.|\n)*?>/g;
   if (content.replace(regex, "").trim().length === 0) {
@@ -199,12 +207,10 @@ export function addLesson() {
       }
       return lesson;
     });
-
     if (!user.lessons.length) {
       console.log("Tried to add empty lessons.");
       return;
     }
-
     localStorage.setItem("user", JSON.stringify(user));
     renderLessons(user);
     createLessonContainer.setAttribute("view", "create-lesson");
@@ -217,6 +223,10 @@ export function addLesson() {
     });
 
     localStorage.setItem("user", JSON.stringify(user));
+
+    lessonInput.classList.remove("create-lesson-input-invalid");
+    titleTooltip.classList.remove("create-lesson-input-tooltip");
+    lessonInput.classList.add("create-lesson-input");
 
     lessonInput.value = "";
     renderLessons(user);
