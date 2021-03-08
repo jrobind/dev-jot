@@ -22,10 +22,6 @@ export function handleClear(e) {
   selectedTags.forEach((tag) => {
     tag.classList.remove("selected");
   });
-
-
-    
-  
 }
 
 export function handleViewClick(lesson) {
@@ -59,6 +55,12 @@ export function handleCloseLessonModal() {
   modalLesson.setAttribute("hidden", "");
   overlay.setAttribute("hidden", "");
   overlay.classList.remove("dark");
+}
+
+export function handleEscapeLessonModal(event) {
+  if (event.key === 'Escape' || event.keyCode === 27) {
+    handleCloseLessonModal();
+  }
 }
 
 export function handleTagVisibility(e) {

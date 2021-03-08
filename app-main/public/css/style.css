@@ -93,11 +93,11 @@ body {
   width: 95%;
   max-height: calc(100vh - 250px);
 }
-
 .modal-lesson-title {
   font-size: 32px;
   position: relative;
-  margin: 60px 30px 10px 30px;
+  margin: 60px 0 10px 0;
+  right: -9px;
 }
 
 .modal-lesson-title::before {
@@ -110,15 +110,23 @@ body {
   opacity: 50%;
   /* the stylized offset */
   width: calc(100% + 18px);
-  right: -8px;
+  left: -9px;
 }
 
 .modal-lesson-content {
-  width: 95%;
+  width: 100%;
   overflow: auto;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 3px;
-  margin: 0 auto 30px auto;
+  margin: 0 0 30px 0;
+}
+
+.modal-lesson-body {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 95%;
+  margin: 0 auto;
 }
 
 /* header styles */

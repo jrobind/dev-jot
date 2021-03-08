@@ -1,5 +1,6 @@
 import {
   handleCloseLessonModal,
+  handleEscapeLessonModal,
   handleClear,
   handleClearBtn,
   handleViewClick,
@@ -23,11 +24,12 @@ export default function setEventListeners() {
     addLesson();
   });
 
+  // Modal event listeners
   modalLessonClose.addEventListener("click", handleCloseLessonModal);
+  overlay.addEventListener("click", handleCloseLessonModal);
+  document.addEventListener("keydown", handleEscapeLessonModal);
 
   clearBtn.addEventListener("click", handleClear);
-
-  overlay.addEventListener("click", handleCloseLessonModal);
 
   formElement.addEventListener("keyup", handleClearBtn);
 
