@@ -221,13 +221,10 @@ export function addLesson() {
     lessonInput.value = "";
     renderLessons(user);
   }
-      let submitLessonElement=document.getElementById("submit");
-       if(submitLessonElement.innerText==="UPDATE LESSON")
-       {
-                submitLessonElement.innerText="ADD LESSON";
-       }
-
-
+  let submitLessonElement = document.getElementById("submit");
+  if (submitLessonElement.innerText === "UPDATE LESSON") {
+    submitLessonElement.innerText = "ADD LESSON";
+  }
 }
 
 // function to remove lesson
@@ -237,4 +234,12 @@ function removeLesson(deleteId) {
   user.lessons = user.lessons.filter((lesson) => lesson.id !== deleteId);
   localStorage.setItem("user", JSON.stringify(user));
   renderLessons(user);
+
+  // if the lesson is in edit mode and user remove lesson submit button text should become "ADD LESSON"
+  // and the view attribute  should have value "create-lesson" insted of "edit-lesson" as we have removed the lesson.
+  if (createLessonContainer.getAttribute("view").includes("edit-lesson")) {
+    document.getElementById("submit").innerText = "ADD LESSON";
+
+    createLessonContainer.setAttribute("view", "create-lesson");
+  }
 }

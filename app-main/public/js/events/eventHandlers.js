@@ -58,7 +58,7 @@ export function handleCloseLessonModal() {
 }
 
 export function handleEscapeLessonModal(event) {
-  if (event.key === 'Escape' || event.keyCode === 27) {
+  if (event.key === "Escape" || event.keyCode === 27) {
     handleCloseLessonModal();
   }
 }
