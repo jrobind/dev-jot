@@ -9,6 +9,7 @@ import horse from './images/avatars/horse.svg';
 import octopus from './images/avatars/octopus.svg';
 import parrot from './images/avatars/parrot.svg';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 const avatars = [
   bear,
@@ -53,6 +54,7 @@ const App = () => {
     <>
       {overlayVisible && <div className='overlay' />}
       <Header profileVisible={profileVisible} avatarImgPath={avatarImgPath} />
+      <Footer />
     </>
   );
 };
