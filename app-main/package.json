@@ -8,8 +8,7 @@
   },
   "version": "1.0.0",
   "description": "note taking app for online developer tutorials",
-  "main": "index.js",
-  "type": "module",
+  "main": "index.js",  
   "scripts": {
     "test": "jest",
     "prettier": "prettier --write ."
@@ -47,8 +46,10 @@
     "eslint-plugin-prettier": "^3.2.0",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.0.0",
-    "jest": "^26.6.3",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
     "husky": "^4.3.6",
+    "jest": "^26.6.3",
     "prettier": "^2.2.1"
   }
 }
