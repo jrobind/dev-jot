@@ -1,0 +1,27 @@
+.createLessonContainer {
+    padding: 15px 50px 15px 45px;
+  }
+  .createLesson {
+    width: 100%;
+  }
+
+  .createLessonContainerHeader{
+    display: flex;
+  }
+
+  .createLessonClear {
+    margin-left: auto;
+    min-width: 70px;
+    max-height: 39px;
+  }
+
+  .button {
+    color: white;
+    background: var(--main-b-color);
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.05), 0 3px 6px 0 rgba(0, 0, 0, 0.05);
+  }
+  
