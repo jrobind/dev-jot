@@ -65,6 +65,7 @@ function lessonHandler(e) {
   switch (e.target.id) {
     case "delete":
       removeLesson(lessonCard.getAttribute("data-id"));
+      alert("Lesson Deleted Successfully!");
       return;
     case "view":
       handleViewClick(lessonCard);
@@ -169,77 +170,85 @@ export function renderLessons({ lessons }) {
 
 // function to add lesson
 export function addLesson() {
-  // get user
-  const user = JSON.parse(localStorage.getItem("user"));
-  // get editor content;
-  const content = quill.root.innerHTML;
+  try {
+    // get user
+    const user = JSON.parse(localStorage.getItem("user"));
+    // get editor content;
+    const content = quill.root.innerHTML;
 
-  // Boolean for if edit View
-  const isEditView = createLessonContainer
-    .getAttribute("view")
-    .includes("edit-lesson");
+    // Boolean for if edit View
+    const isEditView = createLessonContainer
+      .getAttribute("view")
+      .includes("edit-lesson");
 
-  // filter tags that are "selected" upon submission
-  const tags = [...tagSelectors.children].filter((tag) =>
-    tag.classList.contains("selected")
-  );
-  // Regex to match any number of whitespaces in the content form.
-  var regex = /<(.|\n)*?>/g;
-  if (content.replace(regex, "").trim().length === 0) {
-    console.log("Tried to add empty lesson note.");
-    return;
-  }
-  if (isEditView) {
-    const id = createLessonContainer.getAttribute("view").split(":")[1];
-
-    user.lessons = user.lessons.map((lesson) => {
-      if (lesson.id === id) {
-        lesson.title = lessonInput.value;
-        lesson.content = content;
-      }
-      return lesson;
-    });
-
-    if (!user.lessons.length) {
-      console.log("Tried to add empty lessons.");
+    // filter tags that are "selected" upon submission
+    const tags = [...tagSelectors.children].filter((tag) =>
+      tag.classList.contains("selected")
+    );
+    // Regex to match any number of whitespaces in the content form.
+    var regex = /<(.|\n)*?>/g;
+    if (content.replace(regex, "").trim().length === 0) {
+      alert("Tried to add empty lesson note.");
       return;
     }
+    if (isEditView) {
+      const id = createLessonContainer.getAttribute("view").split(":")[1];
 
-    localStorage.setItem("user", JSON.stringify(user));
-    renderLessons(user);
-    createLessonContainer.setAttribute("view", "create-lesson");
-  } else {
-    user.lessons.push({
-      id: String(Math.floor(Math.random() * 90000 + 10000)),
-      title: lessonInput.value,
-      content,
-      tags,
-    });
+      user.lessons = user.lessons.map((lesson) => {
+        if (lesson.id === id) {
+          lesson.title = lessonInput.value;
+          lesson.content = content;
+        }
+        return lesson;
+      });
 
-    localStorage.setItem("user", JSON.stringify(user));
+      if (!user.lessons.length) {
+        alert("Tried to add empty lessons.");
+        return;
+      }
 
-    lessonInput.value = "";
-    renderLessons(user);
-  }
-  let submitLessonElement = document.getElementById("submit");
-  if (submitLessonElement.innerText === "UPDATE LESSON") {
-    submitLessonElement.innerText = "ADD LESSON";
+      localStorage.setItem("user", JSON.stringify(user));
+      renderLessons(user);
+      createLessonContainer.setAttribute("view", "create-lesson");
+    } else {
+      user.lessons.push({
+        id: String(Math.floor(Math.random() * 90000 + 10000)),
+        title: lessonInput.value,
+        content,
+        tags,
+      });
+
+      localStorage.setItem("user", JSON.stringify(user));
+
+      lessonInput.value = "";
+      renderLessons(user);
+    }
+    let submitLessonElement = document.getElementById("submit");
+    if (submitLessonElement.innerText === "UPDATE LESSON") {
+      submitLessonElement.innerText = "ADD LESSON";
+    }
+  } catch {
+    alert("Failed to add lesson. Try again later!");
   }
 }
 
 // function to remove lesson
 function removeLesson(deleteId) {
-  const user = JSON.parse(localStorage.getItem("user"));
+  try {
+    const user = JSON.parse(localStorage.getItem("user"));
 
-  user.lessons = user.lessons.filter((lesson) => lesson.id !== deleteId);
-  localStorage.setItem("user", JSON.stringify(user));
-  renderLessons(user);
+    user.lessons = user.lessons.filter((lesson) => lesson.id !== deleteId);
+    localStorage.setItem("user", JSON.stringify(user));
+    renderLessons(user);
 
-  // if the lesson is in edit mode and user remove lesson submit button text should become "ADD LESSON"
-  // and the view attribute  should have value "create-lesson" insted of "edit-lesson" as we have removed the lesson.
-  if (createLessonContainer.getAttribute("view").includes("edit-lesson")) {
-    document.getElementById("submit").innerText = "ADD LESSON";
+    // if the lesson is in edit mode and user remove lesson submit button text should become "ADD LESSON"
+    // and the view attribute  should have value "create-lesson" insted of "edit-lesson" as we have removed the lesson.
+    if (createLessonContainer.getAttribute("view").includes("edit-lesson")) {
+      document.getElementById("submit").innerText = "ADD LESSON";
 
-    createLessonContainer.setAttribute("view", "create-lesson");
+      createLessonContainer.setAttribute("view", "create-lesson");
+    }
+  } catch {
+    alert("Failed to delete! Try again later");
   }
 }

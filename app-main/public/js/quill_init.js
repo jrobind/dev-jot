@@ -10,6 +10,6 @@ export const quill = new Quill("#editor", {
   modules: {
     toolbar: toolbarOptions,
   },
-  placeholder: "Add some lesson notes!",
+  placeholder: "Add some lesson notes! (Cannot Leave this blank!)",
   theme: "snow",
 });
