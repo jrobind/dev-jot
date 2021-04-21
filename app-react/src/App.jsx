@@ -10,6 +10,7 @@ import octopus from './images/avatars/octopus.svg';
 import parrot from './images/avatars/parrot.svg';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import AppMain from "./components/AppMain/AppMain";
 
 const avatars = [
   bear,
@@ -54,6 +55,7 @@ const App = () => {
     <>
       {overlayVisible && <div className='overlay' />}
       <Header profileVisible={profileVisible} avatarImgPath={avatarImgPath} />
+      <AppMain></AppMain>
       <Footer />
     </>
   );

@@ -1,5 +1,4 @@
-import React from 'react';
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const FooterStyled = styled.footer`
     background: var(--main-b-color);
@@ -13,7 +12,7 @@ const FooterContent = styled.div`
     a {
         color: white;
     }
-`
+`;
 
 const Footer = () => {
     return (
@@ -23,15 +22,13 @@ const Footer = () => {
                 <a href="https://www.flaticon.com/authors/dighital" title="Dighital">
                     Dighital
                 </a>
-                &nbsp;
-                from
-                &nbsp;
+                &nbsp; from &nbsp;
                 <a href="https://www.flaticon.com/" title="Flaticon">
                     www.flaticon.com
                 </a>
             </FooterContent>
         </FooterStyled>
-    )
-}
+    );
+};
 
 export default Footer;
