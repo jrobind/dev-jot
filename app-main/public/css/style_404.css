@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue;
+  letter-spacing: 0.02em;
+  background-color: #339989;
+}
+
+#message {
+  background: white;
+  max-width: 360px;
+  border-radius: 3px;
+  font-size: 28px;
+  margin: 100px auto 16px;
+  padding: 32px 24px 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+#message h2 {
+  color: white;
+  font-weight: bold;
+  font-size: 28px;
+  margin: -32px -24px 8px;
+  background-color: #2b2c28;
+  padding: 0;
+  text-indent: 24px;
+}
+
+#message h1 {
+  font-size: 22px;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 0 0 16px;
+}
+#message p {
+  line-height: 140%;
+  margin: 16px 0 24px;
+  font-size: 14px;
+}
