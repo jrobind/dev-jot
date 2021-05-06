@@ -8,7 +8,7 @@
   },
   "version": "1.0.0",
   "description": "note taking app for online developer tutorials",
-  "main": "index.js",  
+  "main": "index.js",
   "scripts": {
     "test": "jest",
     "prettier": "prettier --write ."
