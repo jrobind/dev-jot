@@ -32,8 +32,8 @@ test('Tests creating elements to hold tags', () => {
     );
 
     // Expects elements class to be one from array
-    expect(tags).toEqual(
-      expect.arrayContaining([element.classList[1]])
+    expect([...tags, "tagCheckboxes"]).toEqual(
+      expect.arrayContaining(Array.from(element.classList))
     );
 
   });

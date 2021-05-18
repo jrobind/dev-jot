@@ -3,8 +3,8 @@ import showContainers from "./showContainers.js";
 test("Tests adjusting/removing classes from container elements", () => {
   document.body.innerHTML = `
     <div class="pre-auth-container"></div>
-    <div class="profile"></div>
-    <div class="app-container"></div>
+    <div hidden class="profile"></div>
+    <div hidden class="app-container"></div>
     <div class="modal"></div>
     <div class="overlay"></div>
   `;
