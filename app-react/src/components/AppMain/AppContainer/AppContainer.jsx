@@ -1,20 +1,16 @@
-import styled from "styled-components";
+import Grid from '@material-ui/core/Grid';
+import LessonsContainer from './LessonsContainer/LessonsContainer';
+import CreateLesson from './CreateLesson/CreateLesson';
 
-import LessonsContainer from "./LessonsContainer/LessonsContainer";
-import CreateLesson from "./CreateLesson/CreateLesson";
-
-const StyledAppContainer = styled.div`
-    display: flex;
-    justify-content: space-between;
-`;
-
-const AppContainer = props => {
-    return (
-        <StyledAppContainer>
-            <LessonsContainer></LessonsContainer>
-            <CreateLesson></CreateLesson>
-        </StyledAppContainer>
-    );
-};
+const AppContainer = () => (
+  <Grid container>
+    <Grid item xs={12} md={6} lg={6}>
+      <LessonsContainer />
+    </Grid>
+    <Grid item xs={12} md={6} lg={6}>
+      <CreateLesson />
+    </Grid>
+  </Grid>
+);
 
 export default AppContainer;
