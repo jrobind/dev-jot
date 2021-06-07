@@ -1,5 +1,5 @@
-//Functionality to export to a .md file
 function ExportToMarkdown() {
+	
 	//Retrieves the lesson object from localstorage given the lessonID
 	this.dataFromLocalStorage = function (lessonID) {
 		try {
@@ -13,7 +13,7 @@ function ExportToMarkdown() {
 
 	//Takes a lesson object and formats the data to be markdown
 	this.formatMarkdown = function (lessonObject) {
-		const filename = lessonObject.title + ".md";
+		const filename = lessonObject.title;
 		let markdown = [];
 		const domparser = new DOMParser();
 		const parsedDocument = domparser.parseFromString(
@@ -112,24 +112,30 @@ function ExportToMarkdown() {
 					: mapTagToMD(element, markdown);
 			}
 		};
-
-		const downloadFile = (filename, data) => {
-			let blob = new Blob(data, { type: "text" });
-			if (window.navigator.msSaveOrOpenBlob) {
-				window.navigator.msSaveBlob(blob, filename);
-			} else {
-				const dl = window.document.createElement("a");
-				dl.href = window.URL.createObjectURL(blob);
-				dl.download = filename;
-				document.body.appendChild(dl);
-				dl.click();
-				document.body.removeChild(dl);
-			}
+		
+		const getImages = (document) => {
+			return [...document.body.querySelectorAll("img")];
 		};
 
-		const downloadImages = (document) => {
-			let images = document.body.querySelector("img");
-			console.log(images);
+		const extractBase64FromImage = (imageElement) =>{
+			return imageElement.src.replace(/data:.+?,/, "");
+		}
+
+		const downloadFile = (filename, data) => {
+			const zip = new JSZip();
+			const images = getImages(parsedDocument);
+			if(images.length>0){
+				images.forEach((image,item)=>{
+					zip.file(`${item}.jpg`,extractBase64FromImage(image),{base64:true});
+				})
+				zip.file(`${filename}.md`,data.reduce((string,line)=>{return string+=line},''));
+				zip.generateAsync({type:"blob"}).then(function(content) {
+					saveAs(content, `${filename}.zip`);
+				});
+			} else {
+				let blob = new Blob(data, {type: "text/plain;charset=utf-8"});
+				saveAs(blob,`${filename}.md`);
+			}
 		};
 
 		let elements = parsedDocument.body.children;
@@ -149,8 +155,7 @@ function ExportToMarkdown() {
 				markdown.push(mdOfElement + "\n");
 			}
 		}
-		//downloadFile(filename,markdown);
-		downloadImages(parsedDocument);
+		downloadFile(filename,markdown);
 	};
 }
 

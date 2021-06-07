@@ -5,17 +5,17 @@ import showContainers from "./showContainers.js";
 import setTags from "./setTags.js";
 
 export default function init() {
-  // create a quill
-  quill.root.focus();
+	// create a quill
+	quill.root.focus();
 
-  // Clear all containers of "hidden" attributes
-  showContainers();
+	// Clear all containers of "hidden" attributes
+	showContainers();
 
-  setTags();
+	setTags();
 
-  //Find User in Local Storage or set one up
-  setUser();
+	//Find User in Local Storage or set one up
+	setUser();
 
-  // initialize the event listeners from /EVENTS
-  setEventListeners();
+	// initialize the event listeners from /EVENTS
+	setEventListeners();
 }
