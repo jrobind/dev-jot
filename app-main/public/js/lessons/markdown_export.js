@@ -1,5 +1,4 @@
 function ExportToMarkdown() {
-	
 	//Retrieves the lesson object from localstorage given the lessonID
 	this.dataFromLocalStorage = function (lessonID) {
 		try {
@@ -25,7 +24,7 @@ function ExportToMarkdown() {
 		const hasElementChild = (element) => {
 			let nodeList = element.childNodes;
 			if (nodeList.length > 1) {
-				let textContent = [...nodeList].reduce((accumulator, item) => {
+				let textContent = [...nodeList].reduce((accumulator, item, index) => {
 					if (item.nodeName === "STRONG") {
 						accumulator += ` <strong>${item.textContent.trim()}</strong> `;
 					} else if (item.nodeName === "EM") {
@@ -33,8 +32,9 @@ function ExportToMarkdown() {
 					} else if (item.nodeName === "DEL") {
 						accumulator += ` <del>${item.textContent.trim()}</del> `;
 					} else if (item.nodeName === "U") {
-						// Not supported by github
 						accumulator += ` <u>${item.textContent.trim()}</u> `;
+					} else if (item.nodeName === "A") {
+						accumulator += ` [${item.textContent.trim()}](${item.getAttribute('href')}) `
 					} else if (item.nodeType === 3) {
 						accumulator += item.nodeValue.trim();
 					}
@@ -47,6 +47,16 @@ function ExportToMarkdown() {
 				});
 			}
 		};
+
+		//Stateful image counter function using a closure
+		//Increments by 1 each time it is called
+		const imageCounter = function() {
+			let count = 1;
+
+			return function(){
+				return count++;
+			}
+		}();
 
 		//Maps an htmltag to the correspinding md and pushes to markdown array
 		const mapTagToMD = (element) => {
@@ -65,7 +75,9 @@ function ExportToMarkdown() {
 						md += element.textContent;
 						break;
 					case "IMG":
-						md += `![]()`;
+						let imageCount = imageCounter();
+						md += `![Image ${imageCount}](${imageCount}.jpg)`;
+						console.log(md)
 						break;
 					case "STRONG":
 						md += `**${element.textContent.trim()}**`;
@@ -87,6 +99,17 @@ function ExportToMarkdown() {
 			return md;
 		};
 
+		const listToMD = (listParentElement) => {
+			let listItems = [...listParentElement.childNodes];
+			return listItems.map((li, index)=>{
+				if (listParentElement.nodeName === "OL"){
+					return `${index+1}. ${li.textContent} `;
+				} else if (listParentElement.nodeName === "UL"){
+					return `* ${li.textContent} `;
+				}
+			})
+		}
+
 		const headingToMD = (className, textContent) => {
 			switch (className) {
 				case "ql-size-small":
@@ -103,8 +126,12 @@ function ExportToMarkdown() {
 
 		//used to retrieve children tags out of their <p> tag parents
 		const extractChildren = (element) => {
+
+			let isList = ((element.nodeName === "OL")||(element.nodeName === "UL"));
 			let childElement = hasElementChild(element);
-			if (typeof childElement === "string") {
+			if (isList){
+				return listToMD(element);
+			} else if (typeof childElement === "string") {
 				return mapTagToMD(childElement, markdown);
 			} else {
 				return childElement.length > 0
@@ -112,50 +139,63 @@ function ExportToMarkdown() {
 					: mapTagToMD(element, markdown);
 			}
 		};
-		
+
 		const getImages = (document) => {
 			return [...document.body.querySelectorAll("img")];
 		};
 
-		const extractBase64FromImage = (imageElement) =>{
+		const extractBase64FromImage = (imageElement) => {
 			return imageElement.src.replace(/data:.+?,/, "");
-		}
+		};
 
 		const downloadFile = (filename, data) => {
 			const zip = new JSZip();
 			const images = getImages(parsedDocument);
-			if(images.length>0){
-				images.forEach((image,item)=>{
-					zip.file(`${item}.jpg`,extractBase64FromImage(image),{base64:true});
-				})
-				zip.file(`${filename}.md`,data.reduce((string,line)=>{return string+=line},''));
-				zip.generateAsync({type:"blob"}).then(function(content) {
+			if (images.length > 0) {
+				images.forEach((image, item) => {
+					zip.file(`${item+1}.jpg`, extractBase64FromImage(image), {
+						base64: true,
+					});
+				});
+				zip.file(
+					`${filename}.md`,
+					data.reduce((string, line) => {
+						return (string += line);
+					}, "")
+				);
+				zip.generateAsync({ type: "blob" }).then(function (content) {
 					saveAs(content, `${filename}.zip`);
 				});
 			} else {
-				let blob = new Blob(data, {type: "text/plain;charset=utf-8"});
-				saveAs(blob,`${filename}.md`);
+				let blob = new Blob(data, { type: "text/plain;charset=utf-8" });
+				saveAs(blob, `${filename}.md`);
 			}
 		};
 
 		let elements = parsedDocument.body.children;
 		for (let i = 0; i < elements.length; i++) {
+
 			let mdOfElement = extractChildren(elements[i]);
-			if (typeof mdOfElement === "object") {
+
+			if(mdOfElement.length>1 && typeof mdOfElement === "object"){
+				mdOfElement.forEach((line)=>{
+					markdown.push(line + '\n')
+				});
+			} else if (typeof mdOfElement === "object") {
 				//for codeblocks
 				mdOfElement.forEach((mdArrayItem) => {
 					if (mdArrayItem.newline) {
-						markdown.push(mdArrayItem.text + "\n");
+						markdown.push(mdArrayItem.text + '\n');
 					} else {
 						markdown.push(mdArrayItem.text);
 					}
 				});
 			} else {
 				//for other elements
-				markdown.push(mdOfElement + "\n");
+				markdown.push(mdOfElement + '\n');
 			}
 		}
-		downloadFile(filename,markdown);
+		downloadFile(filename, markdown);
 	};
 }
 
