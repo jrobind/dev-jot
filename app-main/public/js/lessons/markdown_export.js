@@ -34,7 +34,9 @@ function ExportToMarkdown() {
 					} else if (item.nodeName === "U") {
 						accumulator += ` <u>${item.textContent.trim()}</u> `;
 					} else if (item.nodeName === "A") {
-						accumulator += ` [${item.textContent.trim()}](${item.getAttribute('href')}) `
+						accumulator += ` [${item.textContent.trim()}](${item.getAttribute(
+							"href"
+						)}) `;
 					} else if (item.nodeType === 3) {
 						accumulator += item.nodeValue.trim();
 					}
@@ -50,13 +52,13 @@ function ExportToMarkdown() {
 
 		//Stateful image counter function using a closure
 		//Increments by 1 each time it is called
-		const imageCounter = function() {
+		const imageCounter = (function () {
 			let count = 1;
 
-			return function(){
+			return function () {
 				return count++;
-			}
-		}();
+			};
+		})();
 
 		//Maps an htmltag to the correspinding md and pushes to markdown array
 		const mapTagToMD = (element) => {
@@ -77,7 +79,7 @@ function ExportToMarkdown() {
 					case "IMG":
 						let imageCount = imageCounter();
 						md += `![Image ${imageCount}](${imageCount}.jpg)`;
-						console.log(md)
+						console.log(md);
 						break;
 					case "STRONG":
 						md += `**${element.textContent.trim()}**`;
@@ -101,14 +103,14 @@ function ExportToMarkdown() {
 
 		const listToMD = (listParentElement) => {
 			let listItems = [...listParentElement.childNodes];
-			return listItems.map((li, index)=>{
-				if (listParentElement.nodeName === "OL"){
-					return `${index+1}. ${li.textContent} `;
-				} else if (listParentElement.nodeName === "UL"){
+			return listItems.map((li, index) => {
+				if (listParentElement.nodeName === "OL") {
+					return `${index + 1}. ${li.textContent} `;
+				} else if (listParentElement.nodeName === "UL") {
 					return `* ${li.textContent} `;
 				}
-			})
-		}
+			});
+		};
 
 		const headingToMD = (className, textContent) => {
 			switch (className) {
@@ -126,10 +128,9 @@ function ExportToMarkdown() {
 
 		//used to retrieve children tags out of their <p> tag parents
 		const extractChildren = (element) => {
-
-			let isList = ((element.nodeName === "OL")||(element.nodeName === "UL"));
+			let isList = element.nodeName === "OL" || element.nodeName === "UL";
 			let childElement = hasElementChild(element);
-			if (isList){
+			if (isList) {
 				return listToMD(element);
 			} else if (typeof childElement === "string") {
 				return mapTagToMD(childElement, markdown);
@@ -153,7 +154,7 @@ function ExportToMarkdown() {
 			const images = getImages(parsedDocument);
 			if (images.length > 0) {
 				images.forEach((image, item) => {
-					zip.file(`${item+1}.jpg`, extractBase64FromImage(image), {
+					zip.file(`${item + 1}.jpg`, extractBase64FromImage(image), {
 						base64: true,
 					});
 				});
@@ -174,27 +175,27 @@ function ExportToMarkdown() {
 
 		let elements = parsedDocument.body.children;
 		for (let i = 0; i < elements.length; i++) {
-
 			let mdOfElement = extractChildren(elements[i]);
 
-			if(mdOfElement.length>1 && typeof mdOfElement === "object"){
-				mdOfElement.forEach((line)=>{
-					markdown.push(line + '\n')
+			if (mdOfElement.length > 1 && typeof mdOfElement === "object") {
+				mdOfElement.forEach((line) => {
+					markdown.push(line + "\n");
 				});
 			} else if (typeof mdOfElement === "object") {
 				//for codeblocks
 				mdOfElement.forEach((mdArrayItem) => {
 					if (mdArrayItem.newline) {
-						markdown.push(mdArrayItem.text + '\n');
+						markdown.push(mdArrayItem.text + "\n");
 					} else {
 						markdown.push(mdArrayItem.text);
 					}
 				});
 			} else {
 				//for other elements
-				markdown.push(mdOfElement + '\n');
+				markdown.push(mdOfElement + " \ \n");
 			}
 		}
+		console.log(markdown)
 		downloadFile(filename, markdown);
 	};
 }
