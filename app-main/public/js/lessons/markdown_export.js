@@ -42,7 +42,7 @@ function ExportToMarkdown() {
 					}
 					return accumulator;
 				}, "");
-				return textContent;
+				return textContent + " <br>";
 			} else {
 				return [...nodeList].filter((node) => {
 					return node.nodeType === 1;
@@ -115,7 +115,7 @@ function ExportToMarkdown() {
 		const headingToMD = (className, textContent) => {
 			switch (className) {
 				case "ql-size-small":
-					return `<sub>${textContent}</sub>`;
+					return `${textContent} \n`;
 					break;
 				case "ql-size-large":
 					return `<h2>${textContent}</h2>`;
@@ -179,7 +179,7 @@ function ExportToMarkdown() {
 
 			if (mdOfElement.length > 1 && typeof mdOfElement === "object") {
 				mdOfElement.forEach((line) => {
-					markdown.push(line + "\n");
+					markdown.push(line + " \n");
 				});
 			} else if (typeof mdOfElement === "object") {
 				//for codeblocks
@@ -192,7 +192,7 @@ function ExportToMarkdown() {
 				});
 			} else {
 				//for other elements
-				markdown.push(mdOfElement + " \ \n");
+				markdown.push(mdOfElement + " \n");
 			}
 		}
 		console.log(markdown)
