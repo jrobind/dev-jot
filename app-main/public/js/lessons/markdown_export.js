@@ -195,7 +195,7 @@ function ExportToMarkdown() {
 				markdown.push(mdOfElement + " \n");
 			}
 		}
-		console.log(markdown)
+		console.log(markdown);
 		downloadFile(filename, markdown);
 	};
 }
