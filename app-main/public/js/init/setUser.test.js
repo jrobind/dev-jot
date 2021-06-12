@@ -1,15 +1,15 @@
 import setUser from "./setUser.js";
 
 test("Tests setting user data when local storage is empty", () => {
-	document.body.innerHTML = `
+  document.body.innerHTML = `
     <div class="avatar">
       <img referrerpolicy="no-referrer" alt="avatar" />
     </div>
   `;
 
-	const avatarElement = document.querySelector(".avatar img");
+  const avatarElement = document.querySelector(".avatar img");
 
-	setUser();
+  setUser();
 
-	expect(avatarElement.attributes.src).not.toBe(undefined);
+  expect(avatarElement.attributes.src).not.toBe(undefined);
 });
