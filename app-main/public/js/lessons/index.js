@@ -198,6 +198,7 @@ export function addLesson() {
         if (lesson.id === id) {
           lesson.title = lessonInput.value;
           lesson.content = content;
+          lesson.tags = tags;
         }
         return lesson;
       });
