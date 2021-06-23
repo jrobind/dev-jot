@@ -122,11 +122,13 @@ body {
   height: 60vh !important;
 }
 
+/* added height to the body so text will not overflow */
 .modal-lesson-body {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   width: 95%;
+  height: calc(100vh - 250px);
   margin: 0 auto;
 }
 
