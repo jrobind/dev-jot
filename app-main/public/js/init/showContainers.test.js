@@ -15,7 +15,6 @@ test("Tests adjusting/removing classes from container elements", () => {
   const modal = document.querySelector(".modal");
   const overlay = document.querySelector(".overlay");
 
-
   showContainers();
 
   expect(preAuthContainer.attributes.hidden.value).toBe("");
@@ -23,5 +22,4 @@ test("Tests adjusting/removing classes from container elements", () => {
   expect(appContainer.attributes.hidden).toBe(undefined);
   expect(modal.attributes.hidden.value).toBe("");
   expect(overlay.attributes.hidden.value).toBe("");
-
 });

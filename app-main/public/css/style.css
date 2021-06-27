@@ -1,5 +1,5 @@
 :root {
-  --main-b-color: #35586C;
+  --main-b-color: #35586c;
   --secondary-b-color: #2b2c28;
   --tertiary-b-color: #f7b501;
   --in-progress: #039dfc;
@@ -427,11 +427,12 @@ span.lessons-count {
   cursor: pointer;
 }
 
-.lesson-card-content-buttons button:last-of-type {
+.lesson-card-content-buttons button:nth-last-of-type(-n + 2) {
   padding: 5px 8px;
+  margin-right: 2px;
   max-width: 50px;
 }
-.lesson-card-content-buttons button:last-of-type:hover {
+.lesson-card-content-buttons button:nth-last-of-type(-n + 2):hover {
   box-shadow: inset 50px 0 0 0 #a3d2ca;
   color: black;
   cursor: pointer;

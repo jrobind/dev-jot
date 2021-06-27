@@ -1,5 +1,6 @@
 import { quill } from "../quill_init.js";
 import lessonHelper from "./helper.js";
+import ExportToMarkdown from "./markdown_export.js";
 import { handleClear, handleViewClick } from "../events/eventHandlers.js";
 
 // cache elements that are globally necessary
@@ -58,6 +59,12 @@ function handleEditClick(lesson) {
   submitLessonElement.textContent = "UPDATE LESSON";
 }
 
+//On click handler for exporting a note
+function handleExportClick(lessonCard) {
+  const download = new ExportToMarkdown();
+  download.formatMarkdown(download.dataFromLocalStorage(lessonCard));
+}
+
 // handle buttons in lesson
 function lessonHandler(e) {
   const lessonCard = e.currentTarget;
@@ -73,6 +80,8 @@ function lessonHandler(e) {
     case "edit":
       handleEditClick(lessonCard);
       return;
+    case "export":
+      handleExportClick(lessonCard.getAttribute("data-id"));
   }
 }
 
@@ -137,6 +146,15 @@ export function renderLessons({ lessons }) {
       id: "edit",
     });
 
+    const exportIcon = lessonHelper({
+      varName: document.createElement("img"),
+      attribute: [
+        { alt: "export lesson icon" },
+        { src: "./images/export-white.svg" },
+      ],
+      id: "export",
+    });
+
     const lessonEditBtn = lessonHelper({
       varName: document.createElement("button"),
       classList: ["button"],
@@ -150,6 +168,12 @@ export function renderLessons({ lessons }) {
       id: "view",
     });
 
+    const lessonExportBtn = lessonHelper({
+      varName: document.createElement("button"),
+      classList: ["button"],
+      id: "export",
+    });
+
     // append elements to card
     titleContainer.appendChild(lessonTitle);
     lessonRemoveBtn.appendChild(removeIcon);
@@ -159,6 +183,8 @@ export function renderLessons({ lessons }) {
     buttonContainer.appendChild(lessonViewBtn);
     lessonEditBtn.appendChild(editIcon);
     buttonContainer.appendChild(lessonEditBtn);
+    buttonContainer.appendChild(lessonExportBtn);
+    lessonExportBtn.appendChild(exportIcon);
     lessonCard.appendChild(buttonContainer);
     lessonsContainer.appendChild(lessonCard);
   });
