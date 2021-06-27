@@ -1,64 +1,64 @@
 {
-  "name": "dev-jot",
-  "jest": {
-    "verbose": true,
-    "modulePaths": [
-      "public"
-    ],
-    "setupFilesAfterEnv": [
-      "<rootDir>/public/js/test/jest.setup.js"
-    ]
-  },
-  "version": "1.0.0",
-  "description": "note taking app for online developer tutorials",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest",
-    "testCoverage": "jest --coverage",
-    "prettier": "prettier --write ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jrobind/dev-jot.git"
-  },
-  "keywords": [
-    "notes",
-    "dev",
-    "online",
-    "lessons"
-  ],
-  "author": "James Robinson <jrobind@outlook.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jrobind/dev-jot/issues"
-  },
-  "homepage": "https://github.com/jrobind/dev-jot#readme",
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run prettier",
-      "pre-push": "npm run prettier"
-    }
-  },
-  "devDependencies": {
-    "@babel/core": "^7.14.0",
-    "@babel/plugin-transform-modules-commonjs": "^7.14.0",
-    "@babel/preset-env": "^7.14.1",
-    "babel-jest": "^26.6.3",
-    "eslint": "^7.2.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-node": "^4.1.0",
-    "eslint-config-prettier": "^7.0.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^3.2.0",
-    "eslint-plugin-react": "^7.21.5",
-    "eslint-plugin-react-hooks": "^4.0.0",
-    "gulp": "^4.0.2",
-    "gulp-concat": "^2.6.1",
-    "husky": "^4.3.6",
-    "jest": "^26.6.3",
-    "prettier": "^2.2.1"
-  },
-  "dependencies": {}
+	"name": "dev-jot",
+	"jest": {
+		"verbose": true,
+		"modulePaths": [
+			"public"
+		],
+		"setupFilesAfterEnv": [
+			"<rootDir>/public/js/test/jest.setup.js"
+		]
+	},
+	"version": "1.0.0",
+	"description": "note taking app for online developer tutorials",
+	"main": "index.js",
+	"scripts": {
+		"test": "jest",
+		"testCoverage": "jest --coverage",
+		"prettier": "prettier --write ."
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jrobind/dev-jot.git"
+	},
+	"keywords": [
+		"notes",
+		"dev",
+		"online",
+		"lessons"
+	],
+	"author": "James Robinson <jrobind@outlook.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/jrobind/dev-jot/issues"
+	},
+	"homepage": "https://github.com/jrobind/dev-jot#readme",
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm run prettier",
+			"pre-push": "npm run prettier"
+		}
+	},
+	"devDependencies": {
+		"@babel/core": "^7.14.0",
+		"@babel/plugin-transform-modules-commonjs": "^7.14.0",
+		"@babel/preset-env": "^7.14.1",
+		"babel-jest": "^26.6.3",
+		"eslint": "^7.2.0",
+		"eslint-config-airbnb": "^18.2.1",
+		"eslint-config-node": "^4.1.0",
+		"eslint-config-prettier": "^7.0.0",
+		"eslint-plugin-import": "^2.22.1",
+		"eslint-plugin-jsx-a11y": "^6.4.1",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-prettier": "^3.2.0",
+		"eslint-plugin-react": "^7.21.5",
+		"eslint-plugin-react-hooks": "^4.0.0",
+		"gulp": "^4.0.2",
+		"gulp-concat": "^2.6.1",
+		"husky": "^4.3.6",
+		"jest": "^26.6.3",
+		"prettier": "^2.2.1"
+	},
+	"dependencies": {}
 }

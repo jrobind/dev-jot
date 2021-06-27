@@ -1,6 +1,6 @@
 function sampleCode() {
-  var bool = false;
+	var bool = false;
 
-  return bool;
+	return bool;
 }
 module.exports = sampleCode;

@@ -1,12 +1,12 @@
 const avatars = [
-  "bear",
-  "butterfly",
-  "elephant",
-  "giraffe",
-  "goldfish",
-  "horse",
-  "octopus",
-  "parrot",
+	"bear",
+	"butterfly",
+	"elephant",
+	"giraffe",
+	"goldfish",
+	"horse",
+	"octopus",
+	"parrot",
 ];
 
 export default avatars;
