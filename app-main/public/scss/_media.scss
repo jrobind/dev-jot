@@ -1,0 +1,69 @@
+/* media queries */
+
+@media only screen and (max-width: 1090px) {
+	.modal-lesson {
+		max-width: 90%;
+	}
+}
+@media (max-width: 900px) {
+	.app-container {
+		display: inline-block;
+		width: 100%;
+	}
+	.ql-editor {
+		padding: 0;
+	}
+	.lessons-container {
+		width: 80%;
+		height: 250px;
+		padding-bottom: 0px;
+		overflow-y: scroll;
+		margin: auto;
+		overflow-x: hidden;
+		.lessons {
+			display: flex;
+			overflow-x: auto;
+		}
+	}
+	.lesson-card {
+		background: #fff;
+		max-width: 150px;
+		height: 120px;
+	}
+	#delete {
+		padding: 1px 1px;
+		width: 20px;
+		height: 20px;
+	}
+	.lesson-card-title {
+		margin-bottom: 0;
+	}
+	.lesson-card-title-container {
+		margin-top: 1px;
+		margin-bottom: 5px;
+	}
+	.lesson-card-content {
+		border: none;
+		padding: 0 5px;
+		&-buttons {
+			margin-top: 0;
+			justify-content: flex-end;
+			z-index: 500;
+			position: relative;
+		}
+	}
+	.lesson-card-content-buttons button:first-of-type {
+		min-width: auto;
+	}
+	.modal-lesson {
+		z-index: 600;
+		width: 100%;
+	}
+	.lesson-card .ql-editor {
+		height: 65px;
+	}
+	.create-lesson .button {
+		margin-right: auto;
+		margin-left: auto;
+	}
+}

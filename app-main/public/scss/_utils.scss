@@ -1,0 +1,79 @@
+[hidden] {
+	display: none !important;
+}
+
+html,
+body {
+	height: 100%;
+}
+body {
+	margin: 0;
+	padding: 0;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+		Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue;
+	letter-spacing: 0.02em;
+}
+
+%model {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	position: fixed;
+	top: 50%;
+	right: 50%;
+	transform: translate(50%, -50%);
+	border-radius: 0.25rem;
+	box-shadow: 4px 12px 47px 0 rgba(112, 100, 100, 0.15);
+	z-index: 3;
+}
+%button-hover {
+	box-shadow: inset 150px 0 0 0 #ffee93;
+	color: black;
+}
+%card {
+	overflow: hidden;
+	background: white;
+	border-radius: 0.75rem;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.05), 0 5px 10px 0 rgba(0, 0, 0, 0.05);
+	transition: ease box-shadow 0.3s;
+	margin: 8px;
+	min-width: 200px;
+	flex: 1;
+	.card-image {
+		margin: 0;
+		padding: 0;
+		height: 200px;
+		overflow: hidden;
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+	}
+	.card-detail {
+		padding: 0.5rem 1rem;
+		h2 {
+			font-size: 1.5rem;
+			margin-bottom: none;
+			line-height: 0.09;
+		}
+		p {
+			line-height: 1.3rem;
+		}
+	}
+}
+%close-btn {
+	display: flex;
+	align-items: center;
+	background-color: #e71d36;
+	max-height: 30px;
+	border-radius: 3px;
+	padding: 0.5em;
+}
+@mixin lesson-container {
+	width: 35%;
+	display: flex;
+	flex-wrap: wrap;
+	height: calc(100vh - 100px);
+}

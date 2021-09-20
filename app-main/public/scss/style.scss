@@ -1,0 +1,383 @@
+@import "../scss/variables";
+@import "../scss/utils";
+@import "../scss/loading";
+
+.container {
+	margin: 2rem auto;
+	max-width: 800px;
+	display: flex;
+	justify-content: center;
+}
+
+.button {
+	border: none;
+	background: var(--tertiary-b-color);
+	color: black;
+	letter-spacing: 1px;
+	white-space: nowrap;
+	box-shadow: inset 0 0 0 0 #ffee93;
+	transition: ease-out 0.3s;
+	outline: none;
+	position: relative;
+	cursor: pointer;
+}
+//Header
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 2;
+	position: relative;
+	background: var(--main-b-color);
+	padding: 15px 20px;
+	box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.07), 0 3px 10px 0 rgba(0, 0, 0, 0.07);
+	color: white;
+	min-height: 50px;
+	max-height: 50px;
+	h1 {
+		margin: 0;
+		font-size: 1.5rem;
+	}
+	h2 {
+		margin: 0;
+		font-size: 1rem;
+	}
+	.header-title {
+		display: flex;
+		img {
+			width: 24px;
+			margin-left: 6px;
+			margin-bottom: -6px;
+		}
+	}
+	.profile {
+		display: flex;
+		align-items: center;
+		img {
+			height: 50px;
+			width: 50px;
+			border-radius: 53px;
+			margin-left: 20px;
+			box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.07),
+				0 3px 10px 0 rgba(0, 0, 0, 0.07);
+		}
+	}
+}
+
+.pre-auth-container,
+.app-container {
+	display: flex;
+	color: var(--secondary-b-color);
+	flex-wrap: wrap;
+	overflow: hidden;
+}
+
+/* modal styles */
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+.overlay.dark {
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal {
+	@extend %model;
+	background-color: white;
+}
+/* modal lesson styles */
+.modal-lesson {
+	@extend %model;
+	flex-direction: column;
+	padding: 5px;
+	max-width: 1050px;
+	width: 95%;
+	max-height: 80vh;
+
+	&-close {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+	}
+	&-title {
+		font-size: 32px;
+		position: relative;
+		margin: 60px 0 10px 0;
+		right: -9px;
+		&::before {
+			content: "";
+			position: absolute;
+			height: 20px;
+			top: 0px;
+			z-index: -1;
+			background-color: var(--tertiary-b-color);
+			opacity: 50%;
+			/* the stylized offset */
+			width: calc(100% + 18px);
+			height: 50px;
+			left: -9px;
+		}
+	}
+	&-content {
+		width: 100%;
+		overflow: auto;
+		border: 1px solid rgba(0, 0, 0, 0.15);
+		border-radius: 3px;
+		margin: 0 0 30px 0;
+		height: 60vh !important;
+	}
+	&-body {
+		display: flex;
+		align-items: flex-start;
+		flex-direction: column;
+		width: 95%;
+		margin: 0 auto;
+	}
+	.button {
+		@extend %close-btn;
+		&:hover {
+			box-shadow: inset 50px 0 0 0 #c75c5c;
+		}
+	}
+}
+
+span.lessons-count {
+	margin: 26px;
+	font-size: 1.2rem;
+	font-weight: bold;
+	padding-top: 3px;
+}
+
+.pre-auth-create-lesson-container,
+.create-lesson-container {
+	flex: 1;
+	display: flex;
+}
+
+.lessons-container {
+	@include lesson-container();
+	padding: 15px 45px;
+	border-right: 1px solid rgba(0, 0, 0, 0.25);
+	background: var(--secondary-b-color);
+	flex-wrap: nowrap;
+	max-height: calc(100vh - 110px);
+	overflow-y: auto;
+	flex-direction: column;
+	&-header {
+		margin-left: 5px;
+		color: white;
+		font-size: 1.1rem;
+	}
+	.lessons {
+		display: grid;
+		grid-gap: 10px;
+		grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+	}
+}
+
+.no-lessons {
+	color: white;
+	font-weight: 600;
+	margin-left: 8px;
+}
+.lesson-card {
+	@extend %card;
+	justify-content: space-between;
+	padding: 10px;
+	border-radius: 8px;
+	box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5), 0 5px 20px 0 rgba(0, 0, 0, 0.5);
+	height: 200px;
+	&-title-container {
+		margin-bottom: 10px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		.lesson-card-title {
+			font-size: 17px;
+			margin-left: 0.2em;
+			color: var(--main-b-color);
+			font-weight: 500;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		.button {
+			@extend %close-btn;
+		}
+	}
+	&-content {
+		border: 1px solid rgba(0, 0, 0, 0.15);
+		border-radius: 3px;
+		padding: 5px 8px;
+		flex: 1;
+		&-buttons {
+			display: flex;
+			justify-content: flex-start;
+			margin-top: 12px;
+			.button {
+				&:first-of-type {
+					margin-right: 2px;
+					min-width: 115px;
+					letter-spacing: 1px;
+					padding: 5px 8px;
+					background: var(--tertiary-b-color);
+					transition: ease-out 0.3s;
+					color: black;
+				}
+				&:last-of-type {
+					background: var(--main-b-color);
+					padding: 5px 8px;
+					max-width: 50px;
+					transition: ease-out 1s;
+				}
+				&:hover {
+					@extend %button-hover;
+				}
+			}
+		}
+	}
+}
+
+.create-lesson-title-container {
+	display: flex;
+}
+
+.create-lesson-container {
+	padding: 15px 50px 15px 45px;
+}
+
+.create-lesson-container-header,
+.lessons-container-header {
+	display: flex;
+	margin: 5px 0;
+}
+
+.create-lesson-container-header img,
+.lessons-container-header img {
+	width: 23px;
+	margin-right: 6px;
+	margin-top: 3px;
+}
+
+input.create-lesson-input {
+	flex: 1;
+}
+
+.create-lesson {
+	width: 100%;
+	form {
+		display: flex;
+		flex-direction: column;
+	}
+	.button {
+		margin-top: 20px;
+		max-width: 150px;
+		padding: 10px 12px;
+		border-radius: 3px;
+		background: var(--tertiary-b-color);
+		font-size: 14px;
+		&:hover {
+			@extend %button-hover;
+		}
+	}
+	&-input {
+		margin-bottom: 20px;
+		padding: 12px;
+		border: 1px solid #ccc;
+	}
+	&-input::placeholder {
+		font-style: italic;
+		font-size: 14px;
+	}
+	&-clear {
+		margin-left: auto;
+		min-width: 70px;
+		max-height: 39px;
+	}
+}
+
+/* Tag divs */
+
+.tag-selectors {
+	margin-top: -20px;
+	display: flex;
+	justify-content: center;
+	visibility: visible;
+	opacity: 1;
+	transition: opacity 1s linear;
+}
+
+.tagCheckboxes {
+	flex: 1;
+	min-height: 15px;
+	border: solid;
+	border-color: transparent;
+}
+
+.in-progress {
+	background-color: var(--in-progress);
+}
+
+.programming {
+	background-color: var(--programming);
+}
+
+.frameworks {
+	background-color: var(--frameworks);
+}
+
+.data-structures {
+	background-color: var(--data-structures);
+}
+
+.algorithms {
+	background-color: var(--algorithms);
+}
+
+.hidden {
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s 1s, opacity 1s linear;
+}
+.selected {
+	border-color: black;
+}
+
+/* Quill editor styles */
+
+#editor {
+	width: 100%;
+	background: white;
+	height: calc(100vh - 360px);
+	overflow: visible;
+}
+
+.ql-container > .ql-editor.ql-blank::before {
+	font-size: 14px;
+}
+
+.lesson-card .ql-editor {
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
+/* footer styles */
+
+.footer {
+	background: var(--main-b-color);
+	padding: 10px 15px;
+	box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.07), 0 3px 10px 0 rgba(0, 0, 0, 0.07);
+	color: white;
+	font-size: 12px;
+	a {
+		color: white;
+	}
+}
+
+@import "../scss/media";
