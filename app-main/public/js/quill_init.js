@@ -13,3 +13,4 @@ export const quill = new Quill("#editor", {
   placeholder: "Add some lesson notes!",
   theme: "snow",
 });
+delete quill.getModule('keyboard').bindings["9"]
