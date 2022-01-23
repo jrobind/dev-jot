@@ -583,6 +583,13 @@ form {
   overflow: hidden;
   overflow-y: scroll;
 }
+.error{
+  visibility: hidden;
+    color: red;
+  margin: 0;
+   text-align: center;
+   
+}
 
 /* footer styles */
 
