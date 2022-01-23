@@ -9,7 +9,8 @@ const createLessonContainer = document.querySelector(
 );
 const lessonInput = document.querySelector(".create-lesson-input");
 const tagSelectors = document.querySelector(".tag-selectors");
-
+const error = document.querySelector('.error');
+ 
 // handle if no lessons in local storage
 function handleNoLessons() {
   if (JSON.parse(localStorage.getItem("user")).lessons.length) {
@@ -188,8 +189,8 @@ export function addLesson() {
     // Regex to match any number of whitespaces in the content form.
     var regex = /<(.|\n)*?>/g;
     if (content.replace(regex, "").trim().length === 0) {
-      alert("Tried to add empty lesson note.");
-      return;
+       error.style.visibility = 'visible';  
+       return;
     }
     if (isEditView) {
       const id = createLessonContainer.getAttribute("view").split(":")[1];
@@ -228,7 +229,8 @@ export function addLesson() {
     if (submitLessonElement.innerText === "UPDATE LESSON") {
       submitLessonElement.innerText = "ADD LESSON";
     }
-  } catch {
+    error.style.visibility = 'hidden';
+   } catch {
     alert("Failed to add lesson. Try again later!");
   }
 }
