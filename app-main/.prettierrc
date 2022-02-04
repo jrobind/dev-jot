@@ -1,5 +1,22 @@
 {
   "printWidth": 80,
   "singleQuote": false,
-  "tabWidth": 2
+  "tabWidth": 2,
+  "useTabs": false,
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "useTabs": true,
+        "singleQuote": false
+      }
+    },
+    {
+      "files": "*.js",
+      "options": {
+        "useTabs": false,
+        "singleQuote": true
+      }
+    }
+  ]
 }
