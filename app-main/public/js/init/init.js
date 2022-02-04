@@ -1,8 +1,8 @@
-import { quill } from "../quill_init.js";
-import setEventListeners from "../events/eventListeners.js";
-import setUser from "./setUser.js";
-import showContainers from "./showContainers.js";
-import setTags from "./setTags.js";
+import { quill } from '../quill_init.js';
+import setEventListeners from '../events/eventListeners.js';
+import setUser from './setUser.js';
+import showContainers from './showContainers.js';
+import setTags from './setTags.js';
 
 export default function init() {
   // create a quill

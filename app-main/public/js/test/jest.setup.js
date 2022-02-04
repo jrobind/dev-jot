@@ -1,2 +1,2 @@
-import Quill from "./quillMock.js";
+import Quill from './quillMock.js';
 global.Quill = Quill;
